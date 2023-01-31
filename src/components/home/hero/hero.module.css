@@ -16,7 +16,7 @@
 }
 .hero p {
   color: #fff;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 .form {
   background-color: #fff;
@@ -47,9 +47,6 @@
   font-weight: 500;
 }
 @media screen and (max-width: 800px) {
-  .hero .container {
-    padding-top: 30%;
-  }
   .form {
     display: flex;
     flex-wrap: wrap;

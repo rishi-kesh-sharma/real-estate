@@ -11,20 +11,19 @@ const RecentCard = ({ recent }) => {
   };
   return (
     <>
-      <div className="box shadow p-2">
-        <div className="img rounded-lg">
-          <img src={cover} className="rounded-lg" alt="" />
+      <div className="box shadow p-2 flex flex-col gap-[0.5rem]">
+        <div className="img rounded-lg max-w-[300px]">
+          <img src={cover} className="rounded-lg object-contain" alt="" />
         </div>
-        <div className={`${styled.text} text`}>
+        <div className={`${styled.text} text flex flex-col gap-0 `}>
           <div
-            className={`${styled.category} ${styled.flex} flex items-center justify-between category`}
-          >
+            className={`${styled.category}  flex items-center justify-between category`}>
             <span
+              className="text-sm p-1"
               style={{
                 background: category === "For Sale" ? "#25b5791a" : "#ff98001a",
                 color: category === "For Sale" ? "#25b579" : "#ff9800",
-              }}
-            >
+              }}>
               {category}
             </span>
             {isLiked ? (
@@ -33,19 +32,18 @@ const RecentCard = ({ recent }) => {
               <FcLikePlaceholder onClick={handleLikeClick} />
             )}
           </div>
-          <h4>{name}</h4>
-          <p>{location}</p>
+          <h4 className="text-gray-600">{name}</h4>
+          <p className="text-gray-400 text-sm">{location}</p>
         </div>
         <div
-          className={`${styled.button} ${styled.flex} button flex items-center justify-between`}
-        >
+          className={`${styled.button} ${styled.flex}  flex items-center justify-between`}>
           <div>
             <button className=" px-2 py-[0.2rem] text-center">{price}</button>{" "}
-            <label htmlFor="" className="text-center">
+            <label htmlFor="" className="text-center text-gray-400">
               /sqft
             </label>
           </div>
-          <span>{type}</span>
+          <span className="text-sm text-gray-600">{type}</span>
         </div>
       </div>
     </>

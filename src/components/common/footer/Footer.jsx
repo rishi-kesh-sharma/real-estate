@@ -8,24 +8,27 @@ const Footer = () => {
       <section className={`${styled.footerContact} footerContact `}>
         <div className={`${styled.container} container`}>
           <div
-            className={`${styled.send} ${styled.flex} flex send md:gap-[2rem]`}
-          >
+            className={`${styled.send} ${styled.flex} flex-col sm:flex-row rounded-sm sm:flex  md:gap-[2rem]`}>
             <div className={`${styled.text} text`}>
-              <h1>Do You Have Questions ?</h1>
-              <p>We'll help you to grow your career and growth.</p>
+              <h1 className="text-xl">Do You Have Questions ?</h1>
+              <p className="text-gray-300 ">
+                We'll help you to grow your career and growth.
+              </p>
             </div>
-            <button className={`bg-gray-100  rounded-full text-[#27ae60]`}>
+            <button
+              className={`bg-gray-200  rounded-lg py-2 px-4 mt-2 sm:mt-0 text-[#27ae60] `}>
               Contact Us Today
             </button>
           </div>
         </div>
       </section>
       <div className=" bg-[#1d2636] pt-[2rem]">
-        <div className={`container flex  gap-[0.8rem] `}>
+        <div
+          className={`container flex flex-col sm:flex-row  gap-[0.8rem] pb-[2rem] `}>
           <input
             type="text"
             placeholder="Email Address"
-            className=" input text-black rounded-sm bg-white p-[17px] "
+            className=" input text-gray-600 rounded-sm bg-white  p-[17px] "
           />
           <button>Subscribe</button>
         </div>
@@ -34,22 +37,28 @@ const Footer = () => {
       <footer className={`${styled.footer} footer `}>
         <div className={`${styled.container} container`}>
           <div className={`${styled.box} box`}>
-            <div className={`${styled.logo} logo`}>
-              <img src="../images/logo-light.png" alt="" />
-              <h2>Do You Need Help With Anything?</h2>
-              <p>
-                Receive updates, hot deals, tutorials, discounts sent straignt
+            <div className={`${styled.logo} logo `}>
+              <img
+                src="../images/logo-light.png"
+                alt=""
+                className="opacity-80"
+              />
+              <h2 className="text-gray-400 text-sm">
+                Do You Need Help With Anything?
+              </h2>
+              <h1 className="text-xs text-gray-400 mt-3">
+                Receive updates, hot deals, tutorials, discounts sent straight
                 in your inbox every month
-              </p>
+              </h1>
             </div>
           </div>
 
           {footer.map((val) => (
             <div className={`${styled.box} box`}>
-              <h3>{val.title}</h3>
+              <h3 className="text-gray-300">{val.title}</h3>
               <ul>
                 {val.text.map((items) => (
-                  <li> {items.list} </li>
+                  <li className="text-sm"> {items.list} </li>
                 ))}
               </ul>
             </div>
@@ -57,10 +66,10 @@ const Footer = () => {
         </div>
       </footer>
       <div className={`${styled.legal} legal`}>
-        <span>
+        <span className="text-sm">
           {" "}
-          <span className="mr-[0.1rem]">© 2021 RentUP.</span> Designed By APP
-          TECHNOLOGIES.
+          <span className="mr-[0.1rem text-sm]">© 2021 RentUP.</span> Designed
+          By APP TECHNOLOGIES.
         </span>
       </div>
     </>

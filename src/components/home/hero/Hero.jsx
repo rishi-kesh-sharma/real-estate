@@ -22,12 +22,14 @@ const Hero = () => {
   }, []);
   return (
     <>
-      <section className={`${styled.hero} `}>
+      <section className={`${styled.hero} min-h-[100vh] `}>
         <div className={`container ${styled.container}`}>
-          <Heading
-            title="Search Your Next Home "
-            subtitle="Find new & featured property located in your local city."
-          />
+          <div className="mt-[7rem] md:mt-[1rem]">
+            <Heading
+              title="Search Your Next Home "
+              subtitle="Find new & featured property located in your local city."
+            />
+          </div>
 
           <div>
             {currentDevice == "sm" && (
@@ -39,14 +41,13 @@ const Hero = () => {
                       "hidden"
                     );
                   }}
-                  className={`flex items-center justify-between gap-1 w-[100%] text-2xl mt-[2rem]`}
-                >
+                  className={`flex items-center justify-between gap-1 w-[100%] max-w-[400px] mx-auto text-2xl mt-[2rem]`}>
                   <span className="text-gray-100 text-xl font-semibold ">
                     Search Property
                   </span>
                   <BsSearch />
                 </button>
-                <form className="hidden">
+                <form className="hidden max-w-[400px] mx-auto">
                   <ul id="dropdown-example" class=" bg-white p-[1rem]">
                     <li>
                       {/* <div className="flex flex-col flex-wrap"> */}
@@ -66,14 +67,6 @@ const Hero = () => {
                         optionValues={locationData.localLevels}
                         name="local levels"
                       />
-
-                      {/* <span>City/Street</span>
-              <input
-                className={`${styled.input} input`}
-                type="text"
-                placeholder="Type"
-              /> */}
-                      {/* </div> */}
                     </li>
                     <li>
                       <CustomSelect
@@ -98,8 +91,7 @@ const Hero = () => {
                     </li>
                     <li>
                       <button
-                        className={`flex items-center justify-center gap-3 w-[100%] text-lg py-[8px]`}
-                      >
+                        className={`flex items-center justify-center gap-3 w-[100%] text-lg py-[8px]`}>
                         <BsSearch />
                         <span className="text-gray-100 text-xl font-semibold ">
                           Search
@@ -114,9 +106,8 @@ const Hero = () => {
               <form className="mt-[2rem]">
                 <ul
                   id="dropdown-example"
-                  class=" bg-white p-[1rem] flex flex-wrap gap-2"
-                >
-                  <li>
+                  class=" bg-white p-[1rem] flex flex-wrap gap-2">
+                  <li className="">
                     {/* <div className="flex flex-col flex-wrap"> */}
                     <CustomSelect
                       className="py-1"
@@ -162,8 +153,7 @@ const Hero = () => {
                   </li>
                   <li>
                     <button
-                      className={`flex items-center justify-center gap-3 w-[100%] text-lg py-[8px]`}
-                    >
+                      className={`flex items-center justify-center gap-3 w-[100%] text-lg py-[8px]`}>
                       <BsSearch />
                       <span className="text-gray-100 text-xl font-semibold ">
                         Search
@@ -183,8 +173,7 @@ const Hero = () => {
 export default Hero;
 
 <form
-  className={`flex flex-col gap-0   flex-wrap ${styled.flex} ${styled.form}`}
->
+  className={`flex flex-col gap-0   flex-wrap ${styled.flex} ${styled.form}`}>
   <div className="flex flex-row flex-wrap">
     <div className={`${styled.box} box`}>
       <CustomSelect optionValues={locationData.provinces} name={"provinces"} />
@@ -221,8 +210,7 @@ export default Hero;
   </div>
 
   <button
-    className={`flex items-center justify-center gap-1 w-[100%] text-2xl`}
-  >
+    className={`flex items-center justify-center gap-1 w-[100%] text-2xl`}>
     <BsSearch />
     <span className="text-gray-100 text-xl font-semibold ">Search</span>
   </button>

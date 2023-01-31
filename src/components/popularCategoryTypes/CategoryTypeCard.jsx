@@ -6,11 +6,10 @@ const CategoryTypeCard = ({ feature }) => {
     <>
       <div className=" min-w-[200px] max-w-[250px] bg-white ">
         <div
-          className={`${styled.box} box flex flex-col items-center justify-start`}
-        >
+          className={`${styled.box} box flex flex-col items-center justify-start`}>
           <img src={feature.cover} alt="" />
-          <h4>{feature.name}</h4>
-          <label>{feature.total}</label>
+          <h4 className="text-gray-600">{feature.name}</h4>
+          <label className="text-gray-400">{feature.total}</label>
         </div>
       </div>
     </>

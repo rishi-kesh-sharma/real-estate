@@ -18,7 +18,7 @@ export default ({ optionValues, name, className }) => {
   return (
     <>
       <Select
-        className={`${className} basic-single `}
+        className={`${className} basic-single text-gray-400 `}
         classNamePrefix="select"
         defaultValue={optionValues[0]}
         isDisabled={isDisabled}
@@ -29,44 +29,6 @@ export default ({ optionValues, name, className }) => {
         name={name}
         options={optionValues}
       />
-
-      {/* <div
-        style={{
-        //   color: "hsl(0, 0%, 40%)",
-          display: "inline-block",
-          fontSize: 12,
-          fontStyle: "italic",
-          marginTop: "1em",
-        }}
-      >
-        <Checkbox
-          checked={isClearable}
-          onChange={() => setIsClearable((state) => !state)}
-        >
-          Clearable
-        </Checkbox>
-        <Checkbox
-          checked={isSearchable}
-          onChange={() => setIsSearchable((state) => !state)}
-        >
-          Searchable
-        </Checkbox>
-        <Checkbox
-          checked={isDisabled}
-          onChange={() => setIsDisabled((state) => !state)}
-        >
-          Disabled
-        </Checkbox>
-        <Checkbox
-          checked={isLoading}
-          onChange={() => setIsLoading((state) => !state)}
-        >
-          Loading
-        </Checkbox>
-        <Checkbox checked={isRtl} onChange={() => setIsRtl((state) => !state)}>
-          RTL
-        </Checkbox>
-      </div> */}
     </>
   );
 };
