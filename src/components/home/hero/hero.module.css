@@ -3,15 +3,16 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 90vh;
+  /* height: 90vh; */
   width: 100%;
+  padding-bottom: 2rem;
 }
 .hero .container {
   padding-top: 15%;
 }
 .hero h1 {
   color: #fff;
-  font-size: 60px;
+  font-size: 30px;
 }
 .hero p {
   color: #fff;
@@ -30,10 +31,7 @@
   margin-top: 5px;
   border-radius: 5px;
 }
-.form span {
-  font-size: 14px;
-  color: grey;
-}
+
 .input::placeholder {
   font-size: 17px;
   color: black;

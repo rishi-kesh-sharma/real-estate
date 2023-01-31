@@ -5,38 +5,45 @@ import styled from "./footer.module.css";
 const Footer = () => {
   return (
     <>
-      <section className={styled.footerContact}>
-        <div className={styled.container}>
-          <div className={`${styled.send} ${styled.flex}`}>
-            <div className={styled.text}>
+      <section className={`${styled.footerContact} footerContact `}>
+        <div className={`${styled.container} container`}>
+          <div className={`${styled.send} ${styled.flex} flex send`}>
+            <div className={`${styled.text} text`}>
               <h1>Do You Have Questions ?</h1>
               <p>We'll help you to grow your career and growth.</p>
             </div>
-            <button className={styled.btn5}>Contact Us Today</button>
+            <button className={`bg-gray-100  rounded-full text-[#27ae60]`}>
+              Contact Us Today
+            </button>
           </div>
         </div>
       </section>
+      <div className=" bg-[#1d2636] pt-[2rem]">
+        <div className={`container flex  gap-[0.8rem] `}>
+          <input
+            type="text"
+            placeholder="Email Address"
+            className=" input text-black rounded-sm bg-white p-[17px] "
+          />
+          <button>Subscribe</button>
+        </div>
+      </div>
 
-      <footer className={styled.footer}>
-        <div className={styled.container}>
-          <div className={styled.box}>
-            <div className={styled.logo}>
+      <footer className={`${styled.footer} footer`}>
+        <div className={`${styled.container} container`}>
+          <div className={`${styled.box} box`}>
+            <div className={`${styled.logo} logo`}>
               <img src="../images/logo-light.png" alt="" />
               <h2>Do You Need Help With Anything?</h2>
               <p>
                 Receive updates, hot deals, tutorials, discounts sent straignt
                 in your inbox every month
               </p>
-
-              <div className={`${styled.input} ${styled.flex}`}>
-                <input type="text" placeholder="Email Address" />
-                <button>Subscribe</button>
-              </div>
             </div>
           </div>
 
           {footer.map((val) => (
-            <div className={styled.box}>
+            <div className={`${styled.box} box`}>
               <h3>{val.title}</h3>
               <ul>
                 {val.text.map((items) => (
@@ -47,8 +54,12 @@ const Footer = () => {
           ))}
         </div>
       </footer>
-      <div className={styled.legal}>
-        <span>© 2021 RentUP. Designd By GorkCoder.</span>
+      <div className={`${styled.legal} legal`}>
+        <span>
+          {" "}
+          <span className="mr-[0.1rem]">© 2021 RentUP.</span> Designed By APP
+          TECHNOLOGIES.
+        </span>
       </div>
     </>
   );

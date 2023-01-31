@@ -6,7 +6,7 @@ export default function NormalLayout({ children }) {
     <>
       <Header />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

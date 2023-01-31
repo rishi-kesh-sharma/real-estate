@@ -16,11 +16,11 @@ body {
   max-width: 80%;
   margin: auto;
 }
-.flex {
+/* .flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 a {
   text-decoration: none;
   color: #000;
@@ -46,12 +46,13 @@ button i {
   text-align: center;
   width: 60%;
   margin: auto;
+  /* text-ali */
 }
 .heading h1 {
   color: #2d3954;
   font-weight: 600;
   text-transform: capitalize;
-  font-size: 35px;
+  font-size: 2rem;
 }
 .heading p {
   color: #72809d;
@@ -63,7 +64,7 @@ input {
   background: none;
 }
 .background {
-  padding: 80px 0;
+  padding: 40px 0;
   position: relative;
   background: #f7f9fc;
 }
