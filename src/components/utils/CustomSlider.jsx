@@ -11,10 +11,35 @@ export default function CustomSlider({ children }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
+    className: "center",
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          centerPadding: "-100px",
+          centerMode: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          centerPadding: "-100px",
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
     <Slider
-      className="py-[1rem] flex items-center justify-center gap-[2rem]"
+      className="py-[1rem] flex items-center justify-center"
       {...settings}
     >
       {children}

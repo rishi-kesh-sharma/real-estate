@@ -14,7 +14,7 @@ const Recent = () => {
             title="Recent Property Listed"
             subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
           />
-          <div className="flex flex-wrap items-center justify-center gap-[2rem] ">
+          <div className="flex flex-wrap items-center justify-center gap-[2rem] mt-[2rem] md:mt-[3rem] ">
             {list.map((recent, index) => {
               return <RecentCard recent={recent} key={index} />;
             })}

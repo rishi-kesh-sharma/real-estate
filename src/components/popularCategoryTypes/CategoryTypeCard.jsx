@@ -4,7 +4,7 @@ import styled from "./CategoryTypes.module.css";
 const CategoryTypeCard = ({ feature }) => {
   return (
     <>
-      <div className=" min-w-[200px] max-w-[250px] bg-white">
+      <div className=" min-w-[200px] max-w-[250px] bg-white ">
         <div
           className={`${styled.box} box flex flex-col items-center justify-start`}
         >

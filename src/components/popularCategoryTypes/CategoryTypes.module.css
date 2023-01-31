@@ -10,3 +10,10 @@
   height: 65px;
   margin: auto;
 }
+
+.slick-active {
+  width: max(300px) !important;
+}
+.slick-slide {
+  max-width: 200px !important;
+}

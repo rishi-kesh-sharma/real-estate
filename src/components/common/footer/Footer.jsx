@@ -7,7 +7,9 @@ const Footer = () => {
     <>
       <section className={`${styled.footerContact} footerContact `}>
         <div className={`${styled.container} container`}>
-          <div className={`${styled.send} ${styled.flex} flex send`}>
+          <div
+            className={`${styled.send} ${styled.flex} flex send md:gap-[2rem]`}
+          >
             <div className={`${styled.text} text`}>
               <h1>Do You Have Questions ?</h1>
               <p>We'll help you to grow your career and growth.</p>
@@ -29,7 +31,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <footer className={`${styled.footer} footer`}>
+      <footer className={`${styled.footer} footer `}>
         <div className={`${styled.container} container`}>
           <div className={`${styled.box} box`}>
             <div className={`${styled.logo} logo`}>
