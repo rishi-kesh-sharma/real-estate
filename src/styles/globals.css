@@ -178,3 +178,8 @@ img {
     height: 30vh;
   }
 }
+
+/* removing chakra uis default drop icon */
+.css-162mkon {
+  display: none !important;
+}
