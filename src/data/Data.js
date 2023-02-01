@@ -481,7 +481,6 @@ export const filterData = [
   },
 ];
 
-
 export const awards = [
   {
     icon: <i class="fa-solid fa-trophy"></i>,
@@ -626,6 +625,33 @@ export const team = [
       <i class="fa-brands fa-twitter"></i>,
       <i class="fa-brands fa-instagram"></i>,
     ],
+  },
+];
+
+export const testimonials = [
+  {
+    name: "john doe",
+    profession: "developer",
+    avatar: "../images/customer/team-1.jpg",
+    text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
+  },
+  {
+    name: "Mark Wood",
+    profession: "designer",
+    avatar: "../images/customer/team-2.jpg",
+    text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
+  },
+  {
+    name: "john doe",
+    profession: "developer",
+    avatar: "../images/customer/team-3.jpg",
+    text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
+  },
+  {
+    name: "Harry Styles",
+    profession: "analyst",
+    avatar: "../images/customer/team-4.jpg",
+    text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
   },
 ];
 export const price = [

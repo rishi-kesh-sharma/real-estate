@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
 import { nav } from "@/data/Data";
+import Image from "next/image";
 
-const Button = styled.button`
-  box-sizing: border-box;
-  width: ${(props) => (props.mdWidth ? props.mdWidth : "md:2rem")};
-  height: ${(props) => (props.mdHeight ? props.mdHeight : "md:2rem")};
-  background: ${({ redBackground }) => (redBackground ? "#dbdbdb" : "#b02319")};
-  border-radius: 10px;
-  color: ${({ redBackground }) => (!redBackground ? "#dbdbdb" : "#b02319")};
-`;
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const [currentDevice, setCurrentDevice] = useState("lg");
@@ -40,7 +32,13 @@ const Navbar = () => {
       className=" fixed bg-white min-h-[70px] w-[100%] flex justify-between items-center"
       style={{ zIndex: 1000 }}>
       <div className="pl-[1rem] flex">
-        <img className="h-[2rem] w-[5rem]" src="./images/logo.png" alt="" />
+        <Image
+          src={"/images/logo.png"}
+          width={60}
+          height={60}
+          alt=""
+          className="h-[2rem] w-[5rem]"
+        />
         {currentDevice == "lg" && (
           <ul class="  flex">
             {nav?.links?.leftLinks?.map((item) => {

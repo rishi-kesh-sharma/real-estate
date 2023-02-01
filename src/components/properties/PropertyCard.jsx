@@ -83,11 +83,11 @@ const Property = ({
     externalID,
   },
 }) => (
-  <Link href={`/property/${externalID}`} passHref className="w-[320px] ">
+  <Link href={`/property/${externalID}`} passHref className="w-[320px]">
     <Flex className="flex-col justify-center items-center gap-[0.4rem] p-3 border rounded-lg ">
       <Box className="w-[300px] h-[200px]">
         <img
-          src={coverPhoto ? coverPhoto.url : DefaultImage}
+          src={coverPhoto ? coverPhoto.url : DefaultImage.src}
           className=" w-[100%] h-[100%] rounded-lg object-cover"
         />
       </Box>
@@ -104,8 +104,7 @@ const Property = ({
             <img
               size="sm"
               src={agency?.logo?.url}
-              className="w-[50px] h-[50px] rounded-full"
-            ></img>
+              className="w-[50px] h-[50px] rounded-full"></img>
           </Box>
         </Flex>
         <Flex className="w-[100%] text-green-600 flex justify-between gap-5 ">
