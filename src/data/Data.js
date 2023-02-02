@@ -1,3 +1,30 @@
+import getConfig from "next/config";
+import BlogImage from "../../public/assets/images/properties/p1.png";
+import AuthorImage from "../../public/assets/images/people/person1.jpg";
+import {
+  person1,
+  person2,
+  person3,
+  person4,
+  person5,
+} from "../../public/assets/images/people";
+import { p1, p2, p3, p4, p5, p6 } from "../../public/assets/images/properties";
+import {
+  Avatar1,
+  Avatar2,
+  Avatar3,
+  Avatar4,
+  Avatar5,
+} from "../../public/assets/images/Avatars";
+import {
+  city1,
+  city2,
+  city3,
+  city4,
+  city5,
+  city6,
+} from "../../public/assets/images/cities";
+
 export const nav = {
   logo: "/public/images/logo.png",
   links: {
@@ -235,27 +262,27 @@ export const propertyMeta = {
 
 export const featured = [
   {
-    cover: "../images/hero/h1.png",
+    image: Avatar1,
     name: "Family House",
     total: "122 Property",
   },
   {
-    cover: "../images/hero/h2.png",
+    image: Avatar2,
     name: "House & Villa",
     total: "155 Property",
   },
   {
-    cover: "../images/hero/h3.png",
+    image: Avatar3,
     name: "Apartment",
     total: "300 Property",
   },
   {
-    cover: "../images/hero/h4.png",
+    image: Avatar4,
     name: "Office & Studio",
     total: "80 Property",
   },
   {
-    cover: "../images/hero/h6.png",
+    image: Avatar5,
     name: "Villa & Condo",
     total: "80 Property",
   },
@@ -263,7 +290,7 @@ export const featured = [
 export const list = [
   {
     id: 1,
-    cover: "../images/list/p-1.png",
+    image: p1,
     name: "Red Carpet Real Estate",
     location: "210 Zirak Road, Canada",
     category: "For Rent",
@@ -272,7 +299,7 @@ export const list = [
   },
   {
     id: 2,
-    cover: "../images/list/p-2.png",
+    image: p1,
     name: "Fairmount Properties",
     location: "5698 Zirak Road, NewYork",
     category: "For Sale",
@@ -281,7 +308,7 @@ export const list = [
   },
   {
     id: 3,
-    cover: "../images/list/p-7.png",
+    image: p2,
     name: "The Real Estate Corner",
     location: "5624 Mooker Market, USA",
     category: "For Rent",
@@ -290,7 +317,7 @@ export const list = [
   },
   {
     id: 4,
-    cover: "../images/list/p-4.png",
+    image: p3,
     name: "Herringbone Realty",
     location: "5621 Liverpool, London",
     category: "For Sale",
@@ -299,7 +326,7 @@ export const list = [
   },
   {
     id: 5,
-    cover: "../images/list/p-5.png",
+    image: p4,
     name: "Brick Lane Realty",
     location: "210 Montreal Road, Canada",
     category: "For Rent",
@@ -308,7 +335,7 @@ export const list = [
   },
   {
     id: 6,
-    cover: "../images/list/p-6.png",
+    image: p5,
     name: "Banyon Tree Realty",
     location: "210 Zirak Road, Canada",
     category: "For Sale",
@@ -318,27 +345,27 @@ export const list = [
 ];
 export const agencies = [
   {
-    cover: "./images/hero/h2.png",
+    image: Avatar1,
     name: "Nepal Bhoomi Real Estate Agency",
     total: "96",
   },
   {
-    cover: "./images/hero/h1.png",
+    image: Avatar2,
     name: "Nepal Home Search",
     total: "225",
   },
   {
-    cover: "./images/hero/h1.png",
+    image: Avatar3,
     name: "Smart D Estate",
     total: "165",
   },
   {
-    cover: "./images/hero/h3.png",
+    image: Avatar4,
     name: "Property 247",
     total: "20",
   },
   {
-    cover: "./images/hero/h4.png",
+    image: Avatar5,
     name: "Property 360 Nepal",
     total: "82",
   },
@@ -510,7 +537,7 @@ export const location = [
     Villas: "12 Villas",
     Apartments: "10 Apartments",
     Offices: "07 Offices",
-    cover: "./images/location/city-1.png",
+    image: city1,
   },
   {
     id: 2,
@@ -518,7 +545,7 @@ export const location = [
     Villas: "12 Villas",
     Apartments: "10 Apartments",
     Offices: "07 Offices",
-    cover: "./images/location/city-2.png",
+    image: city2,
   },
   {
     id: 3,
@@ -526,7 +553,7 @@ export const location = [
     Villas: "12 Villas",
     Apartments: " 10 Apartments",
     Offices: "07 Offices",
-    cover: "./images/location/city-3.png",
+    image: city3,
   },
   {
     id: 4,
@@ -534,7 +561,7 @@ export const location = [
     Villas: "12 Villas",
     Apartments: " 10 Apartments",
     Offices: "07 Offices",
-    cover: "./images/location/city-4.png",
+    image: city4,
   },
   {
     id: 5,
@@ -542,7 +569,7 @@ export const location = [
     Villas: "12 Villas",
     Apartments: " 10 Apartments",
     Offices: "07 Offices",
-    cover: "./images/location/city-5.png",
+    image: city5,
   },
   {
     id: 6,
@@ -550,13 +577,13 @@ export const location = [
     Villas: "12 Villas",
     Apartments: " 10 Apartments",
     Offices: "07 Offices",
-    cover: "./images/location/city-6.png",
+    image: city6,
   },
 ];
 export const team = [
   {
     list: "50",
-    cover: "../images/customer/team-1.jpg",
+    image: person1,
     address: "Liverpool, Canada",
     name: "Sargam S. Singh",
     icon: [
@@ -568,7 +595,7 @@ export const team = [
   },
   {
     list: "70",
-    cover: "../images/customer/team-2.jpg",
+    image: person2,
     address: "Montreal, Canada",
     name: "Harijeet M. Siller",
     icon: [
@@ -580,7 +607,7 @@ export const team = [
   },
   {
     list: "80",
-    cover: "../images/customer/team-3.jpg",
+    image: person3,
     address: "Denever, USA",
     name: "Anna K. Young",
     icon: [
@@ -592,7 +619,7 @@ export const team = [
   },
   {
     list: "51",
-    cover: "../images/customer/team-4.jpg",
+    image: person3,
     address: "2272 Briarwood Drive",
     name: "Michael P. Grimaldo",
     icon: [
@@ -604,7 +631,7 @@ export const team = [
   },
   {
     list: "42",
-    cover: "../images/customer/team-5.jpg",
+    image: person4,
     address: "2272 Briarwood Drive",
     name: "Michael P. Grimaldo",
     icon: [
@@ -616,7 +643,7 @@ export const team = [
   },
   {
     list: "38",
-    cover: "../images/customer/team-5.jpg",
+    image: person5,
     address: "Montreal, USA",
     name: "Adam K. Jollio",
     icon: [
@@ -739,6 +766,149 @@ export const price = [
         text: "Enterprise SLA",
       },
     ],
+  },
+];
+
+export const blogs = [
+  {
+    slug: {
+      current: 1,
+    },
+    mainImage: BlogImage,
+    //  {
+    //   src: "/images/customer/team-1.jpg",
+    //   alt: "blog image",
+    // },
+    author: {
+      name: "john Doe",
+      image: AuthorImage,
+      alt: "author image",
+    },
+    categories: [{ title: "Buy", color: "#c75840" }],
+    title:
+      "Architectural Engineering Wonders of the modern era for your Inspiration",
+    publishedAt: "October 21, 2022",
+    createdAt: "October 21, 2022",
+  },
+  {
+    slug: {
+      current: 1,
+    },
+    mainImage: BlogImage,
+    //  {
+    //   src: "/images/customer/team-1.jpg",
+    //   alt: "blog image",
+    // },
+    author: {
+      name: "john Doe",
+      image: AuthorImage,
+      alt: "author image",
+    },
+    categories: [{ title: "Buy", color: "#c75840" }],
+    title:
+      "Architectural Engineering Wonders of the modern era for your Inspiration",
+    publishedAt: "October 21, 2022",
+    createdAt: "October 21, 2022",
+  },
+  {
+    slug: {
+      current: 1,
+    },
+    mainImage: BlogImage,
+    //  {
+    //   src: "/images/customer/team-1.jpg",
+    //   alt: "blog image",
+    // },
+    author: {
+      name: "john Doe",
+      image: AuthorImage,
+      alt: "author image",
+    },
+    categories: [{ title: "Buy", color: "#c75840" }],
+    title:
+      "Architectural Engineering Wonders of the modern era for your Inspiration",
+    publishedAt: "October 21, 2022",
+    createdAt: "October 21, 2022",
+  },
+  {
+    slug: {
+      current: 1,
+    },
+    mainImage: BlogImage,
+    //  {
+    //   src: "/images/customer/team-1.jpg",
+    //   alt: "blog image",
+    // },
+    author: {
+      name: "john Doe",
+      image: AuthorImage,
+      alt: "author image",
+    },
+    categories: [{ title: "Buy", color: "#c75840" }],
+    title:
+      "Architectural Engineering Wonders of the modern era for your Inspiration",
+    publishedAt: "October 21, 2022",
+    createdAt: "October 21, 2022",
+  },
+  {
+    slug: {
+      current: 1,
+    },
+    mainImage: BlogImage,
+    //  {
+    //   src: "/images/customer/team-1.jpg",
+    //   alt: "blog image",
+    // },
+    author: {
+      name: "john Doe",
+      image: AuthorImage,
+      alt: "author image",
+    },
+    categories: [{ title: "Buy", color: "#c75840" }],
+    title:
+      "Architectural Engineering Wonders of the modern era for your Inspiration",
+    publishedAt: "October 21, 2022",
+    createdAt: "October 21, 2022",
+  },
+  {
+    slug: {
+      current: 1,
+    },
+    mainImage: BlogImage,
+    //  {
+    //   src: "/images/customer/team-1.jpg",
+    //   alt: "blog image",
+    // },
+    author: {
+      name: "john Doe",
+      image: AuthorImage,
+      alt: "author image",
+    },
+    categories: [{ title: "Buy", color: "#c75840" }],
+    title:
+      "Architectural Engineering Wonders of the modern era for your Inspiration",
+    publishedAt: "October 21, 2022",
+    createdAt: "October 21, 2022",
+  },
+  {
+    slug: {
+      current: 1,
+    },
+    mainImage: BlogImage,
+    //  {
+    //   src: "/images/customer/team-1.jpg",
+    //   alt: "blog image",
+    // },
+    author: {
+      name: "john Doe",
+      image: AuthorImage,
+      alt: "author image",
+    },
+    categories: [{ title: "Buy", color: "#c75840" }],
+    title:
+      "Architectural Engineering Wonders of the modern era for your Inspiration",
+    publishedAt: "October 21, 2022",
+    createdAt: "October 21, 2022",
   },
 ];
 export const footer = [

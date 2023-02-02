@@ -3,11 +3,11 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import NormalLayout from "@/components/layouts/NormalLayout";
-import ContactComponent from "@/components/page/Contact";
+import BlogsComponent from "@/components/page/Blogs/Blogs";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Contact() {
+export default function Blogs() {
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ export default function Contact() {
       <main className={styles.main}>
         <NormalLayout>
           {/* <Header /> */}
-          <ContactComponent />
+          <BlogsComponent />
           {/* <Footer /> */}
         </NormalLayout>
       </main>

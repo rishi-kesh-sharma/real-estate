@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/properties.module.css";
 import { baseUrl, fetchApi } from "../../utils/fetchApi";
-import PropertyDetailsComponent from "../../components/PropertyDetails/PropertyDetails";
+import PropertyDetailsComponent from "../../components/page/PropertyDetails";
 import NormalLayout from "@/components/layouts/NormalLayout";
 
 // pages/_app.js

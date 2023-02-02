@@ -16,7 +16,7 @@ import Image from "next/image";
 import { filterData } from "../../data/Data";
 import { getFilterValues } from "../../utils/filter";
 import { baseUrl, fetchApi } from "../../utils/fetchApi";
-import defaultPropertyImage from "../../../public/images/general/house.jpg";
+import { p1 as defaultPropertyImage } from "../../../public/assets/images/properties";
 
 export default function SearchFilters() {
   const [filters] = useState(filterData);
@@ -62,21 +62,18 @@ export default function SearchFilters() {
         bg="gray.100"
         justifyContent="center"
         flexWrap="wrap"
-        className="py-[1rem]  gap-[1.5rem] justify-start "
-      >
+        className="py-[1rem]  gap-[1.5rem] justify-start ">
         {filters?.map((filter) => (
           <Box
             key={filter.queryName}
-            className="border max-w-[200px] rounded-sm px-2 py-1"
-          >
+            className="border max-w-[200px] rounded-sm px-2 py-1">
             <Select
               onChange={(e) =>
                 searchProperties({ [filter.queryName]: e.target.value })
               }
               placeholder={filter.placeholder}
               w="100%"
-              p="2"
-            >
+              p="2">
               {filter?.items?.map((item) => (
                 <option value={item.value} key={item.value}>
                   {item.name}
@@ -91,8 +88,7 @@ export default function SearchFilters() {
             border="1px"
             borderColor="gray.200"
             marginTop="2"
-            className="border border-solid  border-gray-600 text-gray bg-green-700"
-          >
+            className="border border-solid  border-gray-600 text-gray bg-green-700">
             Search Location
           </Button>
           {showLocations && (
@@ -100,8 +96,7 @@ export default function SearchFilters() {
               flexDir="column"
               pos="relative"
               paddingTop="2"
-              className="gap-[0.4rem]"
-            >
+              className="gap-[0.4rem]">
               <Input
                 placeholder="Type Here"
                 value={searchTerm}
@@ -132,15 +127,13 @@ export default function SearchFilters() {
                         });
                         setShowLocations(false);
                         setSearchTerm(location.name);
-                      }}
-                    >
+                      }}>
                       <Text
                         cursor="pointer"
                         bg="gray.200"
                         p="2"
                         borderBottom="1px"
-                        borderColor="gray.100"
-                      >
+                        borderColor="gray.100">
                         {location.name}
                       </Text>
                     </Box>
@@ -151,8 +144,7 @@ export default function SearchFilters() {
                       alignItems="center"
                       flexDir="column"
                       marginTop="5"
-                      marginBottom="5"
-                    >
+                      marginBottom="5">
                       {/* <Image src={noresult} /> */}
                       <Text fontSize="xl" marginTop="3">
                         Waiting to search!

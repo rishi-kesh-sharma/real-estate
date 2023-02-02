@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/properties.module.css";
 import { baseUrl, fetchApi } from "../utils/fetchApi";
-import PropertiesComponent from "../components/properties/Properties";
+import PropertiesComponent from "../components/page/Properties";
 import NormalLayout from "@/components/layouts/NormalLayout";
 
 const Properties = ({ properties }) => {
