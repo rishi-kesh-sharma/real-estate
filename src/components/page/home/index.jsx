@@ -20,8 +20,8 @@ const Home = () => {
       <CategoryTypes />
       <FeaturedProperties />
       <Recent />
-      <Blogs />
-      <FeaturedAgencies />
+      {/* <Blogs /> */}
+      {/* <FeaturedAgencies /> */}
       {/* <Awards /> */}
       {/* <Location /> */}
       {/* <Team /> */}

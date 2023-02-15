@@ -1,7 +1,11 @@
-import React from "react";
+import tw from "tailwind-styled-components";
 
-const CardContent = ({ children, styles }) => {
-  return <div className={styles}>{children}</div>;
-};
-
+const CardContent = tw.div`
+ flex
+ flex-col
+ flex-wrap
+ ${({className})=>className}
+ 
+ 
+`;
 export default CardContent;

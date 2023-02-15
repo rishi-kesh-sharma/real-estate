@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { parseISO, format } from "date-fns";
+// import { parseISO, format } from "date-fns";
 import { MdNoPhotography } from "react-icons/md";
 
 export default function Blog({ blog, aspect, preloadImage }) {
@@ -38,7 +38,8 @@ export default function Blog({ blog, aspect, preloadImage }) {
                 <span
                   className={`inline-block mt-5 text-xs font-medium tracking-wider uppercase py-1 px-2 text-gray-100 rounded-sm bg-${
                     category.color ? `[${category.color}]` : "green-500"
-                  } bg-green-500`}>
+                  } bg-green-500`}
+                >
                   {category.title}
                 </span>
               </Link>
@@ -82,7 +83,8 @@ export default function Blog({ blog, aspect, preloadImage }) {
           </span>
           <time
             className="text-xs"
-            dateTime={blog?.publishedAt || blog.createdAt}>
+            dateTime={blog?.publishedAt || blog.createdAt}
+          >
             {/* {format(
               parseISO(blog?.publishedAt || blog._createdAt),
               "MMMM dd, yyyy"

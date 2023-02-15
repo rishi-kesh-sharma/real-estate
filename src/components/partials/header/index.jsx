@@ -3,6 +3,7 @@ import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
 import { nav } from "@/data/Data";
 import Image from "next/image";
+import Logo from "../../../../public/assets/images/logo.png";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -30,10 +31,11 @@ const Navbar = () => {
   return (
     <div
       className=" fixed bg-white min-h-[70px] w-[100%] flex justify-between items-center"
-      style={{ zIndex: 1000 }}>
+      style={{ zIndex: 1000 }}
+    >
       <div className="pl-[1rem] flex">
         <Image
-          src={"/images/logo.png"}
+          src={Logo}
           width={60}
           height={60}
           alt=""
@@ -46,7 +48,8 @@ const Navbar = () => {
                 <li className="mt-0 relative" onClick={handleNavLinksClick}>
                   <a
                     href="#"
-                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
                     <span class="flex-1 ml-3 whitespace-nowrap">
                       {item.name}
                     </span>
@@ -63,10 +66,12 @@ const Navbar = () => {
                     type="button"
                     class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                     aria-controls="dropdown-example"
-                    data-collapse-toggle="dropdown-example">
+                    data-collapse-toggle="dropdown-example"
+                  >
                     <span
                       class="flex-1 ml-3 text-left whitespace-nowrap"
-                      sidebar-toggle-item>
+                      sidebar-toggle-item
+                    >
                       {item.name}
                     </span>
                     <svg
@@ -74,22 +79,26 @@ const Navbar = () => {
                       class="w-6 h-6"
                       fill="currentColor"
                       viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg">
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
                         fill-rule="evenodd"
                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
+                        clip-rule="evenodd"
+                      ></path>
                     </svg>
                   </button>
                   <ul
                     id="dropdown-example"
-                    class="hidden absolute bg-white left-0 w-[200px] ">
+                    class="hidden absolute bg-white left-0 w-[200px] "
+                  >
                     {item.dropItems.map((dropItem) => {
                       return (
                         <li onClick={handleNavLinksClick} className="border">
                           <a
                             href={dropItem.path}
-                            class="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            class="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                          >
                             {dropItem.name}
                           </a>
                         </li>
@@ -116,10 +125,12 @@ const Navbar = () => {
               <li
                 style={{ listStyleType: "none" }}
                 className="mt-0 relative"
-                onClick={handleNavLinksClick}>
+                onClick={handleNavLinksClick}
+              >
                 <a
                   href="#"
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
                   <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
                 </a>
               </li>
@@ -143,7 +154,8 @@ const Navbar = () => {
             <aside
               id="sidebar-multi-level-sidebar"
               class="fixed top-0 right-0 z-40 w-64 h-screen "
-              aria-label="Sidebar">
+              aria-label="Sidebar"
+            >
               {show && (
                 <RxCross1
                   className="absolute text-red-600 top-[1rem] text-3xl  left-[0.5rem] z-50 cursor-pointer "
@@ -156,10 +168,12 @@ const Navbar = () => {
                     return !item.dropItems ? (
                       <li
                         onClick={handleNavLinksClick}
-                        className="border-b-[1px] border-b-gray-300">
+                        className="border-b-[1px] border-b-gray-300"
+                      >
                         <a
                           href="#"
-                          class="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
+                          class="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700"
+                        >
                           <span class="flex-1 ml-3 whitespace-nowrap">
                             {item.name}
                           </span>
@@ -176,10 +190,12 @@ const Navbar = () => {
                           type="button"
                           class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                           aria-controls="dropdown-example"
-                          data-collapse-toggle="dropdown-example">
+                          data-collapse-toggle="dropdown-example"
+                        >
                           <span
                             class="flex-1 ml-3 text-left whitespace-nowrap text-gray-600"
-                            sidebar-toggle-item>
+                            sidebar-toggle-item
+                          >
                             {item.name}
                           </span>
                           <svg
@@ -187,11 +203,13 @@ const Navbar = () => {
                             className="w-6 h-6 text-gray-400"
                             fill="currentColor"
                             viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <path
                               fill-rule="evenodd"
                               d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clip-rule="evenodd"></path>
+                              clip-rule="evenodd"
+                            ></path>
                           </svg>
                         </button>
                         <ul id="dropdown-example" class="hidden py-2 space-y-2">
@@ -199,10 +217,12 @@ const Navbar = () => {
                             return (
                               <li
                                 onClick={handleNavLinksClick}
-                                className="border-b-[1px] border-b-gray-300">
+                                className="border-b-[1px] border-b-gray-300"
+                              >
                                 <a
                                   href={dropItem.path}
-                                  class="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                  class="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                >
                                   {dropItem.name}
                                 </a>
                               </li>

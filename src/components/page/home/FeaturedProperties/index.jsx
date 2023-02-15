@@ -15,7 +15,6 @@ const FeaturedProperties = () => {
     slidesToScroll: 1,
     centerMode: true,
     className: "center",
-    // centerPadding: "100px",
 
     responsive: [
       {
@@ -50,7 +49,8 @@ const FeaturedProperties = () => {
   return (
     <>
       <section
-        className={`${styled.recent} ${styled.padding} mt-[3rem] bg-gray-50 py-[2rem] `}>
+        className={`${styled.recent} ${styled.padding} mt-[3rem] bg-gray-50 py-[2rem] `}
+      >
         <div className="container ">
           <Heading
             title="Featured Properties"

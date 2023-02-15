@@ -25,7 +25,8 @@ const Properties = ({ properties }) => {
         fontSize="lg"
         justifyContent="center"
         alignItems="center"
-        className="bg-gray-200 py-[1rem] ">
+        className="bg-gray-200 py-[1rem] "
+      >
         <Text>Search Property By Filters</Text>
         <Icon paddingLeft="2" w="7" as={BsFilter} />
       </Flex>
@@ -44,7 +45,8 @@ const Properties = ({ properties }) => {
           alignItems="center"
           flexDir="column"
           marginTop="5"
-          marginBottom="5">
+          marginBottom="5"
+        >
           <Image src={noresult} />
           <Text fontSize="xl" marginTop="3">
             No Result Found.

@@ -40,7 +40,8 @@ const CategoryTypes = () => {
   return (
     <>
       <section
-        className={`${styled.featured} featured  my-[2rem] bg-gray-100 py-[1rem] `}>
+        className={`${styled.featured} featured  my-[2rem] bg-gray-100 py-[1rem] `}
+      >
         <div className="container">
           <Heading
             title="Popular Categories"
