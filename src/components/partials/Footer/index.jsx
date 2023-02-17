@@ -1,14 +1,16 @@
 import React from "react";
 import { footer } from "@/data/Data";
 import styled from "./index.module.css";
-
+import Logo from "../../../../public/assets/images/logo-light.png";
+import Image from "next/image";
 const Footer = () => {
   return (
     <>
       <section className={`${styled.footerContact} footerContact `}>
         <div className={`${styled.container} container`}>
           <div
-            className={`${styled.send} ${styled.flex} flex-col sm:flex-row rounded-sm sm:flex  md:gap-[2rem]`}>
+            className={`${styled.send} ${styled.flex} flex-col sm:flex-row rounded-sm sm:flex  md:gap-[2rem]`}
+          >
             <div className={`${styled.text} text`}>
               <h1 className="text-xl">Do You Have Questions ?</h1>
               <p className="text-gray-300 ">
@@ -16,7 +18,8 @@ const Footer = () => {
               </p>
             </div>
             <button
-              className={`bg-gray-200  rounded-lg py-2 px-4 mt-2 sm:mt-0 text-[#27ae60] `}>
+              className={`bg-gray-200  rounded-lg py-2 px-4 mt-2 sm:mt-0 text-[#27ae60] `}
+            >
               Contact Us Today
             </button>
           </div>
@@ -24,7 +27,8 @@ const Footer = () => {
       </section>
       <div className=" bg-[#1d2636] pt-[2rem]">
         <div
-          className={`container flex flex-col sm:flex-row  gap-[0.8rem] pb-[2rem] `}>
+          className={`container flex flex-col sm:flex-row  gap-[0.8rem] pb-[2rem] `}
+        >
           <input
             type="text"
             placeholder="Email Address"
@@ -38,11 +42,7 @@ const Footer = () => {
         <div className={`${styled.container} container`}>
           <div className={`${styled.box} box`}>
             <div className={`${styled.logo} logo `}>
-              <img
-                src="../images/logo-light.png"
-                alt=""
-                className="opacity-80"
-              />
+              <Image src={Logo} />
               <h2 className="text-gray-400 text-sm">
                 Do You Need Help With Anything?
               </h2>

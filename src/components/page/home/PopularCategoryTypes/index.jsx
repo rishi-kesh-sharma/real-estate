@@ -12,21 +12,30 @@ const CategoryTypes = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // centerMode: true,
-    // className: "center",
+    centerMode: true,
+    className: "center",
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1500,
         settings: {
-          slidesToShow: 3,
-          centerMode: false,
+          slidesToShow: 4,
+          // centerMode: false,
+        },
+      },
+      {
+        breakpoint: 1040,
+        settings: {
+          slidesToShow: 2,
+          // centerMode: false,
         },
       },
       {
         breakpoint: 800,
         settings: {
           slidesToShow: 2,
+          centerMode: true,
+          className: "center",
         },
       },
       {
@@ -40,14 +49,14 @@ const CategoryTypes = () => {
   return (
     <>
       <section
-        className={`${styled.featured} featured  my-[2rem] bg-gray-100 py-[1rem] `}
+        className={`${styled.featured} featured my-[2rem] bg-gray-100 py-[2rem] `}
       >
         <div className="container">
           <Heading
             title="Popular Categories"
             subtitle="Find All Type of Property."
           />
-          <div className="my-[1rem]">
+          <div className="my-[1rem] py-[1rem]">
             <CustomSlider settings={settings}>
               {featured.map((feature, index) => (
                 <CategoryTypeCard feature={feature} key={index} />

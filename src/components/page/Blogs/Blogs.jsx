@@ -6,7 +6,6 @@ export default function blog(props) {
   const { blogdata, siteconfig, preview } = props;
 
   const router = useRouter();
-  //console.log(router.query.category);
   return (
     <div className="pt-[6rem] text-center text-green-700 text-[2.5rem] mb-[2rem]">
       <h1>Our Blogs</h1>

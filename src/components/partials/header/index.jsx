@@ -33,7 +33,7 @@ const Navbar = () => {
       className=" fixed bg-white min-h-[70px] w-[100%] flex justify-between items-center"
       style={{ zIndex: 1000 }}
     >
-      <div className="pl-[1rem] flex">
+      <div className="pl-[1rem] flex gap-[1rem]">
         <Image
           src={Logo}
           width={60}
@@ -121,17 +121,30 @@ const Navbar = () => {
           //   </ul>)
 
           nav?.links?.rightLinks?.map((item) => {
+            const isButton = item.isButton;
             return (
               <li
                 style={{ listStyleType: "none" }}
-                className="mt-0 relative"
+                className={`mt-0 relative ${
+                  item.isButton &&
+                  "bg-green-600 text-white rounded hover:bg-gray-50 hover:text-green-800"
+                }`}
                 onClick={handleNavLinksClick}
               >
                 <a
                   href="#"
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className={`flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                    item.isButton &&
+                    "text-white rounded hover:bg-gray-200 hover:text-green-800 p-0"
+                  }`}
                 >
-                  <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
+                  <span
+                    class={`flex-1 ml-3 whitespace-nowrap  inline-block ${
+                      item.isButton && "text-white hover:text-green-800 p-2"
+                    }`}
+                  >
+                    {item.name}
+                  </span>
                 </a>
               </li>
             );

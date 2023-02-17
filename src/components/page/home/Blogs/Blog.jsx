@@ -2,25 +2,23 @@ import Image from "next/image";
 import Link from "next/link";
 // import { parseISO, format } from "date-fns";
 import { MdNoPhotography } from "react-icons/md";
+import Card from "@/components/utils/Card";
+import CardImage from "./../../../utils/CardImage";
+import CardContent from "./../../../utils/CardContent";
 
 export default function Blog({ blog, aspect, preloadImage }) {
   const imageProps = blog?.mainImage ? blog.mainImage : null;
   const AuthorimageProps = blog?.author?.image ? blog.author.image : null;
+  console.log(blog);
   return (
-    <div className="cursor-pointer group px-[0.5rem] py-[1rem] w-[250px] bg-white  flex flex-col justify-center items-center">
-      <div className="relative transition-all h-[150px] w-[100%] bg-gray-100 rounded-md dark:bg-gray-800  hover:scale-10   ">
+    <Card className="cursor-pointer bg-white shadow gap-[0.5rem] md:w-[330px]">
+      <CardImage className="  ">
         <Link href={`/blog/${blog.slug.current}`}>
           {imageProps ? (
             <Image
               src={imageProps.src}
-              loader={imageProps.loader}
-              blurDataURL={imageProps.blurDataURL}
-              alt={blog.mainImage.alt || "Thumbnail"}
-              placeholder="blur"
-              // sizes="(max-width: 640px) 90vw, 480px"
-              layout="fill"
-              objectFit="cover"
-              priority={preloadImage ? true : false}
+              width="290"
+              height={400}
               className="transition-all"
             />
           ) : (
@@ -29,8 +27,8 @@ export default function Blog({ blog, aspect, preloadImage }) {
             </span>
           )}
         </Link>
-      </div>
-      <div className="flex flex-col gap-[0.5rem]">
+      </CardImage>
+      <CardContent className="gap-[0.5rem]">
         <div className="flex gap-3">
           {blog.categories?.length &&
             blog.categories.slice(0).map((category, index) => (
@@ -92,7 +90,7 @@ export default function Blog({ blog, aspect, preloadImage }) {
             {blog.publishedAt || blog.createdAt}
           </time>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

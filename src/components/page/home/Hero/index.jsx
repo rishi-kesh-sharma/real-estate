@@ -4,6 +4,8 @@ import styled from "./index.module.css";
 import { BsSearch } from "react-icons/bs";
 import CustomSelect from "@/components/utils/CustomSelect";
 import { locationData, propertyMeta } from "@/data/Data";
+import SearchBox from "@/components/utils/SearchBox";
+import TabBtns from "@/components/utils/TabBtns";
 
 const Hero = () => {
   const [show, setShow] = useState(false);
@@ -22,153 +24,21 @@ const Hero = () => {
   }, []);
   return (
     <>
-      <section className={`${styled.hero} min-h-[100vh] `}>
-        <div className={`container ${styled.container}`}>
-          <div className="mt-[7rem] md:mt-[1rem]">
-            <Heading
-              title="Search Your Next Home "
-              subtitle="Find new & featured property located in your local city."
-            />
-          </div>
+      <section className={`${styled.hero} min-h-[100vh]`}>
+        <div className={`container  ${styled.container} `}>
+          <div className="mt-[7rem] min-w-[280px] max-w-[500px] flex flex-col gap-[4rem] md:block mx-auto md:max-w-[450px] md:mt-[3rem]">
+            <div>
+              <h1 className="text-[2.5rem]">Search Your Next Home </h1>
+              <p className="text-sm">
+                Find new & featured property located in your local city.ind new
+                & featured property located in your local city."
+              </p>
+            </div>
 
-          <div>
-            {currentDevice == "sm" && (
-              <div>
-                <button
-                  onClick={(e) => {
-                    e.currentTarget.parentNode.lastChild.classList.toggle(
-                      "hidden"
-                    );
-                  }}
-                  className={`flex items-center justify-between gap-1 w-[100%] max-w-[400px] mx-auto text-2xl mt-[2rem]`}
-                >
-                  <span className="text-gray-100 text-xl font-semibold ">
-                    Search Property
-                  </span>
-                  <BsSearch />
-                </button>
-                <form className="hidden max-w-[400px] mx-auto ">
-                  <ul
-                    id="dropdown-example"
-                    class=" bg-white p-[1rem] rounded-sm "
-                  >
-                    <li>
-                      {/* <div className="flex flex-col flex-wrap"> */}
-                      <CustomSelect
-                        className="py-1"
-                        optionValues={locationData.provinces}
-                        name={"provinces"}
-                      />
-
-                      <CustomSelect
-                        className="py-1"
-                        optionValues={locationData.districts}
-                        name="district"
-                      />
-                      <CustomSelect
-                        className="py-1"
-                        optionValues={locationData.localLevels}
-                        name="local levels"
-                      />
-                    </li>
-                    <li>
-                      <CustomSelect
-                        className="py-1"
-                        optionValues={propertyMeta.purposes}
-                        name="Purpose"
-                      />
-                    </li>
-                    <li>
-                      <CustomSelect
-                        className="py-1"
-                        optionValues={propertyMeta.types}
-                        name="types"
-                      />
-                    </li>
-                    <li>
-                      <CustomSelect
-                        className="py-1"
-                        optionValues={propertyMeta.budget}
-                        name="budget"
-                      />
-                    </li>
-                    <li>
-                      <button
-                        className={`flex items-center justify-center gap-3 w-[100%] text-lg py-[8px]`}
-                      >
-                        <BsSearch />
-                        <span className="text-gray-100 text-xl font-semibold ">
-                          Search
-                        </span>
-                      </button>
-                    </li>
-                  </ul>
-                </form>
-              </div>
-            )}
-            {(currentDevice == "md" || currentDevice == "lg") && (
-              <form className="mt-[2rem]">
-                <ul
-                  id="dropdown-example"
-                  class=" bg-white p-[1rem] flex flex-wrap gap-2"
-                >
-                  <li className="">
-                    {/* <div className="flex flex-col flex-wrap"> */}
-                    <CustomSelect
-                      className="py-1"
-                      optionValues={locationData.provinces}
-                      name={"provinces"}
-                    />
-                  </li>
-
-                  <li>
-                    <CustomSelect
-                      className="py-1"
-                      optionValues={locationData.districts}
-                      name="district"
-                    />
-                  </li>
-                  <li>
-                    <CustomSelect
-                      className="py-1"
-                      optionValues={locationData.localLevels}
-                      name="local levels"
-                    />
-                  </li>
-                  <li>
-                    <CustomSelect
-                      className="py-1"
-                      optionValues={propertyMeta.purposes}
-                      name="Purpose"
-                    />
-                  </li>
-                  <li>
-                    <CustomSelect
-                      className="py-1"
-                      optionValues={propertyMeta.types}
-                      name="types"
-                    />
-                  </li>
-                  <li>
-                    <CustomSelect
-                      className="py-1"
-                      optionValues={propertyMeta.budget}
-                      name="budget"
-                    />
-                  </li>
-                  <li>
-                    <button
-                      className={`flex items-center justify-center gap-3 w-[100%] text-lg py-[8px]`}
-                    >
-                      <BsSearch />
-                      <span className="text-gray-100 text-xl font-semibold ">
-                        Search
-                      </span>
-                    </button>
-                  </li>
-                </ul>
-              </form>
-            )}
+            <div className="flex flex-col gap-[0.3rem] md:mt-[5rem] ">
+              <TabBtns />
+              <SearchBox />
+            </div>
           </div>
         </div>
       </section>

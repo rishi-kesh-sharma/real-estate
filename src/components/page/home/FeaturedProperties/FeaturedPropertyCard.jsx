@@ -13,12 +13,12 @@ const FeaturedPropertyCard = ({ featured }) => {
     setIsLiked(!isLiked);
   };
   return (
-    <Card className="w-[200px]">
-      <CardImage className="rounded-lg h-[100px]">
+    <Card className="w-[175px] bg-white items-start p-[0.4rem] xs:w-[250px] md:w-[280px] lg:w-[380px] ">
+      <CardImage className="rounded-lg h-[100px] xs:h-[180px] lg:h-[250px]">
         <Image src={image} />
       </CardImage>
-      <CardContent className={`gap-[0.2rem] `}>
-        <div className={`flex  items-center justify-between category`}>
+      <CardContent className={`gap-[0.2rem] w-[100%]`}>
+        <div className={`flex items-start justify-between category`}>
           <span
             className="mt-0 text-sm"
             style={{
@@ -36,7 +36,7 @@ const FeaturedPropertyCard = ({ featured }) => {
         </div>
         <h4 className="text-sm">{name}</h4>
         <p className="text-xs text-gray-400">{location}</p>
-        <div className="flex flex-col gap-[0.1rem]">
+        <div className="flex flex-col gap-[0.1rem] xs:flex-row xs:justify-between">
           <div className="flex items-center gap-[0.4rem]">
             <button className="px-1 py-[0.1rem] text-center font-extralight">
               {price}

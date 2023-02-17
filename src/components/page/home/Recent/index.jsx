@@ -8,9 +8,7 @@ import CardContainer from "@/components/utils/CardContainer";
 
 const Recent = () => {
   return (
-    <section
-      className={`${styled.recent} ${styled.padding} bg-gray-100 my-[2rem] py-[2rem]`}
-    >
+    <section className={`${styled.recent} bg-gray-100 my-[2rem] py-[2rem]`}>
       <div className="container">
         <Heading
           title="Recently Listed Properties"

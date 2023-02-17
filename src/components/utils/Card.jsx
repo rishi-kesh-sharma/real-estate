@@ -13,6 +13,8 @@ const Card = tw.div`
  items-center
  gap-[1rem]
  shadow
+ transition-all
+ t
  ${({ className }) => className}
 `;
 export default Card;

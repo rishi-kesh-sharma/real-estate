@@ -14,11 +14,11 @@ const RecentCard = ({ recent }) => {
     setIsLiked(!isLiked);
   };
   return (
-    <Card className="bg-white shadow-none p-[0.5rem] items-start w-[310px]">
+    <Card className="bg-white shadow p-1rem] items-start w-[300px] xs:w-[350px] md:w-[320px]">
       <CardImage className="rounded-md">
         <Image src={image} className="rounded-lg object-cover" />
       </CardImage>
-      <CardContent className="">
+      <CardContent className="w-[100%]">
         <div className={`flex items-center justify-between`}>
           <span
             className="text-sm p-1"
@@ -37,13 +37,15 @@ const RecentCard = ({ recent }) => {
         </div>
         <h4 className="text-gray-600">{name}</h4>
         <p className="text-gray-400 text-sm">{location}</p>
-        <div>
-          <button className=" px-2 py-[0.2rem] text-center">{price}</button>{" "}
-          <label htmlFor="" className="text-center text-gray-400">
-            /sqft
-          </label>
+        <div className="flex justify-between items-center">
+          <div className="flex-1">
+            <button className=" px-2 py-[0.2rem] text-center">{price}</button>{" "}
+            <label htmlFor="" className="text-center text-gray-400">
+              /sqft
+            </label>
+          </div>
+          <span className="text-sm text-gray-600">{type}</span>
         </div>
-        <span className="text-sm text-gray-600">{type}</span>
       </CardContent>
     </Card>
   );

@@ -20,15 +20,15 @@ const FeaturedProperties = () => {
       {
         breakpoint: 1500,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           centerMode: false,
         },
       },
 
       {
-        breakpoint: 1024,
+        breakpoint: 1040,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           centerMode: false,
         },
       },
@@ -51,12 +51,12 @@ const FeaturedProperties = () => {
       <section
         className={`${styled.recent} ${styled.padding} mt-[3rem] bg-gray-50 py-[2rem] `}
       >
-        <div className="container ">
+        <div className="container">
           <Heading
             title="Featured Properties"
             subtitle="look our featured properties"
           />
-          <div className="my-[1rem] ">
+          <div className="my-[1rem] py-[1rem] ">
             <CustomSlider settings={settings}>
               {" "}
               {list.map((featured, index) => {

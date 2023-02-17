@@ -72,7 +72,7 @@ export const nav = {
     rightLinks: [
       { name: "Saved Homes", path: "/homes/saved" },
       { name: "Saved Searches", path: "/searches/saved" },
-      { name: "Sign up or Log in", path: "/loginsignup" },
+      { name: "Sign up or Log in", path: "/loginsignup",isButton:true },
     ],
     sideBarLinks: [
       {
