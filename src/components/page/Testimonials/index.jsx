@@ -1,13 +1,14 @@
 import React from "react";
 import Back from "../../utils/Back";
-import styles from "./Testimonials.module.css";
+import styles from "./index.module.css";
 
 import TestimonialCard from "./TestimonialCard";
 import { testimonials } from "../../../data/Data";
 import CustomSlider from "../../utils/CustomSlider";
 
-import img from "../../../public/images/general/house.jpg";
-
+import FeatureImage from "../../../../public/assets/images/house.jpg";
+import Section from "@/components/utils/Section";
+import Container from "@/components/utils/Container";
 const Testimonials = () => {
   var settings = {
     dots: true,
@@ -41,23 +42,22 @@ const Testimonials = () => {
     ],
   };
   return (
-    <>
-      <section
-        className={`${styles.contact} ${styles.mb}  contact mb pt-[5rem] flex flex-col gap-[3rem]`}>
-        <Back
-          name="Testimonials"
-          title="What People Say About Us"
-          cover={img.src}
-        />
-        <div className={`${styles.container} container bg-gray-100 py-[4rem]`}>
-          <CustomSlider settings={settings}>
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard testimonial={testimonial} key={index} />
-            ))}
-          </CustomSlider>
-        </div>
-      </section>
-    </>
+    <Section
+      className={`${styles.contact} ${styles.mb}  contact mb py-[1rem] flex flex-col gap-[3rem]`}>
+      <Back
+        name="Testimonials"
+        title="What People Say About Us"
+        cover={FeatureImage.src}
+      />
+      <Container
+        className={`${styles.container} container bg-gray-100 py-[4rem]`}>
+        <CustomSlider settings={settings}>
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard testimonial={testimonial} key={index} />
+          ))}
+        </CustomSlider>
+      </Container>
+    </Section>
   );
 };
 

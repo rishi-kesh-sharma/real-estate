@@ -9,7 +9,6 @@ import CardContent from "./../../../utils/CardContent";
 export default function Blog({ blog, aspect, preloadImage }) {
   const imageProps = blog?.mainImage ? blog.mainImage : null;
   const AuthorimageProps = blog?.author?.image ? blog.author.image : null;
-  console.log(blog);
   return (
     <Card className="cursor-pointer bg-white shadow gap-[0.5rem] md:w-[330px]">
       <CardImage className="  ">
@@ -36,8 +35,7 @@ export default function Blog({ blog, aspect, preloadImage }) {
                 <span
                   className={`inline-block mt-5 text-xs font-medium tracking-wider uppercase py-1 px-2 text-gray-100 rounded-sm bg-${
                     category.color ? `[${category.color}]` : "green-500"
-                  } bg-green-500`}
-                >
+                  } bg-green-500`}>
                   {category.title}
                 </span>
               </Link>
@@ -81,8 +79,7 @@ export default function Blog({ blog, aspect, preloadImage }) {
           </span>
           <time
             className="text-xs"
-            dateTime={blog?.publishedAt || blog.createdAt}
-          >
+            dateTime={blog?.publishedAt || blog.createdAt}>
             {/* {format(
               parseISO(blog?.publishedAt || blog._createdAt),
               "MMMM dd, yyyy"

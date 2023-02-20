@@ -1,4 +1,5 @@
 import getConfig from "next/config";
+import Logo from "../../public/assets/images/logo.png";
 import BlogImage from "../../public/assets/images/properties/p1.png";
 import AuthorImage from "../../public/assets/images/people/person1.jpg";
 import {
@@ -25,8 +26,31 @@ import {
   city6,
 } from "../../public/assets/images/cities";
 
+export const helpSectionData = [
+  {
+    image: Avatar1,
+    title: "Buy a home",
+    subtitle:
+      "With over 1 million+ homes for sale available on the website, Trulia can match you with a house you will want to call home.",
+    buttonText: "Find a home",
+  },
+  {
+    image: Avatar2,
+    title: "Rent a home",
+    subtitle:
+      "With over 1 million+ homes for sale available on the website, Trulia can match you with a house you will want to call home.",
+    buttonText: "Rent a home",
+  },
+  {
+    image: Avatar3,
+    title: "See neighborhoods",
+    subtitle:
+      "With over 1 million+ homes for sale available on the website, Trulia can match you with a house you will want to call home.",
+    buttonText: "Learn more",
+  },
+];
 export const nav = {
-  logo: "/public/images/logo.png",
+  logo: { image: Logo, path: "/" },
   links: {
     leftLinks: [
       {
@@ -72,12 +96,12 @@ export const nav = {
     rightLinks: [
       { name: "Saved Homes", path: "/homes/saved" },
       { name: "Saved Searches", path: "/searches/saved" },
-      { name: "Sign up or Log in", path: "/loginsignup",isButton:true },
+      { name: "Sign up or Log in", path: "/auth", isButton: true },
     ],
     sideBarLinks: [
       {
         name: "Sign Up or Login",
-        path: "/loginsignup",
+        path: "/auth",
       },
       {
         name: "About",
@@ -374,6 +398,8 @@ export const agencies = [
 // filterData
 export const filterData = [
   {
+    type: "radio",
+    name: "Purpose",
     items: [
       { name: "Buy", value: "for-sale" },
       { name: "Rent", value: "for-rent" },
@@ -382,6 +408,8 @@ export const filterData = [
     queryName: "purpose",
   },
   {
+    name: "rentFrequency",
+    type: "radio",
     items: [
       { name: "Daily", value: "daily" },
       { name: "Weekly", value: "weekly" },
@@ -391,42 +419,45 @@ export const filterData = [
     placeholder: "Rent Frequency",
     queryName: "rentFrequency",
   },
+  // {
+  //   type:"radio",
+  //   items: [
+  //     { name: "10,000", value: "10000" },
+  //     { name: "20,000", value: "20000" },
+  //     { name: "30,000", value: "30000" },
+  //     { name: "40,000", value: "40000" },
+  //     { name: "50,000", value: "50000" },
+  //     { name: "60,000", value: "60000" },
+  //     { name: "85,000", value: "85000" },
+  //   ],
+  //   placeholder: "Min Price(AED)",
+  //   queryName: "minPrice",
+  // },
+  // {
+  //   items: [
+  //     { name: "50,000", value: "50000" },
+  //     { name: "60,000", value: "60000" },
+  //     { name: "85,000", value: "85000" },
+  //     { name: "110,000", value: "110000" },
+  //     { name: "135,000", value: "135000" },
+  //     { name: "160,000", value: "160000" },
+  //     { name: "185,000", value: "185000" },
+  //     { name: "200,000", value: "200000" },
+  //     { name: "300,000", value: "300000" },
+  //     { name: "400,000", value: "400000" },
+  //     { name: "500,000", value: "500000" },
+  //     { name: "600,000", value: "600000" },
+  //     { name: "700,000", value: "700000" },
+  //     { name: "800,000", value: "800000" },
+  //     { name: "900,000", value: "900000" },
+  //     { name: "1000,000", value: "1000000" },
+  //   ],
+  //   placeholder: "Max Price(AED)",
+  //   queryName: "maxPrice",
+  // },
   {
-    items: [
-      { name: "10,000", value: "10000" },
-      { name: "20,000", value: "20000" },
-      { name: "30,000", value: "30000" },
-      { name: "40,000", value: "40000" },
-      { name: "50,000", value: "50000" },
-      { name: "60,000", value: "60000" },
-      { name: "85,000", value: "85000" },
-    ],
-    placeholder: "Min Price(AED)",
-    queryName: "minPrice",
-  },
-  {
-    items: [
-      { name: "50,000", value: "50000" },
-      { name: "60,000", value: "60000" },
-      { name: "85,000", value: "85000" },
-      { name: "110,000", value: "110000" },
-      { name: "135,000", value: "135000" },
-      { name: "160,000", value: "160000" },
-      { name: "185,000", value: "185000" },
-      { name: "200,000", value: "200000" },
-      { name: "300,000", value: "300000" },
-      { name: "400,000", value: "400000" },
-      { name: "500,000", value: "500000" },
-      { name: "600,000", value: "600000" },
-      { name: "700,000", value: "700000" },
-      { name: "800,000", value: "800000" },
-      { name: "900,000", value: "900000" },
-      { name: "1000,000", value: "1000000" },
-    ],
-    placeholder: "Max Price(AED)",
-    queryName: "maxPrice",
-  },
-  {
+    name: "sort",
+    type: "radio",
     items: [
       { name: "Lowest Price", value: "price-asc" },
       { name: "Highest Price", value: "price-des" },
@@ -438,52 +469,55 @@ export const filterData = [
     placeholder: "Sort",
     queryName: "sort",
   },
+  // {
+
+  //   items: [
+  //     { name: "1000", value: "1000" },
+  //     { name: "2000", value: "2000" },
+  //     { name: "3000", value: "3000" },
+  //     { name: "4000", value: "4000" },
+  //     { name: "5000", value: "5000" },
+  //     { name: "10000", value: "10000" },
+  //     { name: "20000", value: "20000" },
+  //   ],
+  //   placeholder: "Max Area(sqft)",
+  //   queryName: "areaMax",
+  // },
+  // {
+  //   items: [
+  //     { name: "1", value: "1" },
+  //     { name: "2", value: "2" },
+  //     { name: "3", value: "3" },
+  //     { name: "4", value: "4" },
+  //     { name: "5", value: "5" },
+  //     { name: "6", value: "6" },
+  //     { name: "7", value: "7" },
+  //     { name: "8", value: "8" },
+  //     { name: "9", value: "9" },
+  //     { name: "10", value: "10" },
+  //   ],
+  //   placeholder: "Rooms",
+  //   queryName: "roomsMin",
+  // },
+  // {
+  //   items: [
+  //     { name: "1", value: "1" },
+  //     { name: "2", value: "2" },
+  //     { name: "3", value: "3" },
+  //     { name: "4", value: "4" },
+  //     { name: "5", value: "5" },
+  //     { name: "6", value: "6" },
+  //     { name: "7", value: "7" },
+  //     { name: "8", value: "8" },
+  //     { name: "9", value: "9" },
+  //     { name: "10", value: "10" },
+  //   ],
+  //   placeholder: "Baths",
+  //   queryName: "bathsMin",
+  // },
   {
-    items: [
-      { name: "1000", value: "1000" },
-      { name: "2000", value: "2000" },
-      { name: "3000", value: "3000" },
-      { name: "4000", value: "4000" },
-      { name: "5000", value: "5000" },
-      { name: "10000", value: "10000" },
-      { name: "20000", value: "20000" },
-    ],
-    placeholder: "Max Area(sqft)",
-    queryName: "areaMax",
-  },
-  {
-    items: [
-      { name: "1", value: "1" },
-      { name: "2", value: "2" },
-      { name: "3", value: "3" },
-      { name: "4", value: "4" },
-      { name: "5", value: "5" },
-      { name: "6", value: "6" },
-      { name: "7", value: "7" },
-      { name: "8", value: "8" },
-      { name: "9", value: "9" },
-      { name: "10", value: "10" },
-    ],
-    placeholder: "Rooms",
-    queryName: "roomsMin",
-  },
-  {
-    items: [
-      { name: "1", value: "1" },
-      { name: "2", value: "2" },
-      { name: "3", value: "3" },
-      { name: "4", value: "4" },
-      { name: "5", value: "5" },
-      { name: "6", value: "6" },
-      { name: "7", value: "7" },
-      { name: "8", value: "8" },
-      { name: "9", value: "9" },
-      { name: "10", value: "10" },
-    ],
-    placeholder: "Baths",
-    queryName: "bathsMin",
-  },
-  {
+    name: "furnishingStatus",
+    type: "radio",
     items: [
       { name: "Furnished", value: "furnished" },
       { name: "Unfurnished", value: "unfurnished" },
@@ -659,25 +693,25 @@ export const testimonials = [
   {
     name: "john doe",
     profession: "developer",
-    avatar: "../images/customer/team-1.jpg",
+    avatar: Avatar1,
     text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
   },
   {
     name: "Mark Wood",
     profession: "designer",
-    avatar: "../images/customer/team-2.jpg",
+    avatar: Avatar2,
     text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
   },
   {
     name: "john doe",
     profession: "developer",
-    avatar: "../images/customer/team-3.jpg",
+    avatar: Avatar3,
     text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
   },
   {
     name: "Harry Styles",
     profession: "analyst",
-    avatar: "../images/customer/team-4.jpg",
+    avatar: Avatar4,
     text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
   },
 ];

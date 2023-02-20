@@ -14,7 +14,7 @@ const TabBtns = () => {
   };
 
   return (
-    <ul class="flex justify-between px-[2rem] text-sm font-medium text-center text-gray-500 bg-gray-500 gap-[1rem] rounded-lg">
+    <ul class="flex justify-between  text-sm font-medium text-center text-gray-400 bg-gray-500  rounded-lg">
       {heroTabItems.map((item) => {
         const { title, value, id } = item;
         return (
@@ -24,8 +24,7 @@ const TabBtns = () => {
               activeButton == id && "bg-white text-green-700"
             } ${
               activeButton !== id && "hover:bg-gray-200  hover:text-green-700"
-            } font-semibold text-lg px-[1rem] py-[0.5rem] rounded-lg `}
-          >
+            } font-semibold text-lg px-[1rem] py-[0.5rem] rounded-lg md:py-[1rem] text-[1.25rem] `}>
             {title}
           </li>
         );

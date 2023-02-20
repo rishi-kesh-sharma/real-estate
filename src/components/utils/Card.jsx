@@ -14,7 +14,7 @@ const Card = tw.div`
  gap-[1rem]
  shadow
  transition-all
- t
+ 
  ${({ className }) => className}
 `;
 export default Card;

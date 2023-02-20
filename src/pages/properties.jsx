@@ -3,6 +3,7 @@ import styles from "@/styles/properties.module.css";
 import { baseUrl, fetchApi } from "../utils/fetchApi";
 import PropertiesComponent from "../components/page/Properties";
 import NormalLayout from "@/components/layouts/NormalLayout";
+import BreadCrumbContainer from "@/components/utils/BreadCrumbContainer";
 
 const Properties = ({ properties }) => {
   return (
@@ -15,6 +16,7 @@ const Properties = ({ properties }) => {
       </Head>
       <main className={styles.main}>
         <NormalLayout>
+          <BreadCrumbContainer />
           {/* <Header /> */}
           <PropertiesComponent properties={properties} />
           {/* <Footer /> */}

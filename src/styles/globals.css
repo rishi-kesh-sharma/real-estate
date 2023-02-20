@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: clamp(16px, 1vw, 20px);
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 * {
   padding: 0;
@@ -13,7 +17,7 @@ body {
   background-color: #fff;
 }
 .container {
-  max-width: 80%;
+  max-width: 90%;
   margin: auto;
 }
 /* .flex {
@@ -37,6 +41,10 @@ button {
   color: #fff;
   cursor: pointer;
   font-weight: bold;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 button i {
@@ -104,6 +112,10 @@ img {
 .btn2 {
   border-radius: 50px;
   font-size: 20px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
 }
 .grid4 {
   display: grid;
@@ -113,6 +125,10 @@ img {
 .btn3 {
   background: #ff6922;
   border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
 }
 .btn4 {
   background-color: #000;
@@ -126,6 +142,10 @@ img {
   font-weight: 400;
   border: 5px solid #27ae601f;
   background: #fff;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
 }
 .back {
   /* height: 40vh; */
@@ -154,7 +174,6 @@ img {
   padding: 120px 0;
 }
 .back h1 {
-  
   /* font-size: 40px; */
   font-weight: 500;
 }
@@ -177,6 +196,13 @@ img {
   .back img,
   .back {
     height: 70vh;
+  }
+}
+@media screen and (min-width: 800px) {
+  .back::after,
+  .back img,
+  .back {
+    height: 100vh;
   }
 }
 

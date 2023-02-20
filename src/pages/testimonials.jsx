@@ -4,6 +4,7 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import NormalLayout from "@/components/layouts/NormalLayout";
 import TestimonialsComponent from "@/components/page/Testimonials";
+import BreadCrumbContainer from "@/components/utils/BreadCrumbContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function Testimonials() {
       </Head>
       <main className={styles.main}>
         <NormalLayout>
+          <BreadCrumbContainer />
           {/* <Header /> */}
           <TestimonialsComponent />
           {/* <Footer /> */}

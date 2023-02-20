@@ -1,13 +1,18 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { register } from "@/apiCalls/auth";
+import { register } from "@/store/features/authSlice";
 import { getSingleErrorMessage } from "@/utils/Errors";
 import { setUserState } from "@/store/features/userSlice";
 import { useRouter } from "next/router";
 import { setAuthState } from "@/store/features/authSlice";
+import { useDispatch } from "react-redux";
+import Toast from "@/components/utils/Toast";
 
 const SignUpForm = ({ styles }) => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  // SIGNUP SCHEMA
   const signUpSchema = Yup.object().shape({
     name: Yup.string().required("Name is Required"),
     email: Yup.string().email().required("Email is Required"),
@@ -19,30 +24,55 @@ const SignUpForm = ({ styles }) => {
       .min(3, "Too Short!"),
   });
 
-  const handleSubmit = async (
-    { name, email, password, password_confirmation },
-    { setErrors }
-  ) => {
-    // setErrors();
-    alert(
-      JSON.stringify({ name, email, password, password_confirmation }, null, 2)
-    );
-    const res = await register({
-      name,
-      email,
-      password,
-      password_confirmation,
-    });
-    const { data, status } = res;
-    if (status != 200 || status != 201) {
-      const messages = getSingleErrorMessage(data.errors);
-      setErrors(messages);
-    }
+  // REGISTER SUBMIT HANDLER
+  const handleSubmit = async (values, { setErrors }) => {
+    const resultAction = await dispatch(register(values));
 
-    setUserState({ payload: data.data.user });
-    setAuthState({ payload: true });
-    router.push("/");
+    // EXECUTES IF THE LOGIN IS SUCCESSFUL
+    if (register.fulfilled.match(resultAction)) {
+      const user = resultAction.payload;
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully",
+      });
+
+      // REDIRECTING TO HOME
+      router.push("/");
+
+      // EXECUTES IF LOGIN FAILS
+    } else {
+      // EXECUTES IF THE RESULTACTION HAS NO PAYLOAD
+      if (resultAction.payload) {
+        const messages = getSingleErrorMessage(
+          resultAction.payload.data.errors
+        );
+        setErrors(messages);
+      }
+      // EXECUTES IF RESULT ACTION HAS NO PAYLOAD
+      else {
+        Toast.fire({
+          icon: "error",
+          title: `Cannot Register: ${resultAction.error.message}`,
+        });
+      }
+    }
   };
+  //   const res = await register({
+  //     name,
+  //     email,
+  //     password,
+  //     password_confirmation,
+  //   });
+  //   const { data, status } = res;
+  //   if (status != 200 || status != 201) {
+  //     const messages = getSingleErrorMessage(data.errors);
+  //     setErrors(messages);
+  //   }
+
+  //   setUserState({ payload: data.data.user });
+  //   setAuthState({ payload: true });
+  //   router.push("/");
+  // };
   return (
     <>
       <Formik
@@ -53,8 +83,7 @@ const SignUpForm = ({ styles }) => {
           password: "",
           password_confirmation: "",
         }}
-        onSubmit={handleSubmit}
-      >
+        onSubmit={handleSubmit}>
         <Form>
           <label className={styles.label} htmlFor="Name">
             Full Name

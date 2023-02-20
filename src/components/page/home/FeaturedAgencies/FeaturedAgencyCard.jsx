@@ -5,7 +5,6 @@ import Image from "next/image";
 import CardContent from "@/components/utils/CardContent";
 
 const FeaturedAgencyCard = ({ agency }) => {
-  console.log(agency);
   return (
     <Card className="w-[200px] bg-white">
       <CardImage className="w-[100px] h-[60px]">

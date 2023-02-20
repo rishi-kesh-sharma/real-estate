@@ -1,23 +1,64 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { wrapper } from "@/store/store";
+import {
+  login,
+  selectAuthState,
+  setAuthState,
+} from "@/store/features/authSlice";
+import { useRouter } from "next/router";
+import { setUserState } from "@/store/features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAuthState, setAuthState } from "@/store/features/authSlice";
-import { login } from "./../../../apiCalls/auth";
+import Toast from "@/components/utils/Toast";
+
+// FUNCTIONAL COMPONENENT
 const LoginForm = ({ styles }) => {
-  const authState = useSelector(selectAuthState);
+  const router = useRouter();
   const dispatch = useDispatch();
-  // login schema
+
+  // LOGIN VALIDATION SCHEMA
   const loginSchema = Yup.object().shape({
     email: Yup.string().email().required("Email is Required"),
     password: Yup.string()
       .required("Password is Required")
       .min(3, "Too Short!"),
   });
-  const handleSubmit = (values) => {
-    alert(JSON.stringify(values, null, 2));
-    login(values);
+
+  // HANDLE LOGIN SUBMIT
+  const handleSubmit = async (values, { setErrors }) => {
+    // DISPATCHING LOGIN ACTION
+    const resultAction = await dispatch(login(values));
+
+    // EXECUTES IF THE LOGIN IS SUCCESSFUL
+    if (login.fulfilled.match(resultAction)) {
+      const user = resultAction.payload;
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully",
+      });
+
+      // REDIRECTING TO HOME
+      router.push("/");
+
+      // EXECUTES IF LOGIN FAILS
+    } else {
+      // EXECUTES IF THE RESULTACTION HAS NO PAYLOAD
+      if (resultAction.payload) {
+        setErrors(resultAction.payload.data);
+      }
+      // EXECUTES IF RESULT ACTION HAS NO PAYLOAD
+      else {
+        Toast.fire({
+          icon: "error",
+          title: `Cannot Login: ${resultAction.error.message}`,
+        });
+      }
+    }
   };
+  // const data = { data: { user: values } };
+
+  // setUserState({ payload: data.data.user });
+  // setAuthState({ payload: true });
+
   return (
     <>
       <Formik
@@ -26,8 +67,7 @@ const LoginForm = ({ styles }) => {
           password: "",
         }}
         validationSchema={loginSchema}
-        onSubmit={handleSubmit}
-      >
+        onSubmit={handleSubmit}>
         <Form>
           <label className={styles.label} htmlFor="Email">
             Email
@@ -57,18 +97,5 @@ const LoginForm = ({ styles }) => {
     </>
   );
 };
-
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async ({ params }) => {
-      await store.dispatch(setAuthState(false));
-      console.log("State on server", store.getState());
-      return {
-        props: {
-          authState: false,
-        },
-      };
-    }
-);
 
 export default LoginForm;

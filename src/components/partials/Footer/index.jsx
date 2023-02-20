@@ -3,14 +3,14 @@ import { footer } from "@/data/Data";
 import styled from "./index.module.css";
 import Logo from "../../../../public/assets/images/logo-light.png";
 import Image from "next/image";
+import Section from "@/components/utils/Section";
 const Footer = () => {
   return (
-    <>
-      <section className={`${styled.footerContact} footerContact `}>
+    <Section>
+      <Section className={`${styled.footerContact} footerContact `}>
         <div className={`${styled.container} container`}>
           <div
-            className={`${styled.send} ${styled.flex} flex-col sm:flex-row rounded-sm sm:flex  md:gap-[2rem]`}
-          >
+            className={`${styled.send} ${styled.flex} flex-col sm:flex-row rounded-sm sm:flex  md:gap-[2rem]`}>
             <div className={`${styled.text} text`}>
               <h1 className="text-xl">Do You Have Questions ?</h1>
               <p className="text-gray-300 ">
@@ -18,17 +18,15 @@ const Footer = () => {
               </p>
             </div>
             <button
-              className={`bg-gray-200  rounded-lg py-2 px-4 mt-2 sm:mt-0 text-[#27ae60] `}
-            >
+              className={`bg-gray-200  rounded-lg py-2 px-4 mt-2 sm:mt-0 text-[#27ae60] `}>
               Contact Us Today
             </button>
           </div>
         </div>
-      </section>
+      </Section>
       <div className=" bg-[#1d2636] pt-[2rem]">
         <div
-          className={`container flex flex-col sm:flex-row  gap-[0.8rem] pb-[2rem] `}
-        >
+          className={`container flex flex-col sm:flex-row  gap-[0.8rem] pb-[2rem] `}>
           <input
             type="text"
             placeholder="Email Address"
@@ -72,7 +70,7 @@ const Footer = () => {
           By APP TECHNOLOGIES.
         </span>
       </div>
-    </>
+    </Section>
   );
 };
 
