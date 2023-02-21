@@ -8,6 +8,9 @@ import NProgress from "nprogress";
 import { useRouter } from "next/router";
 import { createContext } from "react";
 
+import { CookiesProvider } from "react-cookie"
+
+
 // APP CONTEXT FOR BREADCRUMBS
 export const appContext = createContext(null);
 function App({ Component, pageProps }) {
@@ -54,11 +57,13 @@ function App({ Component, pageProps }) {
     setBreadcrumbs(breadcrumbs);
   }, [router.asPath]);
   return (
-    <appContext.Provider value={breadcrumbs}>
+   <CookiesProvider>
+     <appContext.Provider value={breadcrumbs}>
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
     </appContext.Provider>
+   </CookiesProvider>
   );
 }
 export default App;

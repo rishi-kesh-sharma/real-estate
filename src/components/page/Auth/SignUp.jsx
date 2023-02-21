@@ -57,22 +57,7 @@ const SignUpForm = ({ styles }) => {
       }
     }
   };
-  //   const res = await register({
-  //     name,
-  //     email,
-  //     password,
-  //     password_confirmation,
-  //   });
-  //   const { data, status } = res;
-  //   if (status != 200 || status != 201) {
-  //     const messages = getSingleErrorMessage(data.errors);
-  //     setErrors(messages);
-  //   }
 
-  //   setUserState({ payload: data.data.user });
-  //   setAuthState({ payload: true });
-  //   router.push("/");
-  // };
   return (
     <>
       <Formik
@@ -83,7 +68,8 @@ const SignUpForm = ({ styles }) => {
           password: "",
           password_confirmation: "",
         }}
-        onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}
+      >
         <Form>
           <label className={styles.label} htmlFor="Name">
             Full Name

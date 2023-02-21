@@ -1,30 +1,34 @@
-const ImageField = ({ imageHandler, checkFile, selectedFile }) => {
+const ImageField = ({ imageHandler, checkFile, selectedFile, className }) => {
   return (
-    <>
-      <div className="">
-        <div className=" grid gap-2">
-          <div className="h-[10rem] cursor-pointer relative flex justify-start items-center border-2 rounded-md bg-gray-200">
-            <input
-              type="file"
-              name="file"
-              onChange={imageHandler}
-              className="z-20 opacity-0 cursor-pointer h-full w-full"
+    <div
+      className={`grid gap-2 max-w-[600px] w-[100%] ${className} px-[0.5rem]`}
+    >
+      <div className="h-[6rem] w-full lg:h-[10rem] cursor-pointer relative flex justify-start items-center border-2 rounded-md ">
+        <input
+          type="file"
+          name="file"
+          onChange={imageHandler}
+          className="z-20 opacity-0 cursor-pointer h-full w-full "
+        />
+        <div
+          className={`absolute h-full w-full flex justify-center items-center gap-[1rem] ${
+            selectedFile && "justify-between pr-[0.3rem]"
+          }`}
+        >
+          {selectedFile && (
+            <img
+              className={` h-full w-[50%] rounded ${
+                checkFile ? "opacity-1" : "opacity-0"
+              }`}
+              src={selectedFile ? URL.createObjectURL(selectedFile) : null}
             />
-            <div className="absolute flex justify-start items-center gap-[2rem]">
-              <img
-                className={`h-[10rem] w-[20rem] rounded ${
-                  checkFile ? "opacity-1" : "opacity-0"
-                }`}
-                src={selectedFile ? URL.createObjectURL(selectedFile) : null}
-              />
-              <span className="text-[18px] w-56 text-gray-600 truncate">
-                {checkFile ? selectedFile.name : "choose a file"}
-              </span>
-            </div>
-          </div>
+          )}
+          <span className="text-[18px]  lg:w-56 text-gray-600 truncate rext-center ">
+            {checkFile ? selectedFile.name : "choose a file"}
+          </span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default ImageField;

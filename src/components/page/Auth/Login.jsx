@@ -1,3 +1,4 @@
+import { useCookies } from "react-cookie";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import {
@@ -14,6 +15,7 @@ import Toast from "@/components/utils/Toast";
 const LoginForm = ({ styles }) => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const [cookie, setCookie] = useCookies(["user"]);
 
   // LOGIN VALIDATION SCHEMA
   const loginSchema = Yup.object().shape({
@@ -27,13 +29,21 @@ const LoginForm = ({ styles }) => {
   const handleSubmit = async (values, { setErrors }) => {
     // DISPATCHING LOGIN ACTION
     const resultAction = await dispatch(login(values));
+    console.log(resultAction);
 
     // EXECUTES IF THE LOGIN IS SUCCESSFUL
     if (login.fulfilled.match(resultAction)) {
-      const user = resultAction.payload;
+      const user = resultAction.payload.user;
+      const token = resultAction.payload.token;
       Toast.fire({
         icon: "success",
         title: "Signed in successfully",
+      });
+
+      setCookie("token", token, {
+        path: "/",
+        maxAge: 3600, // Expires after 1hr
+        sameSite: true,
       });
 
       // REDIRECTING TO HOME
@@ -41,23 +51,16 @@ const LoginForm = ({ styles }) => {
 
       // EXECUTES IF LOGIN FAILS
     } else {
-      // EXECUTES IF THE RESULTACTION HAS NO PAYLOAD
-      if (resultAction.payload) {
-        setErrors(resultAction.payload.data);
-      }
-      // EXECUTES IF RESULT ACTION HAS NO PAYLOAD
-      else {
-        Toast.fire({
-          icon: "error",
-          title: `Cannot Login: ${resultAction.error.message}`,
-        });
-      }
+      setErrors(resultAction.payload.data);
+      Toast.fire({
+        icon: "error",
+        title: `Cannot Login: ${
+          resultAction.payload.data.message || resultAction.error.message
+        }`,
+      });
+      // }
     }
   };
-  // const data = { data: { user: values } };
-
-  // setUserState({ payload: data.data.user });
-  // setAuthState({ payload: true });
 
   return (
     <>
@@ -67,7 +70,8 @@ const LoginForm = ({ styles }) => {
           password: "",
         }}
         validationSchema={loginSchema}
-        onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}
+      >
         <Form>
           <label className={styles.label} htmlFor="Email">
             Email

@@ -27,7 +27,7 @@ const UserDashboardSidebar = (
   };
 
   return (
-    <div className="hidden sm:flex flex-col gap-4 w-1/4 px-1">
+    <div className="hidden sm:flex flex-col gap-4 w-1/4 px-1 md:flex-[0.4] xl:flex-[0.3]">
       {/* <!-- profile card --> */}
       <div className="flex items-center gap-4 p-3 bg-white rounded-sm shadow">
         {/* <!-- user icon --> */}

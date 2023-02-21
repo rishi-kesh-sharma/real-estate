@@ -182,6 +182,9 @@ export const nav = {
         name: "Contact",
         path: "/contact",
       },
+      {
+        name: "Logout",
+      },
     ],
   },
 };

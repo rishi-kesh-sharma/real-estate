@@ -14,7 +14,7 @@ export default function UserDashboardLayout({ children }) {
       <NormalLayout>
         <BreadCrumbContainer />
         <Section className="py-[2rem] bg-gray-100">
-          <Container className="flex gap-[2rem]">
+          <Container className="flex gap-[2rem] bg-white md:p-[1rem]  justify-evenly lg:p-[3rem] xl:py-[4rem] xl:gap-[3rem]">
             <UserDashboardSidebar />
             {children}
           </Container>

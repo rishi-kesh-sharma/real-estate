@@ -8,16 +8,17 @@ const initialState = {
   user: {},
 };
 
-export const login = createAsyncThunk("login", async (data) => {
+export const login = createAsyncThunk("login", async (data, thunkApi) => {
   try {
     const res = await loginUser(data);
-    return res.data.user;
+    return res.data.data;
+    
   } catch (err) {
     let error = err;
     if (!error.response) {
       throw err;
     }
-    return rejectWithValue(error.response);
+    return thunkApi.rejectWithValue(error.response);
   }
 });
 export const register = createAsyncThunk("register", async (data) => {
@@ -48,12 +49,8 @@ export const authSlice = createSlice({
       state = { ...state, isLoading: true };
     });
     builder.addCase(login.fulfilled, (state, action) => {
-      state = {
-        ...state,
-        isLogged: true,
-        user: action.payload,
-        isLoading: false,
-      };
+     state.isLogged=true;
+     state.user=action.payload
     });
     builder.addCase(login.rejected, (state, action) => {
       if (action.payload) {

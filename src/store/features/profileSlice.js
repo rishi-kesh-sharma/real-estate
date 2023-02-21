@@ -5,7 +5,7 @@ import { getProfile } from "@/apiCalls/profile";
 
 // Initial state
 const initialState = {
-  user: {},
+  profile: {},
 };
 
 export const profile = createAsyncThunk("profile", async () => {
@@ -21,7 +21,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     // Action to set the authentication status
-    setAuthState(state, action) {
+    setProfile(state, action) {
       state.profile = action.payload;
     },
   },

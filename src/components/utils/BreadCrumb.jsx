@@ -19,11 +19,9 @@ const Breadcrumb = ({ children }) => {
   });
 
   return (
-    <Section className="h-[60px] my-[1rem] bg-gray-100">
-      <Container
-        className=" mx-auto h-[60px] flex items-center"
-        aria-label="breadcrumb">
-        <ol className="  flex items-center space-x-4">
+    <Section className="py-[1rem] my-[1rem] bg-gray-100 sm:py-[2rem] md:mb-[2rem] md:text-lg">
+      <Container className="mx-auto  flex items-center" aria-label="breadcrumb">
+        <ol className="flex justify-start items-start space-x-4 flex-wrap">
           {childrenWtihSeperator}
         </ol>
       </Container>
