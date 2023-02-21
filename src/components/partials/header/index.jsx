@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
 import { nav } from "@/data/Data";
@@ -12,11 +12,15 @@ import RightNavLinks from "./RightNavLinks";
 import SectionWrapper from "@/components/utils/SectionWrapper";
 import BreadCrumbContainer from "@/components/utils/BreadCrumbContainer";
 import Link from "next/link";
+import { profileContext } from "@/pages/_app";
+import ProfileAvatar from "@/components/utils/ProfileAvatar";
+import { RxAvatar } from "react-icons/rx";
 
 const Navbar = () => {
   // TOGGLE SIDEBAR
   const [show, setShow] = useState(false);
   const [currentDevice, setCurrentDevice] = useState("lg");
+  const profileData = useContext(profileContext);
 
   // HANDLE SCREEN RESIZE
   const handleResize = (e) => {
@@ -65,10 +69,15 @@ const Navbar = () => {
             />
           )}
 
-          {/* CENTER NAVIGATION LINKS */}
+          {/* RIGHT NAVIGATION LINKS */}
           {currentDevice == "lg" && (
-            <RightNavLinks links={nav?.links?.rightLinks} />
+            <RightNavLinks
+              handleNavLinksClick={handleNavLinksClick}
+              links={nav?.links?.rightLinks}
+              isAuthenticated={profileData?.isAuthenticated}
+            />
           )}
+
           <FiMenu
             className="text-[2rem] cursor-pointer"
             onClick={handleToggle}

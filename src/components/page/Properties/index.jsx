@@ -9,17 +9,19 @@ import { Flex, Box, Text, Icon } from "@chakra-ui/react";
 import { BsFilter } from "react-icons/bs";
 import PropertiesContainer from "./PropertiesContainer";
 import PropertesSideBar from "./PropertiesSideBar";
+import Container from "@/components/utils/Container";
+import Section from "@/components/utils/Section";
 
 const Properties = ({ properties }) => {
   const router = useRouter();
 
   return (
-    <Box className="pt-[6rem] flex flex-col gap-[2rem] mb-[2rem]">
-      <div className="flex items-start">
+    <Section className="pt-[1rem] flex flex-col gap-[2rem] mb-[2rem]">
+      <Container className="flex items-start flex-col ">
         <PropertesSideBar />
         <PropertiesContainer />
-      </div>
-    </Box>
+      </Container>
+    </Section>
   );
 };
 

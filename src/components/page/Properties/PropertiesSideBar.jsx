@@ -30,12 +30,11 @@ import Filters from "./Filters";
 
 // FUNCTIONAL COMPONENT
 export default function PropertesSideBar() {
-  const [showfilters, setShowFilters] = useState(false);
-  const [filters] = useState(filterData);
   const [searchTerm, setSearchTerm] = useState("");
   const [locationData, setLocationData] = useState();
   const [showLocations, setShowLocations] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [filters] = useState(filterData);
   const [price, setPrice] = useState([0, 200000]);
   const [categoryToggle, setCategoryToggle] = useState(false);
   const [ratingsToggle, setRatingsToggle] = useState(false);
@@ -47,18 +46,8 @@ export default function PropertesSideBar() {
       bg="gray.100"
       justifyContent=""
       flexWrap="wrap"
-      className="py-[1rem]  gap-[1.5rem] justify-start">
+      className="py-[1rem]  gap-[1.5rem] justify-start flex w-full">
       {/* CLEAR ALL OPTION */}
-      <div className="flex flex-col bg-white rounded-sm shadow">
-        <div className="flex items-center justify-between gap-5 px-4 py-2 border-b">
-          <p className="text-lg font-medium">Filters</p>
-          <span
-            className="uppercase text-primary-blue text-xs cursor-pointer font-medium"
-            onClick={() => clearFilters()}>
-            clear all
-          </span>
-        </div>
-      </div>
 
       {/* FILTERS */}
       <Filters />

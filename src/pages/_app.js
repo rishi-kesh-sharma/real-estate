@@ -7,16 +7,19 @@ import "../styles/nprogress.css";
 import NProgress from "nprogress";
 import { useRouter } from "next/router";
 import { createContext } from "react";
+import NextApp from "next/app.js";
 
-import { CookiesProvider } from "react-cookie"
-
+import { CookiesProvider } from "react-cookie";
+import { parseCookies } from "@/utils/cookies.js";
+import { getProfile } from "@/apiCalls/profile.js";
 
 // APP CONTEXT FOR BREADCRUMBS
 export const appContext = createContext(null);
-function App({ Component, pageProps }) {
+export const profileContext = createContext(null);
+function App({ Component, pageProps, data }) {
   const router = useRouter();
   const [breadcrumbs, setBreadcrumbs] = useState();
-
+  const [profileData, setProfileData] = useState(data);
   // USEEFFECT FOR NPROGRESS
   useEffect(() => {
     const handleRouteStart = () => {
@@ -55,15 +58,53 @@ function App({ Component, pageProps }) {
     });
 
     setBreadcrumbs(breadcrumbs);
+    setProfileData(data);
   }, [router.asPath]);
   return (
-   <CookiesProvider>
-     <appContext.Provider value={breadcrumbs}>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-    </appContext.Provider>
-   </CookiesProvider>
+    <CookiesProvider>
+      <appContext.Provider value={breadcrumbs}>
+        <profileContext.Provider value={profileData}>
+          <Provider store={store}>
+            <Component {...pageProps} />
+          </Provider>
+        </profileContext.Provider>
+      </appContext.Provider>
+    </CookiesProvider>
   );
 }
 export default App;
+
+App.getInitialProps = async (req, res) => {
+  const appProps = await NextApp.getInitialProps(req);
+  // let data = { isAuthenticated: false, profile: {} };
+  // const token = parseCookies(req);
+  // const isTokenEmpty =
+  //   Object.keys(token).length === 0 && token.constructor === Object;
+
+  // if (res) {
+  //   if (isTokenEmpty) {
+  //     res.writeHead(301, { Location: "/" });
+  //     res.end();
+  //     return;
+  //   }
+  // }
+  // if (isTokenEmpty) {
+  //   return data;
+  // }
+  // return data;
+
+  // try {
+  //   const response = await getProfile(token);
+  //   data = { profile: response.data.data, isAuth: true };
+  //   return data;
+  // } catch (err) {
+  //   data = {};
+  //   return data;
+  // }
+  let data = {
+    isAuthenticated: true,
+    profile: { name: "Rishikesh Sharma" },
+  };
+  return { ...appProps, data };
+  // return { ...appProps, data };
+};

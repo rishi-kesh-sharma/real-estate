@@ -9,22 +9,18 @@ import {
   MdFolderShared,
   MdPowerSettingsNew,
 } from "react-icons/md";
+import ProfileAvatar from "@/components/utils/ProfileAvatar";
+import { useContext } from "react";
+import { profileContext } from "@/pages/_app";
 
 const UserDashboardSidebar = (
   props = { activeTab: "profile", user: { name: "rishi" } }
 ) => {
+  const profileData = useContext(profileContext);
   const { activeTab, user } = props;
   const dispatch = useDispatch();
-  //   const navigate = useNavigate();
-  //   const { enqueueSnackbar } = useSnackbar();
 
-  //   const { user } = useSelector((state) => state.user);
-
-  const handleLogout = () => {
-    // dispatch(logoutUser());
-    // enqueueSnackbar("Logout Successfully", { variant: "success" });
-    // navigate("/login");
-  };
+  const handleLogout = () => {};
 
   return (
     <div className="hidden sm:flex flex-col gap-4 w-1/4 px-1 md:flex-[0.4] xl:flex-[0.3]">
@@ -32,16 +28,20 @@ const UserDashboardSidebar = (
       <div className="flex items-center gap-4 p-3 bg-white rounded-sm shadow">
         {/* <!-- user icon --> */}
         <div className="w-12 h-12 rounded-full">
-          <img
+          {/* <img
             draggable="false"
             className="h-full w-full object-cover rounded-full"
             src={user?.avatar?.url}
             alt="Avatar"
-          />
+          /> */}
+          <ProfileAvatar />
         </div>
         {/* <!-- user icon --> */}
         <div className="flex items-center gap-1">
-          <p className="text-xs">Hello,</p>
+          <p className="text-xs">
+            Hello, {profileData?.profile?.name || "rishi"}
+          </p>
+
           {/* <h2 className="font-medium capitalize text-lg">{user.name}</h2> */}
         </div>
       </div>

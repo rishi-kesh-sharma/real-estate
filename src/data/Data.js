@@ -25,6 +25,7 @@ import {
   city5,
   city6,
 } from "../../public/assets/images/cities";
+import ProfileAvatar from "@/components/utils/ProfileAvatar";
 
 export const helpSectionData = [
   {
@@ -94,14 +95,61 @@ export const nav = {
       },
     ],
     rightLinks: [
-      { name: "Saved Homes", path: "/homes/saved" },
-      { name: "Saved Searches", path: "/searches/saved" },
-      { name: "Sign up or Log in", path: "/auth", isButton: true },
+      {
+        name: "Sign up or Log in",
+        path: "/auth",
+        isButton: true,
+        forAuthenticated: false,
+      },
+      {
+        forAuthenticated: true,
+        name: <ProfileAvatar />,
+        dropItems: [
+          {
+            name: "Profile",
+            path: "/dashboard/profile",
+            forAuthenticated: true,
+          },
+
+          { name: "Saved Homes", path: "/homes/saved", forAuthenticated: true },
+          {
+            name: "Saved Searches",
+            path: "/searches/saved",
+            forAuthenticated: true,
+          },
+          {
+            name: "Logout",
+            forAuthenticated: true,
+          },
+        ],
+      },
     ],
     sideBarLinks: [
       {
         name: "Sign Up or Login",
         path: "/auth",
+      },
+      {
+        forAuthenticated: true,
+        name: <ProfileAvatar />,
+        dropItems: [
+          {
+            name: "Profile",
+            path: "/dashboard/profile",
+            forAuthenticated: true,
+          },
+
+          { name: "Saved Homes", path: "/homes/saved", forAuthenticated: true },
+          {
+            name: "Saved Searches",
+            path: "/searches/saved",
+            forAuthenticated: true,
+          },
+          // {
+          //   name: "Logout",
+          //   forAuthenticated: true,
+          // },
+        ],
       },
       {
         name: "About",
@@ -181,9 +229,6 @@ export const nav = {
       {
         name: "Contact",
         path: "/contact",
-      },
-      {
-        name: "Logout",
       },
     ],
   },

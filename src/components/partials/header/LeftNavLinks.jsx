@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const LeftNavLinks = ({ links, handleNavLinksClick }) => {
@@ -7,11 +8,11 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
         {links?.map((item) => {
           return !item.dropItems ? (
             <li className="mt-0 relative" onClick={handleNavLinksClick}>
-              <a
+              <Link
                 href="#"
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                 <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
-              </a>
+              </Link>
             </li>
           ) : (
             <li className="relative" onClick={handleNavLinksClick}>
@@ -48,11 +49,11 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
                 {item.dropItems.map((dropItem) => {
                   return (
                     <li onClick={handleNavLinksClick} className="border">
-                      <a
+                      <Link
                         href={dropItem.path}
                         class="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                         {dropItem.name}
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}
