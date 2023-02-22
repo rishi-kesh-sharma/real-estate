@@ -9,18 +9,20 @@ const ExploreHomesCard = ({ property, key }) => {
 
   return (
     <Card
-      className={`w-[180px] h-[150px]  relative p-0 xs:w-[270px] xs:h-[200px] rounded md:w-[290px] lg:w-[260px]`}
-    >
+      className={`w-[180px]   relative p-0  rounded-lg md:w-[290px] lg:w-[260px]`}>
       <CardImage className="relative ">
-        <div className="absolute z-[20] bg-gray-600 opacity-50 left-0 top-0 bottom-0 right-0"></div>
+        <div className="absolute z-[20] bg-gray-600 opacity-50 left-0 top-0 bottom-0 right-0 rounded-lg"></div>
 
-        <Image src={property.image} className="h-[330px] object-cover" />
+        <Image
+          src={property.image}
+          className="h-[330px] object-cover rounded-lg"
+        />
       </CardImage>
       <div>
         <p className="absolute z-[25] top-[1rem] left-[1rem] text-white font-semibold text-lg">
           {property.location}
         </p>
-        <button className="absolute z-[25] flex gap-[0.5rem] items-center justify-center h-[2.4rem] w-[8rem] font-light text-sm m-0 p-0 left-[1rem] bottom-[1rem]">
+        <button className="absolute z-[25] flex gap-[0.5rem] items-center justify-center h-[2.4rem] w-[8rem] font-light text-sm m-0 p-0 left-[1rem] bottom-[3rem]">
           View Homes
           <AiOutlineRight />
         </button>

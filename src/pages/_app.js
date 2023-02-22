@@ -76,7 +76,7 @@ export default App;
 
 App.getInitialProps = async (req, res) => {
   const appProps = await NextApp.getInitialProps(req);
-  // let data = { isAuthenticated: false, profile: {} };
+  let data = { isAuthenticated: false, profile: {} };
   // const token = parseCookies(req);
   // const isTokenEmpty =
   //   Object.keys(token).length === 0 && token.constructor === Object;
@@ -84,27 +84,28 @@ App.getInitialProps = async (req, res) => {
   // if (res) {
   //   if (isTokenEmpty) {
   //     res.writeHead(301, { Location: "/" });
+
   //     res.end();
-  //     return;
+  //     return { ...appProps, data };
   //   }
   // }
   // if (isTokenEmpty) {
-  //   return data;
+  //   return { ...appProps, data };
   // }
-  // return data;
 
   // try {
   //   const response = await getProfile(token);
   //   data = { profile: response.data.data, isAuth: true };
-  //   return data;
+  //   return { ...appProps, data };
   // } catch (err) {
-  //   data = {};
-  //   return data;
+  //   data = { isAuthenticated: false, profile: {} };
+  //   return { ...appProps, data };
   // }
-  let data = {
-    isAuthenticated: true,
-    profile: { name: "Rishikesh Sharma" },
-  };
-  return { ...appProps, data };
   // return { ...appProps, data };
+  // let data = {
+  //   isAuthenticated: true,
+  //   profile: { name: "Rishikesh Sharma" },
+  // };
+  // return { ...appProps, data };
+  return { ...appProps, data };
 };

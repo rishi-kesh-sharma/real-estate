@@ -101,28 +101,6 @@ export const nav = {
         isButton: true,
         forAuthenticated: false,
       },
-      {
-        forAuthenticated: true,
-        name: <ProfileAvatar />,
-        dropItems: [
-          {
-            name: "Profile",
-            path: "/dashboard/profile",
-            forAuthenticated: true,
-          },
-
-          { name: "Saved Homes", path: "/homes/saved", forAuthenticated: true },
-          {
-            name: "Saved Searches",
-            path: "/searches/saved",
-            forAuthenticated: true,
-          },
-          {
-            name: "Logout",
-            forAuthenticated: true,
-          },
-        ],
-      },
     ],
     sideBarLinks: [
       {

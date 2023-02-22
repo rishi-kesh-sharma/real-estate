@@ -43,12 +43,12 @@ const Slider = () => {
     ],
   };
   return (
-    <div className="my-[1rem] py-[1rem]">
-      <CustomSlider settings={settings}>
-        {list.map((property, index) => (
-          <ExploreHomesCard property={property} key={index} />
-        ))}
-      </CustomSlider>
+    <div className="my-[1rem] py-[1rem] flex flex-wrap items-center justify-center gap-[1rem]">
+      {/* <CustomSlider settings={settings}> */}
+      {list.map((property, index) => (
+        <ExploreHomesCard property={property} key={index} />
+      ))}
+      {/* </CustomSlider> */}
     </div>
   );
 };

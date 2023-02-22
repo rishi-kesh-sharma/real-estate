@@ -3,6 +3,7 @@ import React from "react";
 import CategoryTypeCard from "./CategoryTypeCard";
 import { featured } from "../../../../data/Data";
 import CustomSlider from "../../../utils/CustomSlider";
+import Container from "@/components/utils/Container";
 
 const Slider = () => {
   var settings = {
@@ -16,23 +17,47 @@ const Slider = () => {
 
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 2800,
+        settings: {
+          slidesToShow: 5,
+          // centerMode: false,
+        },
+      },
+      {
+        breakpoint: 2000,
         settings: {
           slidesToShow: 4,
           // centerMode: false,
         },
       },
       {
-        breakpoint: 1040,
+        breakpoint: 1600,
         settings: {
-          slidesToShow: 2,
-          // centerMode: false,
+          slidesToShow: 3,
+          centerMode: false,
         },
       },
       {
-        breakpoint: 800,
+        breakpoint: 1080,
         settings: {
           slidesToShow: 2,
+          centerMode: true,
+        },
+      },
+
+      {
+        breakpoint: 860,
+        settings: {
+          slidesToShow: 2,
+          centerMode: false,
+          className: "center",
+        },
+      },
+
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 1,
           centerMode: true,
           className: "center",
         },
@@ -41,18 +66,19 @@ const Slider = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
+          centerMode: false,
         },
       },
     ],
   };
   return (
-    <div className="my-[1rem] py-[1rem]">
+    <Container className="my-[1rem] py-[1rem]">
       <CustomSlider settings={settings}>
         {featured.map((feature, index) => (
           <CategoryTypeCard feature={feature} key={index} />
         ))}
       </CustomSlider>
-    </div>
+    </Container>
   );
 };
 

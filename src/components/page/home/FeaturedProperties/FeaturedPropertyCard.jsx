@@ -24,8 +24,7 @@ const FeaturedPropertyCard = ({ featured }) => {
             style={{
               background: category === "For Sale" ? "#25b5791a" : "#ff98001a",
               color: category === "For Sale" ? "#25b579" : "#ff9800",
-            }}
-          >
+            }}>
             {category}
           </span>
           {isLiked ? (

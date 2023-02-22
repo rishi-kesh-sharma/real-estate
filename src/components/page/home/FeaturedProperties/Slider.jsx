@@ -6,51 +6,54 @@ import FeaturedPropertyCard from "./FeaturedPropertyCard";
 const Slider = () => {
   var settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    className: "center",
-
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          centerMode: false,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
         },
       },
 
+      // {
+      //   breakpoint: 650,
+      //   settings: {
+      //     slidesToShow: 1,
+      //     slidesToScroll: 1,
+      //   },
+      // },
+
       {
-        breakpoint: 1040,
-        settings: {
-          slidesToShow: 2,
-          centerMode: false,
-        },
-      },
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 600,
+        breakpoint: 500,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
   };
   return (
-    <div className="my-[1rem] py-[1rem] ">
-      <CustomSlider settings={settings}>
-        {" "}
-        {list.map((featured, index) => {
-          return <FeaturedPropertyCard featured={featured} key={index} />;
-        })}
-      </CustomSlider>
+    <div className="my-[1rem] py-[1rem] flex flex-wrap gap-[1rem] items-center justify-center">
+      {/* <CustomSlider settings={settings}> */}{" "}
+      {list.map((featured, index) => {
+        return <FeaturedPropertyCard featured={featured} key={index} />;
+      })}
+      {/* </CustomSlider> */}
     </div>
   );
 };
