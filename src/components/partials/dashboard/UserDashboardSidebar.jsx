@@ -17,6 +17,7 @@ const UserDashboardSidebar = (
   props = { activeTab: "profile", user: { name: "rishi" } }
 ) => {
   const profileData = useContext(profileContext);
+  console.log(profileData);
   const { activeTab, user } = props;
   const dispatch = useDispatch();
 

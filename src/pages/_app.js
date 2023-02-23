@@ -17,9 +17,15 @@ import { getProfile } from "@/apiCalls/profile.js";
 export const appContext = createContext(null);
 export const profileContext = createContext(null);
 function App({ Component, pageProps, data }) {
+  const getProfileData = async () => {
+    const res = await getProfile(localStorage.getItem("token"));
+    console.log("hello from app comp");
+    console.log(res.data);
+  };
   const router = useRouter();
   const [breadcrumbs, setBreadcrumbs] = useState();
   const [profileData, setProfileData] = useState(data);
+
   // USEEFFECT FOR NPROGRESS
   useEffect(() => {
     const handleRouteStart = () => {
@@ -56,10 +62,10 @@ function App({ Component, pageProps, data }) {
         isCurrent: index === pathArray.length - 1,
       };
     });
-
     setBreadcrumbs(breadcrumbs);
     setProfileData(data);
   }, [router.asPath]);
+
   return (
     <CookiesProvider>
       <appContext.Provider value={breadcrumbs}>
@@ -74,38 +80,21 @@ function App({ Component, pageProps, data }) {
 }
 export default App;
 
-App.getInitialProps = async (req, res) => {
-  const appProps = await NextApp.getInitialProps(req);
+App.getInitialProps = async (context) => {
+  const { ctx } = context;
+  const appProps = await NextApp.getInitialProps(context);
   let data = { isAuthenticated: false, profile: {} };
-  // const token = parseCookies(req);
-  // const isTokenEmpty =
-  //   Object.keys(token).length === 0 && token.constructor === Object;
+  const token = parseCookies(ctx);
+  if (!token) {
+    return { ...appProps, data };
+  }
+  try {
+    const response = await getProfile(token);
 
-  // if (res) {
-  //   if (isTokenEmpty) {
-  //     res.writeHead(301, { Location: "/" });
-
-  //     res.end();
-  //     return { ...appProps, data };
-  //   }
-  // }
-  // if (isTokenEmpty) {
-  //   return { ...appProps, data };
-  // }
-
-  // try {
-  //   const response = await getProfile(token);
-  //   data = { profile: response.data.data, isAuth: true };
-  //   return { ...appProps, data };
-  // } catch (err) {
-  //   data = { isAuthenticated: false, profile: {} };
-  //   return { ...appProps, data };
-  // }
-  // return { ...appProps, data };
-  // let data = {
-  //   isAuthenticated: true,
-  //   profile: { name: "Rishikesh Sharma" },
-  // };
-  // return { ...appProps, data };
-  return { ...appProps, data };
+    data = { profile: response.data.data, isAuthenticated: true };
+    return { ...appProps, data };
+  } catch (err) {
+    data = { isAuthenticated: false, profile: {} };
+    return { ...appProps, data };
+  }
 };

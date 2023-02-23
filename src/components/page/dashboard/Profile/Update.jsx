@@ -1,5 +1,5 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import * as Yup from "yup";
 // import { register } from "@/apiCalls/auth";
 import { getSingleErrorMessage } from "@/utils/Errors";
@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import ImageField from "@/components/utils/ImageField";
 import { updateProfile } from "@/apiCalls/profile";
 import Container from "@/components/utils/Container";
+import { profileContext } from "@/pages/_app";
+import Toast from "@/components/utils/Toast";
 const styles = {
   label: "block text-gray-600 text-sm  pt-2 pb-1",
   field:
@@ -23,7 +25,7 @@ const UpdateUser = () => {
   const signUpSchema = Yup.object().shape({
     name: Yup.string().required("Name is Required"),
     email: Yup.string().email().required("Email is Required"),
-    mobile: Yup.number().required("Mobile is Required"),
+    mobile: Yup.string().required("Mobile is Required"),
     dob: Yup.date().required("Date Of Birth is Required"),
     email: Yup.string().required("Email is Required"),
   });
@@ -31,127 +33,164 @@ const UpdateUser = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [checkFile, setCheckFile] = useState(false);
 
+  const profileData = useContext(profileContext);
+
+  const initialValues = {
+    name: profileData?.profile?.name,
+    email: profileData?.profile?.email,
+    mobile: profileData.profile.profile.mobile,
+    gender: profileData?.profile?.gender,
+    dob: profileData?.profile?.dob,
+    about_me: profileData?.profile?.about_me,
+    profile_image: profileData?.profile?.profile_image,
+  };
+
   const imageHandler = (e) => {
     setSelectedFile(e.target.files[0]);
     setCheckFile(true);
   };
 
   const handleSubmit = async (
-    { name, email, mobile, gender, dob, about_me, picture },
-    { setErrors }
+    { name, email, mobile, gender, dob, about_me, profile_image },
+    { setErrors, setSubmitting, isSubmitting }
   ) => {
-    alert(
-      JSON.stringify(
-        { name, email, mobile, gender, dob, about_me, picture },
-        null,
-        2
-      )
-    );
-    const res = await updateProfile({
-      name,
-      email,
-      mobile,
-      gender,
-      dob,
-      about_me,
-      picture,
-    });
-    const { data, status } = res;
-    if (status != 200 || status != 201) {
-      const messages = getSingleErrorMessage(data.errors);
+    try {
+      const res = await updateProfile({
+        name,
+        email,
+        mobile,
+        gender,
+        dob,
+        about_me,
+        profile_image,
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Profile Updated successfully",
+      });
+    } catch (err) {
+      const messages = getSingleErrorMessage(err.response.data.errors);
       setErrors(messages);
-    }
 
-    // setUserState({ payload: data.data.user });
-    // setAuthState({ payload: true });
-    // router.push("/");
+      Toast.fire({
+        icon: "error",
+        title: `Cannot Login: ${err.response.data.message}`,
+      });
+    }
   };
   return (
     <div className="overflow-hidden shadow bg-white flex-1 rounded-lg py-[2rem] md:flex-[0.6]">
       <Container className="">
         <Formik
           validationSchema={signUpSchema}
-          initialValues={{
-            name: "",
-            email: "",
-            mobile: "",
-            gender: "",
-            dob: "",
-            about_me: "",
-            picture: "",
-          }}
           onSubmit={handleSubmit}
-        >
-          <Form className="flex flex-col gap-[1rem]">
-            <div>
-              <label className={styles.label} htmlFor="name">
-                Full Name
-              </label>
-              <Field className={styles.field} id="name" name="name" />
-              <ErrorMessage
-                component="a"
-                className={styles.errorMsg}
-                name="name"
-              />
-            </div>
+          initialValues={initialValues}>
+          {({ isSubmitting }) => {
+            console.log(isSubmitting);
+            return (
+              <Form className="flex flex-col gap-[1rem]">
+                <div>
+                  <label className={styles.label} htmlFor="name">
+                    Full Name
+                  </label>
+                  <Field className={styles.field} id="name" name="name" />
+                  <ErrorMessage
+                    component="a"
+                    className={styles.errorMsg}
+                    name="name"
+                  />
+                </div>
 
-            <div>
-              <label className={styles.label} htmlFor="email">
-                Email
-              </label>
-              <Field className={styles.field} id="email" name="email" />
-              <ErrorMessage
-                component="a"
-                className={styles.errorMsg}
-                name="email"
-              />
-            </div>
+                <div>
+                  <label className={styles.label} htmlFor="email">
+                    Email
+                  </label>
+                  <Field className={styles.field} id="email" name="email" />
+                  <ErrorMessage
+                    component="a"
+                    className={styles.errorMsg}
+                    name="email"
+                  />
+                </div>
 
-            <div>
-              <label className={styles.label} htmlFor="mobile">
-                Mobile
-              </label>
-              <Field className={styles.field} id="mobile" name="mobile" />
-              <ErrorMessage
-                component="a"
-                className={styles.errorMsg}
-                name="mobile"
-              />
-            </div>
-            <div>
-              <label className={styles.label} htmlFor="dob">
-                Date Of Birth
-              </label>
-              <Field type="date" className={styles.field} id="dob" name="dob" />
-            </div>
-            <div>
-              <label className={styles.label} htmlFor="dob">
-                About Me
-              </label>
-              <Field
-                as="textarea"
-                className={styles.field}
-                id="dob"
-                name="about_me"
-                rows={5}
-              />
-            </div>
+                <div>
+                  <label className={styles.label} htmlFor="mobile">
+                    Mobile
+                  </label>
+                  <Field className={styles.field} id="mobile" name="mobile" />
+                  <ErrorMessage
+                    component="a"
+                    className={styles.errorMsg}
+                    name="mobile"
+                  />
+                </div>
+                <div>
+                  <label className={styles.label} htmlFor="dob">
+                    Date Of Birth
+                  </label>
+                  <Field
+                    type="date"
+                    className={styles.field}
+                    id="dob"
+                    name="dob"
+                  />
+                  <ErrorMessage
+                    component="a"
+                    className={styles.errorMsg}
+                    name="dob"
+                  />
+                </div>
+                <div>
+                  <label className={styles.label} htmlFor="about_me">
+                    About Me
+                  </label>
+                  <Field
+                    as="textarea"
+                    className={styles.field}
+                    id="about_me"
+                    name="about_me"
+                    rows={5}
+                  />
+                  <ErrorMessage
+                    component="a"
+                    className={styles.errorMsg}
+                    name="about_me"
+                  />
+                </div>
 
-            <div>
-              <label className={styles.label}>Upload Your Picture</label>
-              <ImageField
-                imageHandler={imageHandler}
-                checkFile={checkFile}
-                selectedFile={selectedFile}
-                className={styles.field}
-              />
-            </div>
-            <div className="mt-8 flex justify-end max-w-[600px]">
-              <button type="submit" className={styles.button}>
-                Update
-              </button>
-            </div>
-          </Form>
+                <div>
+                  <label className={styles.label}>
+                    Upload Your profile_image
+                  </label>
+                  <ImageField
+                    imageHandler={imageHandler}
+                    checkFile={checkFile}
+                    selectedFile={selectedFile}
+                    className={styles.field}
+                  />
+                </div>
+                <div className="mt-8 flex justify-end max-w-[600px] cursor-pointer">
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center">
+                      <div
+                        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        role="status">
+                        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                          Loading...
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <Field
+                      type="submit"
+                      className={`${styles.button} cursor-pointer`}
+                      value="submit"
+                    />
+                  )}
+                </div>
+              </Form>
+            );
+          }}
         </Formik>
       </Container>
     </div>

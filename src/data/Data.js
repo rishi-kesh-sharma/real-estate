@@ -25,7 +25,7 @@ import {
   city5,
   city6,
 } from "../../public/assets/images/cities";
-import ProfileAvatar from "@/components/utils/ProfileAvatar";
+import Avatar from "@/components/utils/ProfileAvatar";
 
 export const helpSectionData = [
   {
@@ -48,6 +48,22 @@ export const helpSectionData = [
     subtitle:
       "With over 1 million+ homes for sale available on the website, Trulia can match you with a house you will want to call home.",
     buttonText: "Learn more",
+  },
+];
+
+export const profileLinks = [
+  {
+    name: "Profile",
+    path: "/dashboard/profile",
+  },
+
+  { name: "Saved Homes", path: "/homes/saved", forAuthenticated: true },
+  {
+    name: "Saved Searches",
+    path: "/searches/saved",
+  },
+  {
+    name: "Logout",
   },
 ];
 export const nav = {
@@ -103,32 +119,6 @@ export const nav = {
       },
     ],
     sideBarLinks: [
-      {
-        name: "Sign Up or Login",
-        path: "/auth",
-      },
-      {
-        forAuthenticated: true,
-        name: <ProfileAvatar />,
-        dropItems: [
-          {
-            name: "Profile",
-            path: "/dashboard/profile",
-            forAuthenticated: true,
-          },
-
-          { name: "Saved Homes", path: "/homes/saved", forAuthenticated: true },
-          {
-            name: "Saved Searches",
-            path: "/searches/saved",
-            forAuthenticated: true,
-          },
-          // {
-          //   name: "Logout",
-          //   forAuthenticated: true,
-          // },
-        ],
-      },
       {
         name: "About",
         path: "/about",

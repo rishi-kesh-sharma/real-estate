@@ -29,3 +29,10 @@ const Home = () => {
 };
 
 export default Home;
+
+export async function getServerSideProps({ req, query, res, baseUrl }) {
+  // baseUrl is undefined and an error, if I am using it with destructiring
+
+  console.log("hello from home page");
+  return;
+}

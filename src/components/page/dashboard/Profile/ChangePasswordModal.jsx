@@ -4,7 +4,10 @@ import * as Yup from "yup";
 import ChangePasswordForm from "./ChangePasswordForm";
 const ChangePasswordModal = ({ toggleModal }) => {
   return (
-    <Modal toggleModal={toggleModal} form={<ChangePasswordForm />} />
+    <Modal
+      toggleModal={toggleModal}
+      form={<ChangePasswordForm toggleModal={toggleModal} />}
+    />
 
     // </Modal>
   );

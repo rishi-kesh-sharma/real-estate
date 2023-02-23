@@ -10,12 +10,13 @@ import { useRouter } from "next/router";
 import { setUserState } from "@/store/features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Toast from "@/components/utils/Toast";
+import { setTokenToLocalStorage } from "@/utils/LocalStorage";
 
 // FUNCTIONAL COMPONENENT
 const LoginForm = ({ styles }) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const [cookie, setCookie] = useCookies(["user"]);
+  const [cookie, setCookie, removeCookies] = useCookies(["token"]);
 
   // LOGIN VALIDATION SCHEMA
   const loginSchema = Yup.object().shape({
@@ -29,7 +30,6 @@ const LoginForm = ({ styles }) => {
   const handleSubmit = async (values, { setErrors }) => {
     // DISPATCHING LOGIN ACTION
     const resultAction = await dispatch(login(values));
-    console.log(resultAction);
 
     // EXECUTES IF THE LOGIN IS SUCCESSFUL
     if (login.fulfilled.match(resultAction)) {
@@ -45,9 +45,12 @@ const LoginForm = ({ styles }) => {
         maxAge: 3600, // Expires after 1hr
         sameSite: true,
       });
+      setTokenToLocalStorage(localStorage, token);
 
       // REDIRECTING TO HOME
-      router.push("/");
+      // router.push("/");
+      // router.reload("/");
+      window.location.href = "/";
 
       // EXECUTES IF LOGIN FAILS
     } else {
@@ -58,7 +61,6 @@ const LoginForm = ({ styles }) => {
           resultAction.payload.data.message || resultAction.error.message
         }`,
       });
-      // }
     }
   };
 
@@ -70,8 +72,7 @@ const LoginForm = ({ styles }) => {
           password: "",
         }}
         validationSchema={loginSchema}
-        onSubmit={handleSubmit}
-      >
+        onSubmit={handleSubmit}>
         <Form>
           <label className={styles.label} htmlFor="Email">
             Email

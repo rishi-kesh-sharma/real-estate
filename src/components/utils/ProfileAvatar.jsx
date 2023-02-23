@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { RxAvatar } from "react-icons/rx";
 import { person1 } from "public/assets/images/people";
-const ProfileAvatar = () => {
+const ProfileAvatar = ({ profile }) => {
   return (
-    <div className=" text-[4rem]">
+    <div className="  flex items-center gap-[0.6rem] ">
       <Image
         src={person1}
         width={100}
@@ -13,9 +13,10 @@ const ProfileAvatar = () => {
         type="button"
         data-dropdown-toggle="userDropdown"
         data-dropdown-placement="bottom-start"
-        class="w-10 h-10 rounded-full cursor-pointer"
+        className="w-10 h-10 rounded-full cursor-pointer text-[4rem]"
         alt="User dropdown"
       />
+      <p className="text-2xl text-gray-600"> {profile?.name}</p>
     </div>
   );
 };

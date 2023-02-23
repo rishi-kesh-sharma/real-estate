@@ -1,18 +1,30 @@
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAuthState } from "@/store/features/authSlice.js";
 import { profileContext } from "@/pages/_app";
-const ToggleNavigation = ({ links, handleNavLinksClick, show, setShow }) => {
-  const res = useSelector(selectAuthState);
-  const profileData = useContext(profileContext);
-  console.log(res);
+import RightNavLinks from "./RightNavLinks";
+import ProfileAvatar from "@/components/utils/ProfileAvatar";
+import ProfileToggleNavigation from "@/components/utils/ProfileToggleNavigation";
+import { profileLinks } from "@/data/Data";
+const ToggleNavigation = ({
+  links,
+  handleNavLinksClick,
+  show,
+  setShow,
+  profile,
+}) => {
+  const [openProfileLinks, setOpenProfileLinks] = useState(false);
   const handleLogout = (e) => {
     console.log("logout button clicked");
   };
+  const handleProfileAvatarClick = (e) => {
+    console.log("avatar clicked");
+    setOpenProfileLinks(!openProfileLinks);
+  };
   return (
-    <div className="  text-red-600 fixed left-0 z-40  right-0 top-0 h-[100vh]     ">
+    <div className=" fixed left-0 z-40  right-0 top-0 h-[100vh]">
       <aside
         id="sidebar-multi-level-sidebar"
         class="fixed top-0 right-0 z-40 w-64 h-screen "
@@ -23,35 +35,52 @@ const ToggleNavigation = ({ links, handleNavLinksClick, show, setShow }) => {
             onClick={(e) => setShow(false)}
           />
         )}
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-          <ul class="space-y-2 mt-[4rem]">
+        <div class="h-full   px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 pt-[6rem]">
+          <div
+            className="flex items-center justify-start gap-[1rem]"
+            onClick={handleProfileAvatarClick}>
+            <div className="ml-[1rem]">
+              <ProfileAvatar profile={profile} />
+            </div>
+            <span>
+              <svg
+                sidebar-toggle-item
+                className="w-6 h-6 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </span>
+          </div>
+          {openProfileLinks && (
+            <ProfileToggleNavigation profileLinks={profileLinks} />
+          )}
+          <ul class="space-y-2 mt-[1rem]">
             {links?.map((item) => {
               return !item.dropItems ? (
-                profileData?.isAuthenticated && item?.path == "/auth" ? (
-                  ""
-                ) : (
-                  <li
-                    onClick={handleNavLinksClick}
-                    className="border-b-[1px] border-b-gray-300">
-                    {item.path ? (
-                      <Link
-                        href={item?.path}
-                        className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
-                        <span class="flex-1 ml-3 whitespace-nowrap">
-                          {item.name}
-                        </span>
-                      </Link>
-                    ) : (
-                      <div
-                        onClick={handleLogout}
-                        className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
-                        <span class="flex-1 ml-3 whitespace-nowrap">
-                          {item.name}
-                        </span>
-                      </div>
-                    )}
-                  </li>
-                )
+                <li
+                  onClick={handleNavLinksClick}
+                  className="border-b-[1px] border-b-gray-300">
+                  {item.path ? (
+                    <Link
+                      href={item?.path}
+                      className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
+                      <span class="flex-1 ml-3 whitespace-nowrap">
+                        {item.name}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
+                      <span class="flex-1 ml-3 whitespace-nowrap">
+                        {item.name}
+                      </span>
+                    </div>
+                  )}
+                </li>
               ) : (
                 <li className=" border-b-[1px] border-b-gray-300 ">
                   <button
@@ -67,13 +96,7 @@ const ToggleNavigation = ({ links, handleNavLinksClick, show, setShow }) => {
                     <span
                       class="flex-1 ml-3 text-left whitespace-nowrap text-gray-600"
                       sidebar-toggle-item>
-                      {typeof item.name == "object" ? (
-                        <div className="flex items-center gap-[0.3rem]">
-                          {item.name} <span>{profileData?.profile?.name}</span>
-                        </div>
-                      ) : (
-                        item?.name
-                      )}
+                      {item?.name}
                     </span>
                     <svg
                       sidebar-toggle-item

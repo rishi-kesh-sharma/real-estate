@@ -7,16 +7,6 @@ import ChangePasswordModal from "./ChangePasswordModal";
 import Section from "@/components/utils/Section";
 import Container from "@/components/utils/Container";
 const Profile = () => {
-  //   const navigate = useNavigate();
-
-  // const { user, loading, isAuthenticated } = useSelector(state => state.user)
-
-  // useEffect(() => {
-  //     if (isAuthenticated === false) {
-  //         navigate("/login")
-  //     }
-
-  // }, [isAuthenticated, navigate]);u
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = (e) => {
     setOpenModal(!openModal);
@@ -29,11 +19,8 @@ const Profile = () => {
   const user = { name: "rishi", avatar: { url: "" }, gender: "male" };
 
   const loading = false;
-
   return (
     <>
-      {/* <MetaData title="My Profile" /> */}
-
       {loading ? (
         <Loader />
       ) : (
@@ -49,16 +36,14 @@ const Profile = () => {
                 </span>
                 <Link
                   href="profile/update"
-                  className="text-sm text-primary-blue font-medium  cursor-pointer bg-green-200 rounded-sm px-[0.6rem] py-[0.3rem]"
-                >
+                  className="text-sm text-primary-blue font-medium  cursor-pointer bg-green-200 rounded-sm px-[0.6rem] py-[0.3rem]">
                   Edit
                 </Link>
               </div>
 
               <div
                 className="flex flex-col sm:flex-row flex-wrap items-center gap-3"
-                id="personalInputs"
-              >
+                id="personalInputs">
                 <div className="flex flex-col gap-0.5  px-3 py-1.5 rounded-sm border inputs cursor-not-allowed bg-gray-100 focus-within:border-primary-blue">
                   <label className="text-xs text-gray-500">First Name</label>
                   <input
@@ -144,8 +129,7 @@ const Profile = () => {
               </div>
               <button
                 onClick={toggleModal}
-                className="text-sm text-gray-50 font-medium rounded   bg-green-700 max-w-[150px] px-[1rem] py-[0.5rem]"
-              >
+                className="text-sm text-gray-50 font-medium rounded   bg-green-700 max-w-[150px] px-[1rem] py-[0.5rem]">
                 Change Password
               </button>
             </div>
@@ -206,8 +190,7 @@ const Profile = () => {
               {/* <!-- deactivate Profile --> */}
               <Link
                 className="text-sm text-primary-blue font-medium bg-red-500 rounded text-gray-200 px-[1rem] py-[0.5rem]"
-                href="/"
-              >
+                href="/">
                 Deactivate Profile
               </Link>
               {/* <!-- deactivate Profile --> */}

@@ -7,7 +7,7 @@ import BreadCrumbContainer from "../utils/BreadCrumbContainer";
 
 export default function UserDashboardLayout({ children }) {
   const activeTab = "profile";
-  const user = { avatar: { url: "", name: "" } };
+
   return (
     <main className="w-full">
       {/* <!-- row --> */}

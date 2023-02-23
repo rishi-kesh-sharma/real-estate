@@ -21,6 +21,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const [currentDevice, setCurrentDevice] = useState("lg");
   const profileData = useContext(profileContext);
+  console.log(profileData);
   // HANDLE SCREEN RESIZE
   const handleResize = (e) => {
     if (window.innerWidth >= 1024) return setCurrentDevice("lg");
@@ -76,7 +77,6 @@ const Navbar = () => {
               isAuthenticated={profileData?.isAuthenticated}
             />
           )}
-
           <FiMenu
             className="text-[2rem] cursor-pointer"
             onClick={handleToggle}
@@ -91,6 +91,8 @@ const Navbar = () => {
                 handleNavLinksClick={handleNavLinksClick}
                 show={show}
                 setShow={setShow}
+                isAuthenticated={profileData?.isAuthenticated}
+                profile={profileData?.profile}
               />
             )}
         </Container>
