@@ -30,10 +30,14 @@ const UpdateUser = () => {
     email: Yup.string().required("Email is Required"),
   });
 
-  const [selectedFile, setSelectedFile] = useState();
-  const [checkFile, setCheckFile] = useState(false);
-
   const profileData = useContext(profileContext);
+  const [selectedFile, setSelectedFile] = useState(
+    profileData?.profile?.profile_image
+  );
+
+  const [checkFile, setCheckFile] = useState(
+    profileData?.profile?.profile_image && true
+  );
 
   const initialValues = {
     name: profileData?.profile?.name,

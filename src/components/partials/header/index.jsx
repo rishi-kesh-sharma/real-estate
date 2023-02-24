@@ -75,6 +75,7 @@ const Navbar = () => {
               handleNavLinksClick={handleNavLinksClick}
               links={nav?.links?.rightLinks}
               isAuthenticated={profileData?.isAuthenticated}
+              profile={profileData?.profile}
             />
           )}
           <FiMenu

@@ -35,7 +35,7 @@ const UserDashboardSidebar = (
             src={user?.avatar?.url}
             alt="Avatar"
           /> */}
-          <ProfileAvatar />
+          <ProfileAvatar profile={profileData?.profile} />
         </div>
         {/* <!-- user icon --> */}
         <div className="flex items-center gap-1">
@@ -72,7 +72,7 @@ const UserDashboardSidebar = (
           </Link>
           <Link
             className="p-3 pl-14 hover:bg-green-50 hover:text-primary-green"
-            href="/">
+            href="/dashboard/properties/add">
             Post Properties
           </Link>
           {/* <Link

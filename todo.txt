@@ -1,0 +1,7 @@
+1.update password modal closing after success
+2.properties page
+   -filters design
+   -state management using usestate
+   -pushing the url to router for ssr
+3.property page design
+

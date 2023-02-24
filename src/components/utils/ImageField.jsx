@@ -1,8 +1,7 @@
 const ImageField = ({ imageHandler, checkFile, selectedFile, className }) => {
   return (
     <div
-      className={`grid gap-2 max-w-[600px] w-[100%] ${className} px-[0.5rem]`}
-    >
+      className={`grid gap-2 max-w-[600px] w-[100%] ${className} px-[0.5rem]`}>
       <div className="h-[6rem] w-full lg:h-[10rem] cursor-pointer relative flex justify-start items-center border-2 rounded-md ">
         <input
           type="file"
@@ -13,14 +12,14 @@ const ImageField = ({ imageHandler, checkFile, selectedFile, className }) => {
         <div
           className={`absolute h-full w-full flex justify-center items-center gap-[1rem] ${
             selectedFile && "justify-between pr-[0.3rem]"
-          }`}
-        >
+          }`}>
           {selectedFile && (
             <img
               className={` h-full w-[50%] rounded ${
                 checkFile ? "opacity-1" : "opacity-0"
               }`}
-              src={selectedFile ? URL.createObjectURL(selectedFile) : null}
+              // src={selectedFile ? URL.createObjectURL(selectedFile) : null}
+              src={selectedFile}
             />
           )}
           <span className="text-[18px]  lg:w-56 text-gray-600 truncate rext-center ">

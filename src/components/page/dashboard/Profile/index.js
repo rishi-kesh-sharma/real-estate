@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import { Link, useNavigate } from "react-router-dom";
 import Link from "next/link";
@@ -6,17 +6,18 @@ import Modal from "@/components/utils/Modal";
 import ChangePasswordModal from "./ChangePasswordModal";
 import Section from "@/components/utils/Section";
 import Container from "@/components/utils/Container";
+import { profileContext } from "@/pages/_app";
 const Profile = () => {
+  const profileData = useContext(profileContext);
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = (e) => {
     setOpenModal(!openModal);
   };
 
   const getLastName = () => {
-    const nameArray = user.name.split(" ");
+    const nameArray = profileData?.profile?.name?.split(" ");
     return nameArray[nameArray.length - 1];
   };
-  const user = { name: "rishi", avatar: { url: "" }, gender: "male" };
 
   const loading = false;
   return (
@@ -48,7 +49,7 @@ const Profile = () => {
                   <label className="text-xs text-gray-500">First Name</label>
                   <input
                     type="text"
-                    value={user.name.split(" ", 1)}
+                    value={profileData?.profile?.name?.split(" ", 1)}
                     className="text-sm outline-none border-none cursor-not-allowed text-gray-500"
                     disabled
                   />
@@ -72,7 +73,7 @@ const Profile = () => {
                     <input
                       type="radio"
                       name="gender"
-                      checked={user.gender === "male"}
+                      checked={profileData.profile.gender === "male"}
                       id="male"
                       className="h-4 w-4 cursor-not-allowed"
                       disabled
@@ -85,7 +86,7 @@ const Profile = () => {
                     <input
                       type="radio"
                       name="gender"
-                      checked={user.gender === "female"}
+                      checked={profileData.profile.gender === "female"}
                       id="female"
                       className="h-4 w-4 cursor-not-allowed"
                       disabled
@@ -121,7 +122,7 @@ const Profile = () => {
                   <label className="text-xs text-gray-500">Email Address</label>
                   <input
                     type="email"
-                    value={user.email}
+                    value={profileData.profile.email}
                     className="text-sm outline-none border-none cursor-not-allowed text-gray-500"
                     disabled
                   />

@@ -12,6 +12,7 @@ const styles = {
   errorMsg: "text-red-500 text-xs",
 };
 const ChangePasswordForm = ({ toggleModal }) => {
+  console.log(toggleModal);
   const changePasswordSchema = Yup.object().shape({
     old_password: Yup.string()
       .required(" Old Password is Required")
@@ -45,7 +46,7 @@ const ChangePasswordForm = ({ toggleModal }) => {
 
       Toast.fire({
         icon: "error",
-        title: `Cannot Login: ${err.response.data.message}`,
+        title: `Cannot Change Password: ${err.response.data.message}`,
       });
     }
   };

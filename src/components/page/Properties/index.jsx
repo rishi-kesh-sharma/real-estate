@@ -17,12 +17,11 @@ const Properties = ({ properties }) => {
 
   return (
     <Section className="pt-[1rem] flex flex-col gap-[2rem] mb-[2rem]">
-      <Container className="flex items-start flex-col ">
+      <Container className="flex items-start ">
         <PropertesSideBar />
-        <PropertiesContainer />
+        <PropertiesContainer properties={properties} />
       </Container>
     </Section>
   );
 };
-
 export default Properties;

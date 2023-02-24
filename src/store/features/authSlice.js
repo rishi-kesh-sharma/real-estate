@@ -12,7 +12,6 @@ export const login = createAsyncThunk("login", async (data, thunkApi) => {
   try {
     const res = await loginUser(data);
     return res.data.data;
-    
   } catch (err) {
     let error = err;
     if (!error.response) {
@@ -49,8 +48,8 @@ export const authSlice = createSlice({
       state = { ...state, isLoading: true };
     });
     builder.addCase(login.fulfilled, (state, action) => {
-     state.isLogged=true;
-     state.user=action.payload
+      state.isLogged = true;
+      state.user = action.payload;
     });
     builder.addCase(login.rejected, (state, action) => {
       if (action.payload) {

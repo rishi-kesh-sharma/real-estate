@@ -5,9 +5,18 @@ import ProfileDropDown from "@/components/utils/ProfileDropDown";
 import AuthButton from "@/components/utils/AuthButton";
 import { profileLinks } from "@/data/Data";
 
-const RightNavLinks = ({ links, handleNavLinksClick, isAuthenticated }) => {
+const RightNavLinks = ({
+  links,
+  handleNavLinksClick,
+  isAuthenticated,
+  profile,
+}) => {
   return isAuthenticated ? (
-    <ProfileDropDown profileLinks={profileLinks} isAuthenticated />
+    <ProfileDropDown
+      profileLinks={profileLinks}
+      isAuthenticated
+      profile={profile}
+    />
   ) : (
     <AuthButton />
   );

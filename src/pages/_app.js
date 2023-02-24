@@ -17,11 +17,10 @@ import { getProfile } from "@/apiCalls/profile.js";
 export const appContext = createContext(null);
 export const profileContext = createContext(null);
 function App({ Component, pageProps, data }) {
-  const getProfileData = async () => {
-    const res = await getProfile(localStorage.getItem("token"));
-    console.log("hello from app comp");
-    console.log(res.data);
-  };
+  // const getProfileData = async () => {
+  //   const res = await getProfile(localStorage.getItem("token"));
+  // };
+
   const router = useRouter();
   const [breadcrumbs, setBreadcrumbs] = useState();
   const [profileData, setProfileData] = useState(data);
@@ -83,18 +82,32 @@ export default App;
 App.getInitialProps = async (context) => {
   const { ctx } = context;
   const appProps = await NextApp.getInitialProps(context);
-  let data = { isAuthenticated: false, profile: {} };
-  const token = parseCookies(ctx);
-  if (!token) {
-    return { ...appProps, data };
-  }
-  try {
-    const response = await getProfile(token);
+  let data = {
+    isAuthenticated: true,
+    profile: {
+      name: "Rishikesh Sharma",
+      email: "rishi",
+      about_me: "this is rishikesh sharma",
+      dob: "2000-07-09",
+      profile_image:
+        "https://xsgames.co/randomusers/assets/avatars/male/74.jpg",
+      profile: { mobile: "9877543210" },
+    },
+  };
 
-    data = { profile: response.data.data, isAuthenticated: true };
-    return { ...appProps, data };
-  } catch (err) {
-    data = { isAuthenticated: false, profile: {} };
-    return { ...appProps, data };
-  }
+  return { ...appProps, data };
+  // let data = { isAuthenticated: false, profile: {} };
+  // const token = parseCookies(ctx);
+  // if (!token) {
+  //   return { ...appProps, data };
+  // }
+  // try {
+  //   const response = await getProfile(token);
+
+  //   data = { profile: response.data.data, isAuthenticated: true };
+  //   return { ...appProps, data };
+  // } catch (err) {
+  //   data = { isAuthenticated: false, profile: {} };
+  //   return { ...appProps, data };
+  // }
 };

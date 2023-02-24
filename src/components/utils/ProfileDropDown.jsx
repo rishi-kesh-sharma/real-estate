@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 import { logoutFunctionality } from ".";
 
-const ProfileDropDown = ({ profileLinks, isAuthenticated }) => {
+const ProfileDropDown = ({ profileLinks, isAuthenticated, profile }) => {
   const [cookie, setCookie, removeCookie] = useCookies(["token"]);
   const router = useRouter();
 
@@ -19,7 +19,7 @@ const ProfileDropDown = ({ profileLinks, isAuthenticated }) => {
       <div
         className="flex items-center justify-center gap-[0.4rem]"
         onClick={handleClick}>
-        <ProfileAvatar />
+        <ProfileAvatar profile={profile} />
         <svg
           sidebar-toggle-item
           class="w-6 h-6"

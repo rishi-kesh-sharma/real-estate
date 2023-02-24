@@ -4,9 +4,9 @@ import { RxAvatar } from "react-icons/rx";
 import { person1 } from "public/assets/images/people";
 const ProfileAvatar = ({ profile }) => {
   return (
-    <div className="  flex items-center gap-[0.6rem] ">
-      <Image
-        src={person1}
+    <div className="flex items-center gap-[0.6rem] ">
+      <img
+        src={profile?.profile_image}
         width={100}
         height={100}
         id="avatarButton"
@@ -16,7 +16,7 @@ const ProfileAvatar = ({ profile }) => {
         className="w-10 h-10 rounded-full cursor-pointer text-[4rem]"
         alt="User dropdown"
       />
-      <p className="text-2xl text-gray-600"> {profile?.name}</p>
+      {/* <p className="text-2xl text-gray-600"> {profile?.name}</p> */}
     </div>
   );
 };

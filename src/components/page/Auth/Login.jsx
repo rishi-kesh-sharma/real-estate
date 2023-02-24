@@ -40,12 +40,13 @@ const LoginForm = ({ styles }) => {
         title: "Signed in successfully",
       });
 
-      setCookie("token", token, {
-        path: "/",
-        maxAge: 3600, // Expires after 1hr
-        sameSite: true,
-      });
-      setTokenToLocalStorage(localStorage, token);
+      // setCookie("token", token, {
+      //   path: "/",
+      //   maxAge: 3600, // Expires after 1hr
+      //   sameSite: true,
+      // });
+      // setTokenToLocalStorage(localStorage, token);
+      // localStorage.setItem("token", token);
 
       // REDIRECTING TO HOME
       // router.push("/");
