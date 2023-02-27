@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { Inter } from "@next/font/google";
 // import styles from "@/styles/Home.module.css";
 import UserDashboardLayout from "@/components/layouts/UserDashboardLayout";
@@ -12,7 +13,7 @@ import Add from "@/components/page/dashboard/Properties/Add";
 import MultiStepForm from "@/components/utils/MultiStepForm";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function UpdateProfile() {
+export default function AddProperty() {
   return (
     <>
       <Head>

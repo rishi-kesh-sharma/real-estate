@@ -6,13 +6,13 @@ import styles from "./index.module.css";
 
 const About = () => {
   return (
-    <section className={`${styles.about}  py-[1rem] flex flex-col gap-[3rem]`}>
+    <section className={`${styles.about}   flex flex-col gap-[3rem] `}>
       <Back
         name="About Us"
         title="About Us - Who We Are?"
         cover={featureImage.src}
       />
-      <div className="container flex flex-col gap-[1.5rem]">
+      <div className="container flex flex-col gap-[1.5rem] w-full max-w-[400px] mx-auto">
         <div
           className={`${styles.left} ${styles.row} left row flex flex-col gap-[0.3rem]`}>
           <Heading
@@ -32,12 +32,16 @@ const About = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip.
           </p>
-          <button className=" font-semibold py-3 px-3 max-w-[150px]">
+          <button className="  py-3 px-3 max-w-[150px] bg-green-500 text-gray-200 rounded-lg font-normal ">
             More About Us
           </button>
         </div>
-        <div className="">
-          <img src="./immio.jpg" alt="" />
+        <div className="w-full ">
+          <img
+            src="./immio.jpg"
+            alt=""
+            className="w-full max-h-[400px] object-cover"
+          />
         </div>
       </div>
     </section>

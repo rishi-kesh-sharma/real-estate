@@ -40,7 +40,7 @@ const UserDashboardSidebar = (
         {/* <!-- user icon --> */}
         <div className="flex items-center gap-1">
           <p className="text-xs">
-            Hello, {profileData?.profile?.name || "rishi"}
+            {/* Hello, {profileData?.profile?.name || "rishi"} */}
           </p>
 
           {/* <h2 className="font-medium capitalize text-lg">{user.name}</h2> */}

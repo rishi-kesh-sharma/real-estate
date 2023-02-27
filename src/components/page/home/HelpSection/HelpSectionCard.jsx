@@ -13,7 +13,9 @@ const HelpSectionCard = ({ item }) => {
       <CardContent className="justify-center items-center gap-[0.5rem]">
         <h2 className="text-gray-700 text-lg text-center ">{item.title}</h2>
         <p className="text-gray-500 text-center text-sm">{item.subtitle}</p>
-        <button className="px-[1rem] py-[0.5rem]">{item.buttonText}</button>
+        <button className="px-[1rem] py-[0.5rem] bg-green-500 rounded-lg text-gray-200">
+          {item.buttonText}
+        </button>
       </CardContent>
     </Card>
   );

@@ -5,7 +5,7 @@ import CardContainer from "@/components/utils/CardContainer";
 
 export default function blog(props) {
   return (
-    <div className="pt-[6rem] bg-gray-100  text-center text-green-700 text-[2.5rem] mb-[2rem]">
+    <div className="pt-[2rem] bg-gray-100  text-center text-green-700 text-[2.5rem] mb-[2rem]">
       <h1>Our Blogs</h1>
       {blogs && (
         <div className=" p-[2rem] container ">

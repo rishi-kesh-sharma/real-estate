@@ -4,18 +4,20 @@ import React from "react";
 const LeftNavLinks = ({ links, handleNavLinksClick }) => {
   return (
     <>
-      <ul class="  flex">
+      <ul class="flex gap-[1rem]">
         {links?.map((item) => {
           return !item.dropItems ? (
             <li className="mt-0 relative" onClick={handleNavLinksClick}>
               <Link
                 href="#"
-                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                class="h-full  flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                 <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
               </Link>
             </li>
           ) : (
-            <li className="relative" onClick={handleNavLinksClick}>
+            <li
+              className="relative px-[0.3rem] py-[0.3rem]  hover:bg-gray-100 rounded-lg"
+              onClick={handleNavLinksClick}>
               <button
                 onClick={(e) => {
                   e.currentTarget.parentNode.lastChild.classList.toggle(
@@ -45,7 +47,7 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
               </button>
               <ul
                 id="dropdown-example"
-                class="hidden absolute bg-white left-0 w-[200px] ">
+                class="hidden absolute bg-white left-0 w-[200px] top-[2.5rem] rounded-lg ">
                 {item.dropItems.map((dropItem) => {
                   return (
                     <li onClick={handleNavLinksClick} className="border">

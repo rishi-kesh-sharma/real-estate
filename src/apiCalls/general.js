@@ -1,14 +1,18 @@
 import axios from "axios";
-const token = "94|mZR20XQaqlWuxOJm4Z78PHZWliQOix6T2vnM7d3k";
+const token = "96|K4NeZDz1hvx9F3IxYnWl1w1AMIA5Z2DkDQCPjRhO";
 import { baseUrl } from "./constants";
 
 export const getProvinces = async () => {
-  const res = await axios.get(`${baseUrl}/province-lists`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return res;
+  try {
+    const res = await axios.get(`${baseUrl}/province-lists`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
 };
 export const getDistricts = async (province_id) => {
   const res = await axios.get(

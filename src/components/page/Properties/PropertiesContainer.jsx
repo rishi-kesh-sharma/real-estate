@@ -7,11 +7,14 @@ import PropertyCard from "./PropertyCard";
 const PropertiesContainer = () => {
   const router = useRouter();
   return (
-    <div>
-      <Text fontSize="2xl" p="4" fontWeight="bold">
+    <div className="">
+      <Text
+        fontSize="2xl"
+        fontWeight="semibold"
+        className="text-[1.6rem] mb-[2rem]">
         Properties {router.query.purpose}
       </Text>
-      <Flex flexWrap="wrap" className="items-center justify-center gap-[1rem]">
+      <Flex flexWrap="wrap" className="items-center justify-start gap-[1rem]">
         {list.map((property) => (
           <PropertyCard property={property} key={property.id} />
         ))}

@@ -6,22 +6,18 @@ export default function TabsComponent({
   setOpenTab,
   tabItems,
 }) {
-  console.log(openTab);
   return (
-    <div className="flex flex-col items-center justify-start flex-wrap w-full  max-w-xl overflow-hidden">
-      <ul className="grid grid-cols-1  gap-[1rem]">
+    <div className="flex flex-row items-center justify-start flex-wrap w-full  max-w-xl overflow-hidden ">
+      <ul className="flex flex-wrap  gap-[1rem]">
         {tabBtns.map((tabBtn) => {
           return (
-            <li key={tabBtn.key}>
+            <li key={tabBtn.key} className="cursor-pointer">
               <p
-                href="#"
-                onClick={() =>
-                  setOpenTab((prev) => {
-                    return tabBtn.key;
-                  })
-                }
+                onClick={() => {
+                  setOpenTab(tabBtn.key);
+                }}
                 className={` ${
-                  openTab === tabBtn.key
+                  openTab == tabBtn.key
                     ? "bg-green-600 text-white"
                     : "bg-green-400 text-gray-300"
                 } inline-block px-4 py-2 text-gray-200 bg-white rounded shadow`}>
@@ -31,12 +27,14 @@ export default function TabsComponent({
           );
         })}
       </ul>
-      <div className="p-3 mt-6 bg-white border">
+      <div className="p-3 mt-6 bg-white border w-full">
         {tabItems.map((tabItem) => {
           return (
-            <div className={openTab === tabItem.id ? "block" : "hidden"}>
-              {" "}
-              {tabItem.component}
+            <div
+              className={`${
+                openTab === tabItem.id ? "block" : "hidden"
+              } flex flex-wrap gap-[1rem]`}>
+              {tabItem.components.map((comp) => comp)}
             </div>
           );
         })}

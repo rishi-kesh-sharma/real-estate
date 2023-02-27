@@ -27,10 +27,13 @@ const Contact = () => {
               <input type="email" placeholder="Email" required />
             </div>
             <input type="text" placeholder="Subject" required />
-            <textarea cols="30" rows="5"></textarea>
+            <textarea
+              cols="30"
+              rows="5"
+              className="px-[1rem] text-gray-600"></textarea>
             <button
               type="submit"
-              className="bg-green-500 px-[1rem] py-[0.5rem] font-light">
+              className="bg-green-500 px-[1rem] py-[0.5rem] font-light text-gray-200 rounded-lg">
               Submit Request
             </button>
           </form>

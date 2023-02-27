@@ -48,7 +48,7 @@ const Slider = () => {
     ],
   };
   return (
-    <div className="my-[1rem] py-[1rem] flex flex-wrap gap-[1rem] items-center justify-center">
+    <div className="my-[1rem] py-[1rem] flex flex-wrap gap-[1.8rem] items-center justify-center">
       {/* <CustomSlider settings={settings}> */}{" "}
       {list.map((featured, index) => {
         return <FeaturedPropertyCard featured={featured} key={index} />;

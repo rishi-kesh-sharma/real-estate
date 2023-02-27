@@ -22,7 +22,7 @@ const ExploreHomesCard = ({ property, key }) => {
         <p className="absolute z-[25] top-[1rem] left-[1rem] text-white font-semibold text-lg">
           {property.location}
         </p>
-        <button className="absolute z-[25] flex gap-[0.5rem] items-center justify-center h-[2.4rem] w-[8rem] font-light text-sm m-0 p-0 left-[1rem] bottom-[3rem]">
+        <button className=" bg-green-600 rounded-lg text-gray-200 absolute z-[25] flex gap-[0.5rem] items-center justify-center h-[2.4rem] w-[8rem] font-light text-sm m-0 p-0 left-[1rem] bottom-[3rem]">
           View Homes
           <AiOutlineRight />
         </button>

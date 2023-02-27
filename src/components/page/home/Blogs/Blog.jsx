@@ -10,15 +10,15 @@ export default function Blog({ blog, aspect, preloadImage }) {
   const imageProps = blog?.mainImage ? blog.mainImage : null;
   const AuthorimageProps = blog?.author?.image ? blog.author.image : null;
   return (
-    <Card className="cursor-pointer bg-white shadow gap-[0.5rem] md:w-[330px]">
-      <CardImage className="  ">
+    <Card className="cursor-pointer bg-white shadow-lg rounded-lg gap-[0.5rem] md:w-[330px]">
+      <CardImage className=" rounded-lg ">
         <Link href={`/blog/${blog.slug.current}`}>
           {imageProps ? (
             <Image
               src={imageProps.src}
               width="290"
               height={400}
-              className="transition-all"
+              className="transition-all rounded-lg"
             />
           ) : (
             <span className="absolute w-16 h-16 text-gray-200 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -43,7 +43,9 @@ export default function Blog({ blog, aspect, preloadImage }) {
         </div>
         <h2 className="text-[1rem] font-semibold  dark:text-white">
           <Link href={`/blog/${blog.slug.current}`}>
-            <span className="text-gray-600">{blog.title}</span>
+            <span className="text-gray-700 font-light text-[1rem]">
+              {blog.title}
+            </span>
           </Link>
         </h2>
 

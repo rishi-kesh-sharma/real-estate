@@ -13,9 +13,9 @@ const FeaturedPropertyCard = ({ featured }) => {
     setIsLiked(!isLiked);
   };
   return (
-    <Card className="w-[175px] bg-white items-start p-[0.4rem] xs:w-[250px] md:w-[280px] lg:w-[380px] ">
-      <CardImage className="rounded-lg h-[100px] xs:h-[180px] lg:h-[250px]">
-        <Image src={image} />
+    <Card className="w-[175px] rounded-lg shadow-lg bg-white items-start p-[0.4rem] xs:w-[250px] md:w-[280px] lg:w-[340px] ">
+      <CardImage className="rounded-lg h-[100px] xs:h-[180px] lg:h-[200px] w-full">
+        <Image src={image} className="rounded-lg" />
       </CardImage>
       <CardContent className={`gap-[0.2rem] w-[100%]`}>
         <div className={`flex items-start justify-between category`}>

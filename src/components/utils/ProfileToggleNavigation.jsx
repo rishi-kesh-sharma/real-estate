@@ -12,7 +12,7 @@ const ProfileToggleNavigation = ({ profileLinks }) => {
   };
   return (
     <div>
-      <ul class="space-y-2 mt-[1rem]">
+      <ul class="space-y-2 mt-[1rem] border border-t-gray-200  border-b-gray-border-t-gray-200 border-solid px-[2rem]">
         {profileLinks?.map((item) => {
           return (
             <li className="border-b-[1px] border-b-gray-300">

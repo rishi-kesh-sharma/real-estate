@@ -46,37 +46,18 @@ export default function PropertesSideBar() {
       bg="gray.100"
       justifyContent=""
       flexWrap="wrap"
-      className="py-[1rem]  gap-[1.5rem] justify-start flex w-full">
+      className="py-[2rem]   gap-[1.5rem] justify-start flex w-[90%] flex-col  shadow-lg px-[1rem]">
       {/* CLEAR ALL OPTION */}
 
       {/* FILTERS */}
       <Filters />
-      {/* {filters?.map((filter) => (
-          <Box
-            key={filter.queryName}
-            className="border max-w-[200px] rounded-sm px-2 py-1">
-            <Select
-              onChange={(e) =>
-                searchProperties({ [filter.queryName]: e.target.value })
-              }
-              placeholder={filter.placeholder}
-              w="100%"
-              p="2">
-              {filter?.items?.map((item) => (
-                <option value={item.value} key={item.value}>
-                  {item.name}
-                </option>
-              ))}
-            </Select>
-          </Box>
-        ))} */}
       <Flex flexDir="column" className="gap-[0.4rem]">
         <Button
           onClick={() => setShowLocations(!showLocations)}
           border="1px"
           borderColor="gray.200"
           marginTop="2"
-          className="border border-solid  border-gray-600 text-gray bg-green-700">
+          className="border border-solid  border-gray-600 text-gray bg-green-700 py-[0.8rem] text-gray-200">
           Search Location
         </Button>
         {showLocations && (

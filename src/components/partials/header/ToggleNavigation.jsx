@@ -26,10 +26,10 @@ const ToggleNavigation = ({
     setOpenProfileLinks(!openProfileLinks);
   };
   return (
-    <div className=" fixed left-0 z-40  right-0 top-0 h-[100vh]">
+    <div className=" fixed left-0 z-40  right-0 top-0 h-[100vh] shadow-2xl bg-[rgba(0,0,0,0.6)] ">
       <aside
         id="sidebar-multi-level-sidebar"
-        class="fixed top-0 right-0 z-40 w-64 h-screen "
+        class="fixed top-0 right-0 z-40 w-[50vw] h-screen max-w-[300px] "
         aria-label="Sidebar">
         {show && (
           <RxCross1
@@ -37,10 +37,10 @@ const ToggleNavigation = ({
             onClick={(e) => setShow(false)}
           />
         )}
-        <div class="h-full   px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 pt-[6rem]">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 pt-[6rem]">
           {isAuthenticated ? (
             <div
-              className="flex items-center justify-start gap-[1rem]"
+              className="flex items-center justify-start gap-[1rem] cursor-pointer"
               onClick={handleProfileAvatarClick}>
               <div className="ml-[1rem]">
                 <ProfileAvatar profile={profile} />
@@ -48,7 +48,7 @@ const ToggleNavigation = ({
               <span>
                 <svg
                   sidebar-toggle-item
-                  className="w-6 h-6 text-gray-400"
+                  className="w-6 h-6 text-gray-400 cursor-pointer"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg">
@@ -65,12 +65,13 @@ const ToggleNavigation = ({
           {openProfileLinks && (
             <ProfileToggleNavigation profileLinks={profileLinks} />
           )}
-          <ul class="space-y-2 mt-[1rem]">
+          <ul class="space-y-2 mt-[1rem] ">
             {links?.map((item) => {
               return !item.dropItems ? (
                 <li
                   onClick={handleNavLinksClick}
-                  className="border-b-[1px] border-b-gray-300">
+                  className="border-b-[1px] w-full hover:bg-gray-100 border-b-gray-300 flex items-center px-[0.6rem] ">
+                  {item.icon && item.icon}
                   {item.path ? (
                     <Link
                       href={item?.path}
@@ -99,8 +100,9 @@ const ToggleNavigation = ({
                     class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                     aria-controls="dropdown-example"
                     data-collapse-toggle="dropdown-example">
+                    {item.icon && item.icon}
                     <span
-                      class="flex-1 ml-3 text-left whitespace-nowrap text-gray-600"
+                      class="flex-1 py-[0.3] px-[0.5rem] ml-3 text-left whitespace-nowrap text-gray-600"
                       sidebar-toggle-item>
                       {item?.name}
                     </span>

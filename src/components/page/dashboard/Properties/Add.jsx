@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
+
+const CustomStepper = dynamic(() => import("../../../utils/CustomStepper"), {
+  ssr: false,
+});
 import {
   Heading,
   Stack,
@@ -38,17 +43,21 @@ import { useForm } from "react-hook-form";
 import Compressor from "compressorjs";
 // import Navbar from "@/components/layout/navbar";
 import AlertPop from "@/components/utils/FormAlert";
-// import { countryOptions } from "@/assets/countries";
 import {
-  countryOptions,
-  categoryOptions,
-  districtOptions,
-  provinceOptions,
-  municipalityOptions,
+  categoryOptions as categoryOptionsFromData,
+  districtOptions as districtOptionsFromData,
+  provinceOptions as provinceOptionsFromData,
+  municipalityOptions as municipalityOptionsFromData,
+  areaUnitOptions as areaUnitsOptionFromData,
+  roadTypesOptions as roadTypesOptionsFromData,
+  facingOptions as facingOptionsFromData,
+  featuresOptions as featuresOptionsFromData,
+  validationRegex,
 } from "@/data/Data";
+const { phonePattern, emailPattern, numericPattern } = validationRegex;
 import Section from "@/components/utils/Section";
 import Container from "@/components/utils/Container";
-import { Stepper } from "@progress/kendo-react-layout";
+// import { Stepper } from "@progress/kendo-react-layout";
 import {
   getAreaUnits,
   getDistricts,
@@ -58,30 +67,90 @@ import {
   getRoadTypes,
 } from "@/apiCalls/general";
 import PropertyAreaTabs from "./PropertyAreaTabs";
+// import TinyMceEditor from "@/components/utils/TinyMceEditor";
+import Page0 from "./Page0";
+import Page2 from "./Page2";
+import Page1 from "./Page1";
+import Page3 from "./Page3";
+import Page5 from "./Page5";
+import Page4 from "./Page4";
+import Page6 from "./page6";
+import Page7 from "./Page7";
+import { BiUser } from "react-icons/bi";
+// import CustomStepper from "@/components/utils/CustomStepper";
 // import { categoryOptions } from "@/assets/categories";
 // import
 // import UploadImage from "@/lib/firebase/estate/uploadImage";
 
 export default function Add() {
+  // image input ref
   const imageInputRef = createRef();
 
+  // use toast hook
   const toast = useToast();
 
-  const [provinceOptions, setProvinceOptions] = useState([]);
-  const [districtOptions, setdistrictOptions] = useState([]);
-  const [municipalityOptions, setMunicipalityOptions] = useState([]);
-  const [propertyCategoriesOptions, setPropertyCategoriesOptions] = useState(
-    []
-  );
-  const [areaUnitsOptions, setAreaUnitsOptions] = useState([]);
-  const [roadTypesOptions, setRoadTypesOptions] = useState([]);
-  const [facingOptions, setFacingOptions] = useState([
-    { key: "south", flag: "south", value: "south", text: "south" },
-    { key: "north", flag: "north", value: "north", text: "north" },
-    { key: "east", flag: "east", value: "east", text: "east" },
-    { key: "west", flag: "west", value: "west", text: "west" },
+  // use form hook
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    trigger,
+    formState: { errors, isValid },
+  } = useForm({ mode: "all" });
+
+  // page state
+  const [page, setPage] = useState(0);
+
+  // property image state
+  const [image, setImage] = useState();
+
+  // preview state
+  const [preview, setPreviewImg] = useState();
+
+  [{ label: "Step 1" }, { label: "Step 2" }];
+  // steps state
+  const [steps, setSteps] = React.useState([
+    {
+      label: "Basic Information",
+      isValid: undefined,
+      // icon: "k-i-cart",
+    },
+    {
+      label: "Personal Details",
+      isValid: undefined,
+    },
+    {
+      label: "Payment Details",
+      isValid: undefined,
+    },
   ]);
 
+  // data states
+  const [provinceOptions, setProvinceOptions] = useState(
+    provinceOptionsFromData
+  );
+  const [districtOptions, setdistrictOptions] = useState(
+    districtOptionsFromData
+  );
+  const [municipalityOptions, setMunicipalityOptions] = useState(
+    municipalityOptionsFromData
+  );
+  const [propertyCategoriesOptions, setPropertyCategoriesOptions] = useState(
+    categoryOptionsFromData
+  );
+  const [areaUnitsOptions, setAreaUnitsOptions] = useState(
+    areaUnitsOptionFromData
+  );
+
+  const [roadTypesOptions, setRoadTypesOptions] = useState(
+    roadTypesOptionsFromData
+  );
+  const [facingOptions, setFacingOptions] = useState(facingOptionsFromData);
+  const [featuresOptions, setFeaturesOptions] = useState(
+    featuresOptionsFromData
+  );
+
+  // function to fetch general data
   const getApiData = async () => {
     try {
       let provinces = await getProvinces();
@@ -141,11 +210,6 @@ export default function Add() {
       console.log(err.response);
     }
   };
-
-  useEffect(() => {
-    getApiData();
-  });
-
   //handle province option change
   const handleProvinceChange = async (e) => {
     const selectedId = e.target[e.target.options.selectedIndex].id;
@@ -167,6 +231,7 @@ export default function Add() {
       console.log(err.response);
     }
   };
+
   //handle district option change
   const handleDistrictChange = async (e) => {
     const selectedId = e.target[e.target.options.selectedIndex].id;
@@ -190,40 +255,45 @@ export default function Add() {
     }
   };
 
-  const {
-    register,
-    handleSubmit,
-    getValues,
-    formState: { errors, isValid },
-  } = useForm({ mode: "all" });
+  // creating units array
+  let unitsArray = areaUnitsOptions?.map((item) => {
+    return item.text.split("-");
+  });
 
-  const [page, setPage] = useState(0);
+  // getting tab items components from units Array
+  let tabItems = unitsArray?.map((units, index) => {
+    const components = units.map((unit) => {
+      return (
+        <FormControl className="w-[8rem] flex flex-wrap">
+          <FormLabel className="text-gray-600 text-[1rem]">{unit}</FormLabel>
+          <NumberInput>
+            <NumberInputField
+              className="outline  outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
+              variant="flushed"
+              placeholder={unit}
+              name={unit}
+              {...register(unit, {
+                // required: `please enter metric in ${unit}`,
+              })}
+            />
+          </NumberInput>
+          {errors[unit] && <AlertPop title={errors[unit].message} />}
+        </FormControl>
+      );
+    });
+    return {
+      id: index + 1,
+      components,
+    };
+  });
 
-  const [image, setImage] = useState();
+  // useEffect for fetching data
 
-  const [preview, setPreviewImg] = useState();
-  const [steps, setSteps] = React.useState([
-    {
-      label: "Account Details",
-      isValid: undefined,
-    },
-    {
-      label: "Personal Details",
-      isValid: undefined,
-    },
-    {
-      label: "Payment Details",
-      isValid: undefined,
-    },
-  ]);
+  useEffect(() => {
+    getApiData();
+  }, []);
 
-  const numericPattern = /^-?\d*\.?\d*$/;
-
-  const emailPattern =
-    /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i;
-
-  const phonePattern = /^\+(?:[0-9] ?){8,14}[0-9]$/;
-
+  // handle property image change
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
       const image = e.target.files[0];
@@ -237,16 +307,24 @@ export default function Add() {
     }
   };
 
-  function goNextPage() {
-    if (page === 6) return;
-    setPage((page) => page + 1);
+  // handle goto next page
+  async function goNextPage() {
+    const result = await trigger();
+    console.log(result);
+    if (page === 7) return;
+
+    if (result) {
+      setPage((page) => page + 1);
+    }
   }
 
+  // handle go back
   function goBack() {
     if (page === 0) return;
     setPage((page) => page - 1);
   }
 
+  // form submit handler
   const onSubmit = async (data) => {
     if (!image) {
       toast({
@@ -268,6 +346,9 @@ export default function Add() {
     // console.log(estateData)
   };
 
+  const handleStepsChange = (e) => {};
+
+  // JSX
   return (
     <>
       {/* <Navbar> */}
@@ -283,579 +364,82 @@ export default function Add() {
           boxShadow="lg"
           className="py-[1rem]">
           {/* Multi-step form */}
-          {/* <Stepper value={page} items={steps} className="flex bg-red-500" /> */}
+          {/* <Stepper
+            value={page}
+            items={steps}
+            handleChange={handleStepsChange}
+            className="flex  gap-[2rem]"
+          /> */}
+          <CustomStepper steps={steps} activeStep={page} setPage={setPage} />
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <Stack spacing={20} width="100%">
               {/* Initial Page(Step) */}
-              {/* {page === 0 && (
-                <>
-                  <Heading className="text-[1.5rem]">Property Overview</Heading>
-                  <FormControl>
-                    <FormLabel className="text-gray-600 text-[1rem]">
-                      Title
-                    </FormLabel>
-                    <Input
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="flushed"
-                      placeholder="ex: Modern Apartment Downtown..."
-                      name="title"
-                      {...register("title", {
-                        required: "Please enter a title",
-                        minLength: {
-                          value: 8,
-                          message: "Title is too short",
-                        },
-                      })}
-                    />
-                    {errors.title && <AlertPop title={errors.title.message} />}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>For</FormLabel>
-                    <Select
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      placeholder="Select Purpose"
-                      name="purpose"
-                      {...register("purpose", {
-                        required: "Select Purpose",
-                      })}>
-                      {[
-                        {
-                          key: "rent",
-                          text: "Rent",
-                          value: "rent",
-                          flag: "rent",
-                        },
-                        {
-                          key: "Sale",
-                          text: "Sale",
-                          value: "Sale",
-                          flag: "Sale",
-                        },
-                      ].map((purpose) => (
-                        <option key={purpose.key} value={purpose.value}>
-                          {purpose.text}
-                        </option>
-                      ))}
-                    </Select>
-                    {errors.purpose && (
-                      <AlertPop title={errors.purpose.message} />
-                    )}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Category</FormLabel>
-                    <Select
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      placeholder="Select category"
-                      name="category"
-                      {...register("category", {
-                        required: "Select Category",
-                      })}>
-                      {propertyCategoriesOptions.map((category) => (
-                        <option key={category.key} value={category.value}>
-                          {category.text}
-                        </option>
-                      ))}
-                    </Select>
-                    {errors.category && (
-                      <AlertPop title={errors.category.message} />
-                    )}
-                  </FormControl>
-
-                  {/* <FormControl>
-                    <FormLabel>Price</FormLabel>
-                    <InputGroup>
-                      <InputLeftElement
-                        pointerEvents="none"
-                        color="gray.300"
-                        fontSize="1.2em"></InputLeftElement>
-                      <Input
-                        className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                        variant="flushed"
-                        name="price"
-                        type="number"
-                        {...register("price", {
-                          required: "Please enter a price",
-                          min: {
-                            value: 3,
-                            message: "Price too short or invalid",
-                          },
-                          pattern: {
-                            value: numericPattern,
-                            message: "Invalid price format",
-                          },
-                          valueAsNumber: true,
-                        })}
-                      />
-                    </InputGroup>
-                    {errors.price && <AlertPop title={errors.price.message} />}
-                  </FormControl> */}
-              {/* </>
-              )} */}
-
-              {/* Page 1 */}
-              {/* {page === 1 && (
-                <>
-                  <Heading>Address Information</Heading>
-
-                  <FormControl>
-                    <FormLabel>State/Province</FormLabel>
-                    <Select
-                      // onClick={handleProvinceChange}
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      placeholder="Select Province/State"
-                      name="province"
-                      {...register("province", {
-                        required: "Select Province/State",
-                      })}
-                      onChange={handleProvinceChange}>
-                      {provinceOptions.map((province) => (
-                        <option
-                          key={province.key}
-                          value={province.value}
-                          id={province.key}>
-                          {province.text}
-                        </option>
-                      ))}
-                    </Select>
-                    {errors.province && (
-                      <AlertPop title={errors.province.message} />
-                    )}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>District</FormLabel>
-                    <Select
-                      disabled={getValues("province") ? false : true}
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      placeholder="Select District"
-                      name="district"
-                      {...register("district", {
-                        required: "Select District",
-                      })}
-                      onChange={handleDistrictChange}>
-                      {districtOptions.map((district) => (
-                        <option
-                          key={district.key}
-                          value={district.value}
-                          id={district.key}>
-                          {district.text}
-                        </option>
-                      ))}
-                    </Select>
-                    {errors.district && (
-                      <AlertPop title={errors.district.message} />
-                    )}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Municipality</FormLabel>
-                    <Select
-                      disabled={
-                        getValues("province") && getValues("district")
-                          ? false
-                          : true
-                      }
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      placeholder="Select Municipality"
-                      name="municipality"
-                      {...register("municipality", {
-                        required: "Select Municipality",
-                      })}>
-                      {municipalityOptions.map((municipality) => (
-                        <option
-                          key={municipality.key}
-                          value={municipality.value}
-                          id={municipality.key}>
-                          {municipality.text}
-                        </option>
-                      ))}
-                    </Select>
-                    {errors.municipality && (
-                      <AlertPop title={errors.municipality.message} />
-                    )}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Address</FormLabel>
-                    <Input
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="flushed"
-                      name="address"
-                      {...register("address", {
-                        required: "Please enter an address",
-                        minLength: {
-                          value: 8,
-                          message: "Address name too short",
-                        },
-                      })}
-                    />
-                    {errors.address && (
-                      <AlertPop title={errors.address.message} />
-                    )}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Postal Code</FormLabel>
-                    <Input
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="flushed"
-                      name="postal_code"
-                      {...register("postal_code", {
-                        required: "Enter a valid postal code",
-                        minLength: {
-                          value: 4,
-                          message: "Enter a valid postal code",
-                        },
-                      })}
-                    />
-                    {errors.postal_code && (
-                      <AlertPop title={errors.postal_code.message} />
-                    )}
-                  </FormControl>
-                  <FormControl className="overflow-hidden">
-                    {getValues("map") && (
-                      <iframe
-                        src={
-                          "https://www.google.com/maps/place/%E0%A4%95%E0%A4%BE%E0%A4%A0%E0%A4%AE%E0%A4%BE%E0%A4%A1%E0%A5%8C%E0%A4%81+44600/@27.7090947,85.2560929,12z/data=!3m1!4b1!4m5!3m4!1s0x39eb198a307baabf:0xb5137c1bf18db1ea!8m2!3d27.7172408!4d85.3239655"
-                        }
-                        height="200"
-                        width="300"
-                        title="Google Map"></iframe>
-                    )}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Map</FormLabel>
-                    <Input
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="flushed"
-                      name="map"
-                      {...register("map", {
-                        required: "Enter a valid postal code",
-                        minLength: {
-                          value: 4,
-                          message: "Enter a valid postal code",
-                        },
-                      })}
-                    />
-                    {errors.map && <AlertPop title={errors.map.message} />}
-                  </FormControl>
-                </>
-              )} */}
-
-              {/* Page 2 */}
               {page === 0 && (
-                <>
-                  <Heading>Property Highlights</Heading>
-                  <FormControl>
-                    <FormLabel>Facing</FormLabel>
-                    <Select
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      placeholder="Select a Facing"
-                      name="facing"
-                      {...register("facing", {
-                        required: "Select a facing",
-                      })}>
-                      {facingOptions.map((facing) => (
-                        <option key={facing.key} value={facing.value}>
-                          {facing.text}
-                        </option>
-                      ))}
-                    </Select>
-                    {errors.facing && (
-                      <AlertPop title={errors.facing.message} />
-                    )}
-                  </FormControl>
-                  {/* <FormControl>
-                    <FormLabel>Property Area</FormLabel>
-                    <Select
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      placeholder="Select Property Area"
-                      name="area"
-                      {...register("area", {
-                        required: "Select a area",
-                      })}>
-                   
-                      {areaUnitsOptions.map((area) => (
-                        <option key={area.key} value={area.value}>
-                          {area.text}
-                        </option>
-                      ))}
-                    </Select>
-                    {errors.category && (
-                      <AlertPop title={errors.category.message} />
-                    )}
-                  </FormControl> */}
-
-                  <PropertyAreaTabs
-                    tabBtns={areaUnitsOptions}
-                    tabItems={[
-                      { component: "", id: 1 },
-                      { component: "", id: 2 },
-                      { component: "", id: 3 },
-                      { component: "", id: 4 },
-                      { component: "", id: 5 },
-                    ]}
-                  />
-                  <FormControl>
-                    <FormLabel>Bedrooms</FormLabel>
-                    <NumberInput
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="flushed"
-                      name="bedrooms"
-                      min={0}>
-                      <NumberInputField
-                        // className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                        {...register("bedrooms", {
-                          required: "Specify the number of bedrooms",
-                          valueAsNumber: true,
-                        })}
-                      />
-                      <NumberInputStepper>
-                        <NumberIncrementStepper />
-                        <NumberDecrementStepper />
-                      </NumberInputStepper>
-                    </NumberInput>
-                    {errors.bedrooms && (
-                      <AlertPop title={errors.bedrooms.message} />
-                    )}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Baths</FormLabel>
-                    <NumberInput
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="flushed"
-                      name="baths"
-                      min={0}>
-                      <NumberInputField
-                        {...register("baths", {
-                          required: "Specify the number of bathrooms",
-                          valueAsNumber: true,
-                        })}
-                      />
-                      <NumberInputStepper>
-                        <NumberIncrementStepper />
-                        <NumberDecrementStepper />
-                      </NumberInputStepper>
-                    </NumberInput>
-                    {errors.baths && <AlertPop title={errors.baths.message} />}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Surface Area</FormLabel>
-                    <InputGroup>
-                      <Input
-                        className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                        type="number"
-                        variant="flushed"
-                        name="surface_area"
-                        {...register("surface_area", {
-                          required: "Enter the surface area of the property",
-                          min: {
-                            value: 2,
-                            message: "Small surface area or invalid",
-                          },
-                          pattern: {
-                            value: numericPattern,
-                            message: "Invalid surface area data format",
-                          },
-                          valueAsNumber: true,
-                        })}
-                      />
-                      <InputRightElement
-                        pointerEvents="none"
-                        color="gray.300"
-                        fontSize="1.2em">
-                        sqft
-                      </InputRightElement>
-                    </InputGroup>
-                    {errors.surface_area && (
-                      <AlertPop title={errors.surface_area.message} />
-                    )}
-                  </FormControl>
-                </>
+                <Page0
+                  register={register}
+                  errors={errors}
+                  propertyCategoriesOptions={propertyCategoriesOptions}
+                />
               )}
-
+              {/* Page 1 */}
+              {page === 1 && (
+                <Page1
+                  register={register}
+                  errors={errors}
+                  handleProvinceChange={handleProvinceChange}
+                  handleDistrictChange={handleDistrictChange}
+                  provinceOptions={provinceOptions}
+                  districtOptions={districtOptions}
+                  municipalityOptions={municipalityOptions}
+                  getValues={getValues}
+                />
+              )}
+              {/* Page 2 */}
+              {page === 2 && (
+                <Page2
+                  register={register}
+                  errors={errors}
+                  facingOptions={facingOptions}
+                  PropertyAreaTabs={PropertyAreaTabs}
+                  areaUnitsOptions={areaUnitsOptions}
+                  roadTypesOptions={roadTypesOptions}
+                  tabItems={tabItems}
+                  numericPattern={numericPattern}
+                />
+              )}
               {/* Page 3 */}
-              {page === 3 && (
-                <>
-                  <Heading>Description</Heading>
-                  <FormControl>
-                    <FormLabel>Property Briefing</FormLabel>
-                    <Textarea
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      size="lg"
-                      maxH="sm"
-                      resize="vertical"
-                      name="property_briefing"
-                      {...register("property_briefing", {
-                        required: "Write a little briefing about the property",
-                        minLength: {
-                          value: 20,
-                          message: "Briefing too short",
-                        },
-                      })}
-                    />
-                    {errors.property_briefing && (
-                      <AlertPop title={errors.property_briefing.message} />
-                    )}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Additional Information</FormLabel>
-                    <Textarea
-                      className="outline w-full outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      variant="filled"
-                      size="lg"
-                      maxH="sm"
-                      resize="vertical"
-                      name="additional_info"
-                      {...register("additional_info")}
-                    />
-                  </FormControl>
-                </>
+              {page == 3 && (
+                <Page3
+                  register={register}
+                  errors={errors}
+                  featuresOptions={featuresOptions}
+                />
               )}
-
               {/* Page 4 */}
-              {page === 4 && (
-                <>
-                  <Heading>Appliances</Heading>
-                  <Stack
-                    spacing={4}
-                    direction={["column", "row"]}
-                    className="flex flex-wrap gap-[1rem]">
-                    <Checkbox
-                      className="outline  outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      name="cooling"
-                      {...register("cooling")}>
-                      Cooling
-                    </Checkbox>
-                    <Checkbox
-                      className="outline  outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      name="heating"
-                      {...register("heating")}>
-                      Heating
-                    </Checkbox>
-                    <Checkbox
-                      className="outline  outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      name="internet"
-                      {...register("internet")}>
-                      Internet
-                    </Checkbox>
-                    <Checkbox
-                      className="outline  outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      name="furniture"
-                      {...register("furniture")}>
-                      Furniture
-                    </Checkbox>
-                    <Checkbox
-                      className="outline  outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                      name="parking"
-                      {...register("parking")}>
-                      Parking
-                    </Checkbox>
-                  </Stack>
-                </>
-              )}
-
+              {page === 4 && <Page4 register={register} errors={errors} />}
               {/* Page 5 */}
               {page === 5 && (
-                <>
-                  <Heading>Media</Heading>
-                  {preview && (
-                    <Image
-                      className="h-[7rem]"
-                      alt="estate_img"
-                      src={preview}
-                      boxSize="sm"
-                      rounded="lg"
-                      objectFit="cover"
-                      alignSelf="center"
-                    />
-                  )}
-                  <Text color="gray.500" textAlign="start">
-                    Select display image
-                  </Text>
-                  <input
-                    className="outline w-full  outline-gray-200 rounded-sm outline-1 px-[0.8rem] py-[0.4rem]"
-                    ref={imageInputRef}
-                    type="file"
-                    hidden
-                    onChange={handleImageChange}
-                  />
-                  <Button
-                    className="outline  text-gray-500  border-solid border-1 border-gray-200 rounded-lg  px-[0.8rem] py-[0.5rem]"
-                    leftIcon={<AttachmentIcon />}
-                    variant="ghost"
-                    colorScheme="blue"
-                    onClick={() => imageInputRef.current.click()}>
-                    Browse Images
-                  </Button>
-                </>
+                <Page5
+                  register={register}
+                  preview={preview}
+                  errors={errors}
+                  setPreviewImg={setPreviewImg}
+                  imageInputRef={imageInputRef}
+                  handleImageChange={handleImageChange}
+                />
               )}
-
-              {/* Page 6 (last step) */}
-              {page === 6 && (
-                <>
-                  <Heading>Contact Information</Heading>
-                  <FormControl>
-                    <FormLabel>Email Address</FormLabel>
-                    <InputGroup>
-                      <InputLeftElement
-                        className="text-gray-500 my-[0.5rem] mx-[0.5rem]"
-                        pointerEvents="none"
-                        color="gray.300"
-                        fontSize="1.2em">
-                        <EmailIcon className="m" />
-                      </InputLeftElement>
-                      <Input
-                        className="outline w-full outline-gray-200 rounded-sm outline-1 px-[2.5rem] py-[0.4rem]"
-                        variant="flushed"
-                        name="email"
-                        {...register("email", {
-                          required: "Enter contact email address",
-                          pattern: {
-                            value: emailPattern,
-                            message: "Invalid email format",
-                          },
-                        })}
-                      />
-                    </InputGroup>
-                    {errors.email && <AlertPop title={errors.email.message} />}
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel>Telephone</FormLabel>
-                    <InputGroup>
-                      <InputLeftElement
-                        className="text-gray-500 my-[0.5rem] mx-[0.5rem]"
-                        pointerEvents="none"
-                        color="gray.300"
-                        fontSize="1.2em">
-                        <PhoneIcon />
-                      </InputLeftElement>
-                      <Input
-                        className="outline w-full outline-gray-200 rounded-sm outline-1 px-[2.5rem] py-[0.4rem]"
-                        variant="flushed"
-                        name="telephone"
-                        placeholder="ex: +237XXXXX..."
-                        {...register("telephone", {
-                          required: "Enter contact telephone number",
-                          pattern: {
-                            value: phonePattern,
-                            message: "Invalid phone number format",
-                          },
-                        })}
-                      />
-                    </InputGroup>
-                    {errors.telephone && (
-                      <AlertPop title={errors.telephone.message} />
-                    )}
-                  </FormControl>
-                </>
+              {/* Page 6 */}
+              {page === 6 && <Page6 />}
+              {/* Page 7 (last step) */}
+              {page === 7 && (
+                <Page7
+                  register={register}
+                  errors={errors}
+                  emailPattern={emailPattern}
+                  phonePattern={phonePattern}
+                />
               )}
-
               <Stack
                 direction="row"
                 spacing={2}
@@ -863,27 +447,28 @@ export default function Add() {
                 className="gap-[0.5rem]">
                 {page > 0 && (
                   <Button
-                    className="bg-green-500 h-[2.5rem]"
+                    className={`bg-green-500  px-[0.6rem] py-[0.4rem] rounded-md text-gray-200`}
                     variant="ghost"
                     leftIcon={<ArrowBackIcon />}
                     onClick={goBack}>
                     Back
                   </Button>
                 )}
-                {page < 6 && (
+                {page < 7 && (
                   <Button
+                    // disabled={!isValid ? true : false}
                     variant="ghost"
                     rightIcon={<ArrowForwardIcon />}
                     onClick={goNextPage}
-                    isDisabled={!isValid}
-                    className="bg-green-500 h-[2.5rem]">
+                    // isDisabled={!isValid}
+                    className={`bg-green-500  px-[0.6rem] py-[0.4rem] rounded-md text-gray-200`}>
                     Next
                   </Button>
                 )}
               </Stack>
-              {page === 6 && (
+              {page === 7 && (
                 <Button
-                  className="bg-green-500 h-[2.5rem]"
+                  className="bg-green-500 h-[2.5rem] text-gray-200"
                   type="submit"
                   leftIcon={<CheckCircleIcon />}
                   colorScheme="green"
@@ -895,7 +480,6 @@ export default function Add() {
           </form>
         </Container>
       </Section>
-      {/* </Navbar> */}
     </>
   );
 }

@@ -15,7 +15,7 @@ const ProfileDropDown = ({ profileLinks, isAuthenticated, profile }) => {
     await logoutFunctionality(removeCookie, router);
   };
   return (
-    <div className="relative">
+    <div className="relative cursor-pointer">
       <div
         className="flex items-center justify-center gap-[0.4rem]"
         onClick={handleClick}>
