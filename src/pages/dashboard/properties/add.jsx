@@ -12,8 +12,15 @@ import UserDashboardSidebar from "@/components/partials/dashboard/UserDashboardS
 import Add from "@/components/page/dashboard/Properties/Add";
 import MultiStepForm from "@/components/utils/MultiStepForm";
 const inter = Inter({ subsets: ["latin"] });
+import Form from "../../../components/page/dashboard/Properties/FormFields/index";
+import { useEffect, useState } from "react";
+import { structure } from "addPropertypageStructure";
+export default function AddProperty(prop) {
+  // const [astructure, setStructure] = useState({});
 
-export default function AddProperty() {
+  // useEffect(() => {
+  //   setStructure(JSON.parse(prop.structure));
+  // }, []);
   return (
     <>
       <Head>
@@ -24,11 +31,48 @@ export default function AddProperty() {
       </Head>
       <main className={""}>
         <UserDashboardLayout>
-          <Add />
+          {/* <Add /> */}
+          <Form structure={structure} />
 
           {/* <MultiStepForm /> */}
         </UserDashboardLayout>
       </main>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  structure.sections.forEach((section) => {
+    section.subSections.forEach(async (subSection) => {
+      if (subSection.dataUrl) {
+        let response = subSection?.dataUrl();
+
+        let data = response.data.data;
+        data = data.map((i) => {
+          return {
+            id: i.id,
+            label: i.name_en || i.name,
+            value: i.name_en || i.name,
+          };
+        });
+
+        switch (subSection.fieldType) {
+          case "btn_radio":
+            subSection.radios = data;
+            break;
+          case "select":
+            subSection.options = data;
+            break;
+          default:
+            break;
+        }
+      }
+    });
+    return {
+      props: {
+        structure: JSON.stringify(structure),
+      },
+    };
+    console.log(structure.sections[1].subSections[0]);
+  });
 }
