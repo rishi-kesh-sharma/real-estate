@@ -10,9 +10,10 @@ const Page3 = ({ register, errors, featuresOptions }) => {
           spacing={4}
           direction={["column", "row"]}
           className="flex flex-wrap gap-[0.4rem]">
-          {featuresOptions.map((featureOption) => {
+          {featuresOptions.map((featureOption, index) => {
             return (
               <Checkbox
+                key={index}
                 className="outline  outline-gray-200 rounded-md outline-1 px-[0.8rem] py-[0.4rem]"
                 name={`${featureOption?.flag}`}
                 {...register(`${featureOption?.flag}`)}>

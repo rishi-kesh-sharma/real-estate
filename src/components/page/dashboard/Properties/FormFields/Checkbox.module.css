@@ -33,7 +33,6 @@ ul.checkbox li label::before {
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
-  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 12px;
   padding: 2px 6px 2px 2px;

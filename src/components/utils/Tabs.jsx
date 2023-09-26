@@ -31,6 +31,7 @@ export default function TabsComponent({
         {tabItems.map((tabItem) => {
           return (
             <div
+              key={tabItem?.id}
               className={`${
                 openTab === tabItem.id ? "block" : "hidden"
               } flex flex-wrap gap-[1rem]`}>

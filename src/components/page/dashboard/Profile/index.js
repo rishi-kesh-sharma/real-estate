@@ -27,7 +27,7 @@ const Profile = () => {
       ) : (
         <>
           {/* <!-- details column --> */}
-          <Container className="overflow-hidden bg-white p-[1rem] mx-auto flex-1 shadow-md max-w-[600px md:flex-[0.6] md:px-[3rem] lg:px-[5rem] ">
+          <Container className="overflow-hidden bg-white p-[1rem] mx-auto  shadow-md   md:px-[3rem] lg:px-[5rem] ">
             {/* <!-- personal info --> */}
 
             <div className="flex flex-col gap-5 items-start">
@@ -134,69 +134,6 @@ const Profile = () => {
                 Change Password
               </button>
             </div>
-
-            {/* FREQUENTLY ASKED QUESTION */}
-            <div className="flex flex-col gap-5 items-start my-[2rem] lg:mt-[4rem]">
-              <div className="flex flex-col gap-[1rem] ">
-                <span className="font-medium text-lg">FAQS</span>
-                <div>
-                  <h4 className=" text-gray-600 text-lg  font-medium">
-                    What happens when I update my email address (or mobile
-                    number)?
-                  </h4>
-                  <p className="text-sm text-gray-400">
-                    Your login email id (or mobile number) changes, likewise.
-                    You'll receive all your Profile related communication on
-                    your updated email address (or mobile number).
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className=" text-gray-600 text-lg  font-medium">
-                    When will my Flipkart Profile be updated with the new email
-                    address (or mobile number)?
-                  </h4>
-                  <p className="text-sm text-gray-400">
-                    It happens as soon as you confirm the verification code sent
-                    to your email (or mobile) and save the changes.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className=" text-gray-600 text-lg  font-medium">
-                    What happens to my existing Flipkart Profile when I update
-                    my email address (or mobile number)?
-                  </h4>
-                  <p className="text-sm text-gray-400">
-                    Updating your email address (or mobile number) doesn't
-                    invalidate your Profile. Your Profile remains fully
-                    functional. You'll continue seeing your Order history, saved
-                    information and personal details.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className=" text-gray-600 text-lg  font-medium">
-                    Does my Seller Profile get affected when I update my email
-                    address?
-                  </h4>
-                  <p className="text-sm text-gray-400">
-                    Flipkart has a 'single sign-on' policy. Any changes will
-                    reflect in your Seller Profile also.
-                  </p>
-                </div>
-              </div>
-              {/* <!-- faqs --> */}
-
-              {/* <!-- deactivate Profile --> */}
-              <Link
-                className="text-sm text-primary-blue font-medium bg-red-500 rounded text-gray-200 px-[1rem] py-[0.5rem]"
-                href="/">
-                Deactivate Profile
-              </Link>
-              {/* <!-- deactivate Profile --> */}
-            </div>
-            {/* <!-- edit info container --> */}
           </Container>
           {/* <!-- details column --> */}
         </>

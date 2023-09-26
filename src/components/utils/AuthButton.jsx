@@ -9,7 +9,7 @@ const AuthButton = () => {
       <Link
         href={"/auth"}
         className={`flex items-center p-2 text-base font-normal text-gray-100 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${stylingForButton}`}>
-        <div class="flex-1 ml-3 whitespace-nowrap">{"SignUp or Login"}</div>
+        <div className="flex-1 ml-3 whitespace-nowrap">{"SignUp or Login"}</div>
       </Link>
     </div>
   );

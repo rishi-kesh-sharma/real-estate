@@ -21,33 +21,32 @@ const ProfileDropDown = ({ profileLinks, isAuthenticated, profile }) => {
         onClick={handleClick}>
         <ProfileAvatar profile={profile} />
         <svg
-          sidebar-toggle-item
-          class="w-6 h-6"
+          // sidebar-toggle-item
+          className="w-6 h-6"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg">
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-            clip-rule="evenodd"></path>
+            clipRule="evenodd"></path>
         </svg>
       </div>
       <ul
         id="dropdown-example"
-        class="hidden absolute bg-white left-0 w-[200px] ">
-        {profileLinks.map((dropItem) => {
+        className="hidden absolute bg-white left-0 w-[200px] ">
+        {profileLinks.map((dropItem, index) => {
           return !dropItem.path ? (
-            <li className="border" onClick={handleLogout}>
-              <div class="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+            <li key={dropItem?.name} className="border" onClick={handleLogout}>
+              <div className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                 {dropItem.name}
               </div>
             </li>
           ) : (
-            <li className="border">
+            <li key={index} className="border">
               <Link
                 href={dropItem.path}
-                // href={""}
-                class="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                 {dropItem.name}
               </Link>
             </li>

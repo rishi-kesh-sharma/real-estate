@@ -101,7 +101,7 @@ const ChangePasswordForm = ({ toggleModal }) => {
                   name="password_confirmation"
                 />
               </div>
-              <div class="mt-8 flex justify-end">
+              <div className="mt-8 flex justify-end">
                 {isSubmitting ? (
                   <div className="flex items-center justify-center">
                     <div

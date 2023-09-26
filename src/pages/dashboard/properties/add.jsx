@@ -41,38 +41,38 @@ export default function AddProperty(prop) {
   );
 }
 
-export async function getServerSideProps(context) {
-  structure.sections.forEach((section) => {
-    section.subSections.forEach(async (subSection) => {
-      if (subSection.dataUrl) {
-        let response = subSection?.dataUrl();
+// export async function getServerSideProps(context) {
+//   structure.sections.forEach((section) => {
+//     section.subSections.forEach(async (subSection) => {
+//       if (subSection.dataUrl) {
+//         let response = subSection?.dataUrl();
 
-        let data = response.data.data;
-        data = data.map((i) => {
-          return {
-            id: i.id,
-            label: i.name_en || i.name,
-            value: i.name_en || i.name,
-          };
-        });
+//         let data = response.data.data;
+//         data = data.map((i) => {
+//           return {
+//             id: i.id,
+//             label: i.name_en || i.name,
+//             value: i.name_en || i.name,
+//           };
+//         });
 
-        switch (subSection.fieldType) {
-          case "btn_radio":
-            subSection.radios = data;
-            break;
-          case "select":
-            subSection.options = data;
-            break;
-          default:
-            break;
-        }
-      }
-    });
-    return {
-      props: {
-        structure: JSON.stringify(structure),
-      },
-    };
-    console.log(structure.sections[1].subSections[0]);
-  });
-}
+//         switch (subSection.fieldType) {
+//           case "btn_radio":
+//             subSection.radios = data;
+//             break;
+//           case "select":
+//             subSection.options = data;
+//             break;
+//           default:
+//             break;
+//         }
+//       }
+//     });
+//     return {
+//       props: {
+//         structure: JSON.stringify(structure),
+//       },
+//     };
+//     // console.log(structure.sections[1].subSections[0]);
+//   });
+// }

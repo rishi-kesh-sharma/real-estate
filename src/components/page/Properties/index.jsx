@@ -8,7 +8,7 @@ import Image from "next/image";
 import { Flex, Box, Text, Icon } from "@chakra-ui/react";
 import { BsFilter } from "react-icons/bs";
 import PropertiesContainer from "./PropertiesContainer";
-import PropertesSideBar from "./PropertiesSideBar";
+import PropertiesSideBar from "./PropertiesSideBar";
 import Container from "@/components/utils/Container";
 import Section from "@/components/utils/Section";
 
@@ -18,7 +18,7 @@ const Properties = ({ properties }) => {
   return (
     <Section className="pt-[1rem] flex flex-col gap-[2rem] mb-[2rem]">
       <Container className="flex items-start gap-[2rem] ">
-        <PropertesSideBar />
+        <PropertiesSideBar />
         <PropertiesContainer properties={properties} />
       </Container>
     </Section>

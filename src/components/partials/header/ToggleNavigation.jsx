@@ -29,7 +29,7 @@ const ToggleNavigation = ({
     <div className=" fixed left-0 z-40  right-0 top-0 h-[100vh] shadow-2xl bg-[rgba(0,0,0,0.6)] ">
       <aside
         id="sidebar-multi-level-sidebar"
-        class="fixed top-0 right-0 z-40 w-[50vw] h-screen max-w-[300px] "
+        className="fixed top-0 right-0 z-40 w-[50vw] h-screen max-w-[300px] "
         aria-label="Sidebar">
         {show && (
           <RxCross1
@@ -37,7 +37,7 @@ const ToggleNavigation = ({
             onClick={(e) => setShow(false)}
           />
         )}
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 pt-[6rem]">
+        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 pt-[6rem]">
           {isAuthenticated ? (
             <div
               className="flex items-center justify-start gap-[1rem] cursor-pointer"
@@ -47,15 +47,15 @@ const ToggleNavigation = ({
               </div>
               <span>
                 <svg
-                  sidebar-toggle-item
+                  // sidebar-toggle-item
                   className="w-6 h-6 text-gray-400 cursor-pointer"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg">
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
+                    clipRule="evenodd"></path>
                 </svg>
               </span>
             </div>
@@ -65,10 +65,11 @@ const ToggleNavigation = ({
           {openProfileLinks && (
             <ProfileToggleNavigation profileLinks={profileLinks} />
           )}
-          <ul class="space-y-2 mt-[1rem] ">
+          <ul className="space-y-2 mt-[1rem] ">
             {links?.map((item) => {
               return !item.dropItems ? (
                 <li
+                  key={item?.name}
                   onClick={handleNavLinksClick}
                   className="border-b-[1px] w-full hover:bg-gray-100 border-b-gray-300 flex items-center px-[0.6rem] ">
                   {item.icon && item.icon}
@@ -76,20 +77,22 @@ const ToggleNavigation = ({
                     <Link
                       href={item?.path}
                       className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
-                      <span class="flex-1 ml-3 whitespace-nowrap">
+                      <span className="flex-1 ml-3 whitespace-nowrap">
                         {item.name}
                       </span>
                     </Link>
                   ) : (
                     <div className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
-                      <span class="flex-1 ml-3 whitespace-nowrap">
+                      <span className="flex-1 ml-3 whitespace-nowrap">
                         {item.name}
                       </span>
                     </div>
                   )}
                 </li>
               ) : (
-                <li className=" border-b-[1px] border-b-gray-300 ">
+                <li
+                  key={item?.name}
+                  className=" border-b-[1px] border-b-gray-300 ">
                   <button
                     onClick={(e) => {
                       e.currentTarget.parentNode.lastChild.classList.toggle(
@@ -97,36 +100,37 @@ const ToggleNavigation = ({
                       );
                     }}
                     type="button"
-                    class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                    className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                     aria-controls="dropdown-example"
                     data-collapse-toggle="dropdown-example">
                     {item.icon && item.icon}
                     <span
-                      class="flex-1 py-[0.3] px-[0.5rem] ml-3 text-left whitespace-nowrap text-gray-600"
+                      className="flex-1 py-[0.3] px-[0.5rem] ml-3 text-left whitespace-nowrap text-gray-600"
                       sidebar-toggle-item>
                       {item?.name}
                     </span>
                     <svg
-                      sidebar-toggle-item
+                      // sidebar-toggle-item
                       className="w-6 h-6 text-gray-400"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
+                        clipRule="evenodd"></path>
                     </svg>
                   </button>
-                  <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                  <ul id="dropdown-example" className="hidden py-2 space-y-2">
                     {item.dropItems.map((dropItem) => {
                       return (
                         <li
+                          key={dropItem?.name}
                           onClick={handleNavLinksClick}
                           className="border-b-[1px] border-b-gray-300">
                           <Link
                             href={dropItem.path}
-                            class="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                             {dropItem.name}
                           </Link>
                         </li>

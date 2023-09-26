@@ -5,15 +5,13 @@ import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import millify from "millify";
 
-import { baseUrl, fetchApi } from "../../../utils/fetchApi";
 import ImageScrollbar from "../../utils/ImageScrollBar.jsx";
-
 const PropertyDetails = ({
   property: {
     price,
     rentFrequency,
     rooms,
-    title,
+    name,
     baths,
     area,
     agency,
@@ -39,7 +37,7 @@ const PropertyDetails = ({
           {isVerified && <GoVerified />}
         </Box>
         <Text fontWeight="bold" fontSize="lg">
-          AED {price} {rentFrequency && `/${rentFrequency}`}
+          USD{price} {rentFrequency && `/${rentFrequency}`}
         </Text>
         <Spacer />
         <Avatar size="sm" src={agency?.logo?.url}></Avatar>
@@ -56,7 +54,7 @@ const PropertyDetails = ({
     </Box>
     <Box marginTop="2">
       <Text fontSize="lg" marginBottom="2" fontWeight="bold">
-        {title}
+        {name}
       </Text>
       <Text lineHeight="2" color="gray.600">
         {description}
@@ -91,14 +89,18 @@ const PropertyDetails = ({
           borderBottom="1px"
           borderColor="gray.100"
           p="3">
-          <Text>Furnishing Status</Text>
-          <Text fontWeight="bold">{furnishingStatus}</Text>
+          <Text className="text-sm" fontSize={"medium"}>
+            Furnishing Status
+          </Text>
+          <Text className="text-sm" fontWeight="semibold">
+            {furnishingStatus}
+          </Text>
         </Flex>
       )}
     </Flex>
     <Box>
       {amenities?.length && (
-        <Text fontSize="2xl" fontWeight="black" marginTop="5">
+        <Text fontSize="xl" fontWeight={"semibold"} marginTop="5">
           Facilites:
         </Text>
       )}
@@ -107,8 +109,7 @@ const PropertyDetails = ({
           item?.amenities?.map((amenity) => (
             <Text
               key={amenity?.text}
-              fontWeight="bold"
-              color="blue.400"
+              color="blue.600"
               fontSize="l"
               p="2"
               bg="gray.200"

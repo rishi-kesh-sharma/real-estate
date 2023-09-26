@@ -348,10 +348,14 @@ export const profileLinks = [
     path: "/dashboard/profile",
   },
 
-  { name: "Saved Homes", path: "/homes/saved", forAuthenticated: true },
   {
-    name: "Saved Searches",
-    path: "/searches/saved",
+    name: "Saved Properties",
+    path: "/dashboard/properties/saved",
+    forAuthenticated: true,
+  },
+  {
+    name: "My Properties",
+    path: "/dashboard/properties",
   },
   {
     name: "Logout",
@@ -636,6 +640,27 @@ export const list = [
     category: "For Rent",
     price: "$3,700",
     type: "Apartment",
+    rentFrequency: "monthly",
+    rooms: "2",
+    baths: "3",
+    area: 50,
+    // agency: "Nepal real Estate",
+    isVerified: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    type: "Villa",
+    purpose: "Buy",
+    furnishingStatus: "fully furnished",
+    amenities: [
+      {
+        amenities: [
+          { text: "Cooling System" },
+          { text: "Parking" },
+          { text: "Electricity" },
+        ],
+      },
+    ],
+    photos: [p1, p2, p3],
   },
   {
     id: 2,
@@ -645,6 +670,27 @@ export const list = [
     category: "For Sale",
     price: "$9,750",
     type: "Condos",
+    rentFrequency: "monthly",
+    rooms: "2",
+    baths: "3",
+    area: 50,
+    // agency: "Nepal real Estate",
+    isVerified: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    type: "Villa",
+    purpose: "Buy",
+    furnishingStatus: "fully furnished",
+    amenities: [
+      {
+        amenities: [
+          { text: "Cooling System" },
+          { text: "Parking" },
+          { text: "Electricity" },
+        ],
+      },
+    ],
+    photos: [p1, p2, p3],
   },
   {
     id: 3,
@@ -654,6 +700,27 @@ export const list = [
     category: "For Rent",
     price: "$5,860",
     type: "Offices",
+    rentFrequency: "monthly",
+    rooms: "2",
+    baths: "3",
+    area: 50,
+    // agency: "Nepal real Estate",
+    isVerified: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    type: "Villa",
+    purpose: "Buy",
+    furnishingStatus: "fully furnished",
+    amenities: [
+      {
+        amenities: [
+          { text: "Cooling System" },
+          { text: "Parking" },
+          { text: "Electricity" },
+        ],
+      },
+    ],
+    photos: [p1, p2, p3],
   },
   {
     id: 4,
@@ -663,6 +730,27 @@ export const list = [
     category: "For Sale",
     price: "$7,540",
     type: "Homes & Villas",
+    rentFrequency: "monthly",
+    rooms: "2",
+    baths: "3",
+    area: 50,
+    // agency: "Nepal real Estate",
+    isVerified: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    type: "Villa",
+    purpose: "Buy",
+    furnishingStatus: "fully furnished",
+    amenities: [
+      {
+        amenities: [
+          { text: "Cooling System" },
+          { text: "Parking" },
+          { text: "Electricity" },
+        ],
+      },
+    ],
+    photos: [p1, p2, p3],
   },
   {
     id: 5,
@@ -672,6 +760,27 @@ export const list = [
     category: "For Rent",
     price: "$4,850",
     type: "Commercial",
+    rentFrequency: "monthly",
+    rooms: "2",
+    baths: "3",
+    area: 50,
+    // agency: "Nepal real Estate",
+    isVerified: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    type: "Villa",
+    purpose: "Buy",
+    furnishingStatus: "fully furnished",
+    amenities: [
+      {
+        amenities: [
+          { text: "Cooling System" },
+          { text: "Parking" },
+          { text: "Electricity" },
+        ],
+      },
+    ],
+    photos: [p1, p2, p3],
   },
   {
     id: 6,
@@ -681,6 +790,27 @@ export const list = [
     category: "For Sale",
     price: "$2,742",
     type: "Apartment",
+    rentFrequency: "monthly",
+    rooms: "2",
+    baths: "3",
+    area: 50,
+    // agency: "Nepal real Estate",
+    isVerified: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    type: "Villa",
+    purpose: "Buy",
+    furnishingStatus: "fully furnished",
+    amenities: [
+      {
+        amenities: [
+          { text: "Cooling System" },
+          { text: "Parking" },
+          { text: "Electricity" },
+        ],
+      },
+    ],
+    photos: [p1, p2, p3],
   },
 ];
 export const agencies = [
@@ -860,22 +990,22 @@ export const filterData = [
 
 export const awards = [
   {
-    icon: <i class="fa-solid fa-trophy"></i>,
+    icon: <i className="fa-solid fa-trophy"></i>,
     num: "32 M	",
     name: "Blue Burmin Award",
   },
   {
-    icon: <i class="fa-solid fa-briefcase"></i>,
+    icon: <i className="fa-solid fa-briefcase"></i>,
     num: "43 M",
     name: "Mimo X11 Award",
   },
   {
-    icon: <i class="fa-solid fa-lightbulb"></i>,
+    icon: <i className="fa-solid fa-lightbulb"></i>,
     num: "51 M",
     name: "Australian UGC Award",
   },
   {
-    icon: <i class="fa-solid fa-heart"></i>,
+    icon: <i className="fa-solid fa-heart"></i>,
     num: "42 M",
     name: "IITCA Green Award",
   },
@@ -937,10 +1067,10 @@ export const team = [
     address: "Liverpool, Canada",
     name: "Sargam S. Singh",
     icon: [
-      <i class="fa-brands fa-facebook-f"></i>,
-      <i class="fa-brands fa-linkedin"></i>,
-      <i class="fa-brands fa-twitter"></i>,
-      <i class="fa-brands fa-instagram"></i>,
+      <i className="fa-brands fa-facebook-f"></i>,
+      <i className="fa-brands fa-linkedin"></i>,
+      <i className="fa-brands fa-twitter"></i>,
+      <i className="fa-brands fa-instagram"></i>,
     ],
   },
   {
@@ -949,10 +1079,10 @@ export const team = [
     address: "Montreal, Canada",
     name: "Harijeet M. Siller",
     icon: [
-      <i class="fa-brands fa-facebook-f"></i>,
-      <i class="fa-brands fa-linkedin"></i>,
-      <i class="fa-brands fa-twitter"></i>,
-      <i class="fa-brands fa-instagram"></i>,
+      <i className="fa-brands fa-facebook-f"></i>,
+      <i className="fa-brands fa-linkedin"></i>,
+      <i className="fa-brands fa-twitter"></i>,
+      <i className="fa-brands fa-instagram"></i>,
     ],
   },
   {
@@ -961,10 +1091,10 @@ export const team = [
     address: "Denever, USA",
     name: "Anna K. Young",
     icon: [
-      <i class="fa-brands fa-facebook-f"></i>,
-      <i class="fa-brands fa-linkedin"></i>,
-      <i class="fa-brands fa-twitter"></i>,
-      <i class="fa-brands fa-instagram"></i>,
+      <i className="fa-brands fa-facebook-f"></i>,
+      <i className="fa-brands fa-linkedin"></i>,
+      <i className="fa-brands fa-twitter"></i>,
+      <i className="fa-brands fa-instagram"></i>,
     ],
   },
   {
@@ -973,10 +1103,10 @@ export const team = [
     address: "2272 Briarwood Drive",
     name: "Michael P. Grimaldo",
     icon: [
-      <i class="fa-brands fa-facebook-f"></i>,
-      <i class="fa-brands fa-linkedin"></i>,
-      <i class="fa-brands fa-twitter"></i>,
-      <i class="fa-brands fa-instagram"></i>,
+      <i className="fa-brands fa-facebook-f"></i>,
+      <i className="fa-brands fa-linkedin"></i>,
+      <i className="fa-brands fa-twitter"></i>,
+      <i className="fa-brands fa-instagram"></i>,
     ],
   },
   {
@@ -985,10 +1115,10 @@ export const team = [
     address: "2272 Briarwood Drive",
     name: "Michael P. Grimaldo",
     icon: [
-      <i class="fa-brands fa-facebook-f"></i>,
-      <i class="fa-brands fa-linkedin"></i>,
-      <i class="fa-brands fa-twitter"></i>,
-      <i class="fa-brands fa-instagram"></i>,
+      <i className="fa-brands fa-facebook-f"></i>,
+      <i className="fa-brands fa-linkedin"></i>,
+      <i className="fa-brands fa-twitter"></i>,
+      <i className="fa-brands fa-instagram"></i>,
     ],
   },
   {
@@ -997,10 +1127,10 @@ export const team = [
     address: "Montreal, USA",
     name: "Adam K. Jollio",
     icon: [
-      <i class="fa-brands fa-facebook-f"></i>,
-      <i class="fa-brands fa-linkedin"></i>,
-      <i class="fa-brands fa-twitter"></i>,
-      <i class="fa-brands fa-instagram"></i>,
+      <i className="fa-brands fa-facebook-f"></i>,
+      <i className="fa-brands fa-linkedin"></i>,
+      <i className="fa-brands fa-twitter"></i>,
+      <i className="fa-brands fa-instagram"></i>,
     ],
   },
 ];
@@ -1038,25 +1168,25 @@ export const price = [
     ptext: "per user, per month",
     list: [
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "99.5% Uptime Guarantee",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "120GB CDN Bandwidth",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "5GB Cloud Storage",
       },
       {
         change: "color",
-        icon: <i class="fa-solid fa-x"></i>,
+        icon: <i className="fa-solid fa-x"></i>,
         text: "Personal Help Support",
       },
       {
         change: "color",
-        icon: <i class="fa-solid fa-x"></i>,
+        icon: <i className="fa-solid fa-x"></i>,
         text: "Enterprise SLA",
       },
     ],
@@ -1068,24 +1198,24 @@ export const price = [
     ptext: "per user, per month",
     list: [
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "99.5% Uptime Guarantee",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "150GB CDN Bandwidth",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "10GB Cloud Storage",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "Personal Help Support",
       },
       {
         change: "color",
-        icon: <i class="fa-solid fa-x"></i>,
+        icon: <i className="fa-solid fa-x"></i>,
         text: "Enterprise SLA",
       },
     ],
@@ -1096,23 +1226,23 @@ export const price = [
     ptext: "2 user, per month",
     list: [
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "100% Uptime Guarantee",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "200GB CDN Bandwidth",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "20GB Cloud Storage",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "Personal Help Support",
       },
       {
-        icon: <i class="fa-solid fa-check"></i>,
+        icon: <i className="fa-solid fa-check"></i>,
         text: "Enterprise SLA",
       },
     ],
@@ -1125,10 +1255,18 @@ export const blogs = [
       current: 1,
     },
     mainImage: BlogImage,
-    //  {
-    //   src: "/images/customer/team-1.jpg",
-    //   alt: "blog image",
-    // },
+    tags: [{ title: "Buy", color: "#c75840" }],
+    keywords: [
+      { title: "keyword1" },
+      { title: "keyword2" },
+      { title: "keyword3" },
+    ],
+    meta_tag: [
+      { title: "meta tag1" },
+      { title: "meta tag2" },
+      { title: "meta tag3" },
+    ],
+
     author: {
       name: "john Doe",
       image: AuthorImage,
@@ -1142,13 +1280,20 @@ export const blogs = [
   },
   {
     slug: {
-      current: 1,
+      current: 2,
     },
     mainImage: BlogImage,
-    //  {
-    //   src: "/images/customer/team-1.jpg",
-    //   alt: "blog image",
-    // },
+    tags: [{ title: "Buy", color: "#c75840" }],
+    keywords: [
+      { title: "keyword1" },
+      { title: "keyword2" },
+      { title: "keyword3" },
+    ],
+    meta_tag: [
+      { title: "meta tag1" },
+      { title: "meta tag2" },
+      { title: "meta tag3" },
+    ],
     author: {
       name: "john Doe",
       image: AuthorImage,
@@ -1162,13 +1307,20 @@ export const blogs = [
   },
   {
     slug: {
-      current: 1,
+      current: 3,
     },
     mainImage: BlogImage,
-    //  {
-    //   src: "/images/customer/team-1.jpg",
-    //   alt: "blog image",
-    // },
+    tags: [{ title: "Buy", color: "#c75840" }],
+    keywords: [
+      { title: "keyword1" },
+      { title: "keyword2" },
+      { title: "keyword3" },
+    ],
+    meta_tag: [
+      { title: "meta tag1" },
+      { title: "meta tag2" },
+      { title: "meta tag3" },
+    ],
     author: {
       name: "john Doe",
       image: AuthorImage,
@@ -1182,13 +1334,20 @@ export const blogs = [
   },
   {
     slug: {
-      current: 1,
+      current: 4,
     },
     mainImage: BlogImage,
-    //  {
-    //   src: "/images/customer/team-1.jpg",
-    //   alt: "blog image",
-    // },
+    tags: [{ title: "Buy", color: "#c75840" }],
+    keywords: [
+      { title: "keyword1" },
+      { title: "keyword2" },
+      { title: "keyword3" },
+    ],
+    meta_tag: [
+      { title: "meta tag1" },
+      { title: "meta tag2" },
+      { title: "meta tag3" },
+    ],
     author: {
       name: "john Doe",
       image: AuthorImage,
@@ -1202,13 +1361,20 @@ export const blogs = [
   },
   {
     slug: {
-      current: 1,
+      current: 5,
     },
     mainImage: BlogImage,
-    //  {
-    //   src: "/images/customer/team-1.jpg",
-    //   alt: "blog image",
-    // },
+    tags: [{ title: "Buy", color: "#c75840" }],
+    keywords: [
+      { title: "keyword1" },
+      { title: "keyword2" },
+      { title: "keyword3" },
+    ],
+    meta_tag: [
+      { title: "meta tag1" },
+      { title: "meta tag2" },
+      { title: "meta tag3" },
+    ],
     author: {
       name: "john Doe",
       image: AuthorImage,
@@ -1222,13 +1388,20 @@ export const blogs = [
   },
   {
     slug: {
-      current: 1,
+      current: 6,
     },
     mainImage: BlogImage,
-    //  {
-    //   src: "/images/customer/team-1.jpg",
-    //   alt: "blog image",
-    // },
+    tags: [{ title: "Buy", color: "#c75840" }],
+    keywords: [
+      { title: "keyword1" },
+      { title: "keyword2" },
+      { title: "keyword3" },
+    ],
+    meta_tag: [
+      { title: "meta tag1" },
+      { title: "meta tag2" },
+      { title: "meta tag3" },
+    ],
     author: {
       name: "john Doe",
       image: AuthorImage,
@@ -1242,13 +1415,20 @@ export const blogs = [
   },
   {
     slug: {
-      current: 1,
+      current: 7,
     },
     mainImage: BlogImage,
-    //  {
-    //   src: "/images/customer/team-1.jpg",
-    //   alt: "blog image",
-    // },
+    tags: [{ title: "Buy", color: "#c75840" }],
+    keywords: [
+      { title: "keyword1" },
+      { title: "keyword2" },
+      { title: "keyword3" },
+    ],
+    meta_tag: [
+      { title: "meta tag1" },
+      { title: "meta tag2" },
+      { title: "meta tag3" },
+    ],
     author: {
       name: "john Doe",
       image: AuthorImage,

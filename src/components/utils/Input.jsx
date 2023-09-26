@@ -5,7 +5,7 @@ const SearchInput = () => {
     <div className="relative w-full   rounded">
       <input
         type="search"
-        className="block rounded-lg text-md p-2.5 w-full z-20  text-gray-700 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-green-500 focus:border-green-500 md:p-[0.75rem] md:text-[1.5rem] dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+        className="block rounded-lg text-md p-2.5 w-full z-20  text-gray-700 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-green-500 focus:border-green-500 md:p-[0.75rem] md:text-[1.2rem] dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
         placeholder="Search for city or address"
         required
       />
@@ -20,9 +20,7 @@ const SearchInput = () => {
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeWidth="2"
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
         <span className="sr-only">Search</span>

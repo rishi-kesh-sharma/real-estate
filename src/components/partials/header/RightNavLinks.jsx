@@ -19,12 +19,14 @@ const RightNavLinks = ({
         isAuthenticated
         profile={profile}
       />
-      <div className=" relative p-[0.1rem] rounded-full border-[2px] border-solid border-gray-300">
-        <BiHeartCircle className="text-[2rem] text-green-600" />
-        <div className="absolute bg-red-500 text-sm top-[-0.2rem] right-[-1rem] w-[1.5rem] h-[1.5rem] flex items-center justify-center rounded-full text-gray-200">
-          {"5"}
+      <Link href="/dashboard/properties/favorites">
+        <div className=" relative p-[0.1rem] rounded-full border-[2px] border-solid border-gray-300">
+          <BiHeartCircle className="text-[2rem] text-green-600" />
+          <div className="absolute bg-red-500 text-sm top-[-0.2rem] right-[-1rem] w-[1.5rem] h-[1.5rem] flex items-center justify-center rounded-full text-gray-200">
+            {"5"}
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   ) : (
     <AuthButton />

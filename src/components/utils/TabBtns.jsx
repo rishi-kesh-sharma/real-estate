@@ -14,13 +14,14 @@ const TabBtns = () => {
   };
 
   return (
-    <ul class="flex justify-between  text-sm font-medium text-center text-gray-400 bg-gray-500  rounded-lg">
+    <ul className="flex justify-between gap-3  text-sm font-medium text-center text-gray-400 bg-gray-500  rounded-lg">
       {heroTabItems.map((item) => {
         const { title, value, id } = item;
         return (
           <li
+            key={id}
             onClick={handleClick(id)}
-            className={`cursor-pointer text-white ${
+            className={`cursor-pointer text-white  w-1/3 ${
               activeButton == id && "bg-white text-green-700"
             } ${
               activeButton !== id && "hover:bg-gray-200  hover:text-green-700"

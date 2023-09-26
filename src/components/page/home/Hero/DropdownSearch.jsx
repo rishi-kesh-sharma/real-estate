@@ -17,7 +17,7 @@ const DropdownSearch = () => {
             <BsSearch />
           </button>
           <form className="hidden max-w-[400px] mx-auto ">
-            <ul id="dropdown-example" class=" bg-white p-[1rem] rounded-sm ">
+            <ul id="dropdown-example" className=" bg-white p-[1rem] rounded-sm ">
               <li>
                 {/* <div className="flex flex-col flex-wrap"> */}
                 <CustomSelect
@@ -76,7 +76,7 @@ const DropdownSearch = () => {
         <form className="mt-[2rem]">
           <ul
             id="dropdown-example"
-            class=" bg-white p-[1rem] flex flex-wrap gap-2"
+            className=" bg-white p-[1rem] flex flex-wrap gap-2"
           >
             <li className="">
               {/* <div className="flex flex-col flex-wrap"> */}

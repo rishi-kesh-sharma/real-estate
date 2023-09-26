@@ -242,7 +242,7 @@ export const structure = {
           fieldType: "btn_radio",
           name: "province",
           title: "Province",
-          dataUrl: getProvinces,
+          // dataUrl: getProvinces,
           radios: [
             { id: "state1", label: "State1", value: "state1" },
             {

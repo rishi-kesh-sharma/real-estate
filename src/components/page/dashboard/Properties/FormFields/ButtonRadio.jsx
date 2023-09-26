@@ -9,6 +9,7 @@ const ButtonRadio = ({ heading, name, radios }) => {
       <div className={`${styles.radio_btn_group}`}>
         {radios.map((radio) => (
           <Field
+            key={radio?.id}
             name={name}
             type="radio"
             id={radio?.id}

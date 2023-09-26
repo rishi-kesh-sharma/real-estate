@@ -12,7 +12,7 @@ export default function Blog({ blog, aspect, preloadImage }) {
   return (
     <Card className="bg-white gap-0 items-start">
       <CardImage className="w-[100%]">
-        <Link href={`/blog/${blog.slug.current}`}>
+        <Link href={`/blog/${blog?.slug?.current}`}>
           {imageProps ? (
             <Image src={imageProps} />
           ) : (
@@ -26,7 +26,7 @@ export default function Blog({ blog, aspect, preloadImage }) {
         <div>
           {blog.categories?.length &&
             blog.categories.slice(0).map((category, index) => (
-              <Link href="#" key={index}>
+              <Link href={blog.slug.current} key={index}>
                 <span
                   className={`inline-block mt-5 text-xs font-medium tracking-wider uppercase py-1 px-2 text-gray-500 rounded-sm bg-${
                     category.color ? `[${category.color}]` : "green-500"

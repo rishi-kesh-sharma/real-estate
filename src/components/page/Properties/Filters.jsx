@@ -101,9 +101,11 @@ const Filters = ({}) => {
         </div>
         {categoryToggle && (
           <div className="flex flex-col pb-1 gap-[0.5rem] py-[1rem]">
-            {categories.map((item) => {
+            {categories.map((item, index) => {
               return (
-                <div className="flex items-center justify-start gap-[0.5rem] ">
+                <div
+                  key={index}
+                  className="flex items-center justify-start gap-[0.5rem] ">
                   <input
                     type="radio"
                     name={"category"}
@@ -137,9 +139,11 @@ const Filters = ({}) => {
 
         {ratingsToggle && (
           <div className="flex flex-col pb-1 gap-[0.5rem]">
-            {ratings.map((item) => {
+            {ratings.map((item, index) => {
               return (
-                <div className="flex items-center justify-start gap-[0.5rem] ">
+                <div
+                  key={index}
+                  className="flex items-center justify-start gap-[0.5rem] ">
                   <input
                     type="radio"
                     name={"category"}

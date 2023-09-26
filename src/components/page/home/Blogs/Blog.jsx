@@ -31,7 +31,7 @@ export default function Blog({ blog, aspect, preloadImage }) {
         <div className="flex gap-3">
           {blog.categories?.length &&
             blog.categories.slice(0).map((category, index) => (
-              <Link href="#" key={index}>
+              <Link href={`blog/${blog.slug.current}`} key={index}>
                 <span
                   className={`inline-block mt-5 text-xs font-medium tracking-wider uppercase py-1 px-2 text-gray-100 rounded-sm bg-${
                     category.color ? `[${category.color}]` : "green-500"

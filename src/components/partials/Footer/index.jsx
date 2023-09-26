@@ -53,12 +53,15 @@ const Footer = () => {
             </div>
           </div>
 
-          {footer.map((val) => (
-            <div className={`${styled.box} box`}>
+          {footer.map((val, index) => (
+            <div key={index} className={`${styled.box} box`}>
               <h3 className="text-gray-300">{val.title}</h3>
               <ul>
-                {val.text.map((items) => (
-                  <li className="text-sm"> {items.list} </li>
+                {val.text.map((items, index) => (
+                  <li key={index} className="text-sm">
+                    {" "}
+                    {items.list}{" "}
+                  </li>
                 ))}
               </ul>
             </div>

@@ -109,7 +109,7 @@ const SignUpForm = ({ styles }) => {
             className={styles.errorMsg}
             name="password_confirmation"
           />
-          <div class="mt-8">
+          <div className="mt-8">
             <button type="submit" className={styles.button}>
               Register
             </button>
