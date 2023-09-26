@@ -38,7 +38,7 @@ const ProfileDropDown = ({ profileLinks, isAuthenticated, profile }) => {
         {profileLinks.map((dropItem, index) => {
           return !dropItem.path ? (
             <li key={dropItem?.name} className="border" onClick={handleLogout}>
-              <div className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+              <div className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100">
                 {dropItem.name}
               </div>
             </li>
@@ -46,7 +46,7 @@ const ProfileDropDown = ({ profileLinks, isAuthenticated, profile }) => {
             <li key={index} className="border">
               <Link
                 href={dropItem.path}
-                className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100">
                 {dropItem.name}
               </Link>
             </li>

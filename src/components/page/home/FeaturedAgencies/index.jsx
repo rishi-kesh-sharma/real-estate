@@ -16,12 +16,12 @@ const FeaturedAgencies = () => {
           title="Featured Agencies"
           subtitle="Find All Of Our Agencies."
         />
-        <CardContainer className="my-[2rem] grid grid-cols-1 place-content-center place-items-center gap-[1.5rem] sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  md:my-[3rem]">
+        <div className="mt-5 grid sm:grid-cols-3  gap-5  lg:grid-cols-4 xl:grid-cols-5">
           {" "}
           {agencies.map((agency, index) => (
             <FeaturedAgencyCard agency={agency} key={index} />
           ))}
-        </CardContainer>
+        </div>
       </Container>
     </Section>
   );

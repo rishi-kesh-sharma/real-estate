@@ -7,17 +7,15 @@ import Link from "next/link";
 
 const ExploreHomesCard = ({ property, id }) => {
   return (
-    <Link key={id} href={`property/${property.id}`}>
+    <Link key={id} href={`property/${property.id}`} className="w-[100%]">
       <Card
-        className={`w-[180px]   relative p-0  rounded-lg md:w-[290px] lg:w-[260px]`}>
-        <CardImage className="relative ">
-          <div className="absolute z-[20] bg-gray-600 opacity-50 left-0 top-0 bottom-0 right-0 rounded-lg"></div>
+        className={`relative p-0 py-0  rounded-lg w-[100%] gap-0`}>
+        <div className="absolute z-[20] bg-gray-600 opacity-50 left-0 top-0 bottom-0 right-0 rounded-lg"></div>
 
-          <Image
-            src={property.image}
-            className="h-[330px] object-cover rounded-lg"
-          />
-        </CardImage>
+        <Image
+          src={property.image}
+          className="h-[340px] object-cover rounded-lg"
+        />
         <div>
           <p className="absolute z-[25] top-[1rem] left-[1rem] text-white font-semibold text-lg">
             {property.location}

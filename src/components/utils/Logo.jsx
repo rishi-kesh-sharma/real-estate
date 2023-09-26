@@ -7,7 +7,7 @@ const Logo = ({ className, alt, height, width, LogoImage }) => {
       width={width}
       height={height}
       alt={alt}
-      className={`h-[2rem] w-[5rem] ${className}`}
+      className={`${className} object-contain`}
     />
   );
 };

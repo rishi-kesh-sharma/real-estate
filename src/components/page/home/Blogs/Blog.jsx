@@ -10,15 +10,13 @@ export default function Blog({ blog, aspect, preloadImage }) {
   const imageProps = blog?.mainImage ? blog.mainImage : null;
   const AuthorimageProps = blog?.author?.image ? blog.author.image : null;
   return (
-    <Card className="cursor-pointer bg-white shadow-lg rounded-lg gap-[0.5rem] md:w-[330px]">
+    <Card className="cursor-pointer bg-white shadow-lg rounded-lg gap-[0.5rem] w-[100%]">
       <CardImage className=" rounded-lg ">
         <Link href={`/blog/${blog.slug.current}`}>
           {imageProps ? (
             <Image
-              src={imageProps.src}
-              width="290"
-              height={400}
-              className="transition-all rounded-lg"
+              src={imageProps}
+              className="transition-all rounded-lg w-[100%]"
             />
           ) : (
             <span className="absolute w-16 h-16 text-gray-200 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -33,9 +31,8 @@ export default function Blog({ blog, aspect, preloadImage }) {
             blog.categories.slice(0).map((category, index) => (
               <Link href={`blog/${blog.slug.current}`} key={index}>
                 <span
-                  className={`inline-block mt-5 text-xs font-medium tracking-wider uppercase py-1 px-2 text-gray-100 rounded-sm bg-${
-                    category.color ? `[${category.color}]` : "green-500"
-                  } bg-green-500`}>
+                  className={`inline-block mt-5 text-xs font-medium tracking-wider uppercase py-1 px-2 text-gray-100 rounded-sm bg-${category.color ? `[${category.color}]` : "green-500"
+                    } bg-green-500`}>
                   {category.title}
                 </span>
               </Link>

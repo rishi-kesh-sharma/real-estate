@@ -16,11 +16,11 @@ const Recent = () => {
           title="Recently Listed Properties"
           subtitle="see our recently listed properties"
         />
-        <CardContainer className="flex flex-wrap items-center justify-center gap-[2rem] mt-[2rem] md:mt-[3rem] ">
+        <div className="grid  lg:grid-cols-3 mt-5 gap-5 xl:grid-cols-4 xs:grid-cols-2">
           {list.map((recent, index) => {
             return <RecentCard recent={recent} key={index} />;
           })}
-        </CardContainer>
+        </div>
       </Container>
     </Section>
   );

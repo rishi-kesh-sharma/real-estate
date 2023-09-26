@@ -6,10 +6,10 @@ import Container from "./Container";
 
 export default function CustomSlider({ children, settings }) {
   return (
-    <Container>
+    <div>
       <Slider className="py-[1rem]  items-center justify-center " {...settings}>
         {children}
       </Slider>
-    </Container>
+    </div>
   );
 }

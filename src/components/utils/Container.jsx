@@ -4,6 +4,7 @@ const Container = tw.div`
 h-auto
 w-[90%]
 mx-auto
+xl:w-[70%]
 ${({ className }) => className}
 `;
 

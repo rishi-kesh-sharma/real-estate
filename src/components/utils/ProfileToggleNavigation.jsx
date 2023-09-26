@@ -19,7 +19,7 @@ const ProfileToggleNavigation = ({ profileLinks }) => {
               {item.path ? (
                 <Link
                   href={item?.path}
-                  className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
+                  className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg hover:bg-gray-100 hover:text-black">
                   <span className="flex-1 ml-3 whitespace-nowrap">
                     {item.name}
                   </span>
@@ -27,7 +27,7 @@ const ProfileToggleNavigation = ({ profileLinks }) => {
               ) : (
                 <div
                   onClick={handleLogout}
-                  className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
+                  className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg hover:bg-gray-100 hover:text-black">
                   <span className="flex-1 ml-3 whitespace-nowrap">
                     {item.name}
                   </span>

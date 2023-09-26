@@ -3,16 +3,17 @@ import Back from "../../utils/Back";
 import Heading from "../../utils/Heading";
 import featureImage from "../../../../public/assets/images/house.jpg";
 import styles from "./index.module.css";
+import Container from "@/components/utils/Container";
 
 const About = () => {
   return (
-    <section className={`${styles.about}   flex flex-col gap-[3rem] `}>
+    <div className={`mb-5 flex flex-col gap-[3rem] `}>
       <Back
         name="About Us"
         title="About Us - Who We Are?"
         cover={featureImage.src}
       />
-      <div className="container flex flex-col gap-[1.5rem] w-full max-w-[400px] mx-auto">
+      <Container className="flex flex-col gap-[1.5rem]">
         <div
           className={`${styles.left} ${styles.row} left row flex flex-col gap-[0.3rem]`}>
           <Heading
@@ -43,8 +44,8 @@ const About = () => {
             className="w-full max-h-[400px] object-cover"
           />
         </div>
-      </div>
-    </section>
+      </Container>
+    </div>
   );
 };
 

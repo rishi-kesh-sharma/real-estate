@@ -29,12 +29,12 @@ const Blog = ({
   const relatedBlogs = blogs;
   return (
     <div>
-      <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 w-[97%] mx-auto">
+      <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white w-[97%] mx-auto">
         <div className="flex justify-between px-4 mx-auto max-w-screen-xl ">
-          <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+          <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue">
             <header className="mb-4 lg:mb-6 not-format">
               <address className="flex items-center mb-6 not-italic">
-                <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                <div className="inline-flex items-center mr-3 text-sm text-gray-900">
                   {/* <img
                     className="mr-4 w-16 h-16 rounded-full"
                     src={`${staticUrl}/${author[0]?.image?.path}`}
@@ -48,13 +48,13 @@ const Blog = ({
                     <a
                       href="#"
                       rel="author[0]"
-                      className="text-xl font-bold text-gray-900 dark:text-white">
+                      className="text-xl font-bold text-gray-900">
                       {author[0]?.name}
                     </a>
-                    <p className="text-base font-light text-gray-500 dark:text-gray-400">
+                    <p className="text-base font-light text-gray-500 ">
                       Graphic Designer, educator & CEO
                     </p>
-                    <p className="text-base font-light text-gray-500 dark:text-gray-400">
+                    <p className="text-base font-light text-gray-500 ">
                       <time
                         pubdate
                         datetime="2022-02-08"
@@ -65,7 +65,7 @@ const Blog = ({
                   </div>
                 </div>
               </address>
-              <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+              <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">
                 {title}
               </h1>
             </header>
@@ -133,32 +133,32 @@ const Blog = ({
 
             <section className="not-format">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-lg lg:text-2xl font-bold text-gray-900">
                   Discussion (20)
                 </h2>
               </div>
               <form className="mb-6">
-                <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
                   <label for="comment" className="sr-only">
                     Your comment
                   </label>
                   <textarea
                     id="comment"
                     rows="6"
-                    className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                    className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0  "
                     placeholder="Write a comment..."
                     required></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                  className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800">
                   Post comment
                 </button>
               </form>
-              <article className="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
+              <article className="p-6 mb-6 text-base bg-white rounded-lg">
                 <footer className="flex justify-between items-center mb-2">
                   <div className="flex items-center">
-                    <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                    <p className="inline-flex items-center mr-3 text-sm text-gray-900">
                       <img
                         className="mr-2 w-6 h-6 rounded-full"
                         src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
@@ -166,7 +166,7 @@ const Blog = ({
                       />{" "}
                       Michael
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 ">
                       <time
                         pubdate
                         datetime="2022-02-08"
@@ -178,7 +178,7 @@ const Blog = ({
                   <button
                     id="dropdownComment1Button"
                     data-dropdown-toggle="dropdownComment1"
-                    className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
                     type="button">
                     <svg
                       className="w-5 h-5"
@@ -192,28 +192,28 @@ const Blog = ({
                   </button>
                   <div
                     id="dropdownComment1"
-                    className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                    className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow">
                     <ul
-                      className="py-1 text-sm text-gray-700 dark:text-gray-200"
+                      className="py-1 text-sm text-gray-700"
                       aria-labelledby="dropdownMenuIconHorizontalButton">
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Edit
                         </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Remove
                         </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Report
                         </a>
                       </li>
@@ -229,7 +229,7 @@ const Blog = ({
                 <div className="flex items-center mt-4 space-x-4">
                   <button
                     type="button"
-                    className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+                    className="flex items-center text-sm text-gray-500 hover:underline ">
                     <svg
                       aria-hidden="true"
                       className="mr-1 w-4 h-4"
@@ -245,10 +245,10 @@ const Blog = ({
                   </button>
                 </div>
               </article>
-              <article className="p-6 mb-6 ml-6 lg:ml-12 text-base bg-white rounded-lg dark:bg-gray-900">
+              <article className="p-6 mb-6 ml-6 lg:ml-12 text-base bg-white rounded-lg">
                 <footer className="flex justify-between items-center mb-2">
                   <div className="flex items-center">
-                    <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                    <p className="inline-flex items-center mr-3 text-sm text-gray-900">
                       <img
                         className="mr-2 w-6 h-6 rounded-full"
                         src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
@@ -256,7 +256,7 @@ const Blog = ({
                       />
                       Jese Leos
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 ">
                       <time
                         pubdate
                         datetime="2022-02-12"
@@ -268,7 +268,7 @@ const Blog = ({
                   <button
                     id="dropdownComment2Button"
                     data-dropdown-toggle="dropdownComment2"
-                    className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
                     type="button">
                     <svg
                       className="w-5 h-5"
@@ -282,28 +282,28 @@ const Blog = ({
                   </button>
                   <div
                     id="dropdownComment2"
-                    className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                    className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow">
                     <ul
-                      className="py-1 text-sm text-gray-700 dark:text-gray-200"
+                      className="py-1 text-sm text-gray-700"
                       aria-labelledby="dropdownMenuIconHorizontalButton">
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Edit
                         </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Remove
                         </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Report
                         </a>
                       </li>
@@ -314,7 +314,7 @@ const Blog = ({
                 <div className="flex items-center mt-4 space-x-4">
                   <button
                     type="button"
-                    className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+                    className="flex items-center text-sm text-gray-500 hover:underline ">
                     <svg
                       aria-hidden="true"
                       className="mr-1 w-4 h-4"
@@ -331,10 +331,10 @@ const Blog = ({
                   </button>
                 </div>
               </article>
-              <article className="p-6 mb-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+              <article className="p-6 mb-6 text-base bg-white border-t border-gray-200">
                 <footer className="flex justify-between items-center mb-2">
                   <div className="flex items-center">
-                    <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                    <p className="inline-flex items-center mr-3 text-sm text-gray-900">
                       <img
                         className="mr-2 w-6 h-6 rounded-full"
                         src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
@@ -342,7 +342,7 @@ const Blog = ({
                       />
                       Bonnie Green
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 ">
                       <time
                         pubdate
                         datetime="2022-03-12"
@@ -354,7 +354,7 @@ const Blog = ({
                   <button
                     id="dropdownComment3Button"
                     data-dropdown-toggle="dropdownComment3"
-                    className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
                     type="button">
                     <svg
                       className="w-5 h-5"
@@ -368,28 +368,28 @@ const Blog = ({
                   </button>
                   <div
                     id="dropdownComment3"
-                    className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                    className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow">
                     <ul
-                      className="py-1 text-sm text-gray-700 dark:text-gray-200"
+                      className="py-1 text-sm text-gray-700"
                       aria-labelledby="dropdownMenuIconHorizontalButton">
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Edit
                         </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Remove
                         </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Report
                         </a>
                       </li>
@@ -404,7 +404,7 @@ const Blog = ({
                 <div className="flex items-center mt-4 space-x-4">
                   <button
                     type="button"
-                    className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+                    className="flex items-center text-sm text-gray-500 hover:underline ">
                     <svg
                       aria-hidden="true"
                       className="mr-1 w-4 h-4"
@@ -420,10 +420,10 @@ const Blog = ({
                   </button>
                 </div>
               </article>
-              <article className="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+              <article className="p-6 text-base bg-white border-t border-gray-200">
                 <footer className="flex justify-between items-center mb-2">
                   <div className="flex items-center">
-                    <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                    <p className="inline-flex items-center mr-3 text-sm text-gray-900">
                       <img
                         className="mr-2 w-6 h-6 rounded-full"
                         src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
@@ -431,7 +431,7 @@ const Blog = ({
                       />
                       Helene Engels
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 ">
                       <time
                         pubdate
                         datetime="2022-06-23"
@@ -443,7 +443,7 @@ const Blog = ({
                   <button
                     id="dropdownComment4Button"
                     data-dropdown-toggle="dropdownComment4"
-                    className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
                     type="button">
                     <svg
                       className="w-5 h-5"
@@ -456,28 +456,28 @@ const Blog = ({
                   </button>
                   <div
                     id="dropdownComment4"
-                    className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                    className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow">
                     <ul
-                      className="py-1 text-sm text-gray-700 dark:text-gray-200"
+                      className="py-1 text-sm text-gray-700"
                       aria-labelledby="dropdownMenuIconHorizontalButton">
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Edit
                         </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Remove
                         </a>
                       </li>
                       <li>
                         <a
                           href="#"
-                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          className="block py-2 px-4 hover:bg-gray-10">
                           Report
                         </a>
                       </li>
@@ -492,7 +492,7 @@ const Blog = ({
                 <div className="flex items-center mt-4 space-x-4">
                   <button
                     type="button"
-                    className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+                    className="flex items-center text-sm text-gray-500 hover:underline ">
                     <svg
                       aria-hidden="true"
                       className="mr-1 w-4 h-4"
@@ -513,12 +513,12 @@ const Blog = ({
         </div>
       </main>
 
-      <div className="w-[90%] mx-auto">
+      <div className="w-[100%] mx-auto">
         <aside
           aria-label="Related articles"
-          className="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
+          className="py-8 lg:py-24 bg-gray-50 ">
           <div className="px-4 mx-auto max-w-screen-xl">
-            <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-8 text-2xl font-bold text-gray-900">
               Related articles
             </h2>
             <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -531,12 +531,12 @@ const Blog = ({
                         className="mb-5 rounded-lg max-h-[150px]"
                       />
                     </a>
-                    <h2 className="mb-2 text-md font-semibold leading-tight text-gray-900 dark:text-white">
+                    <h2 className="mb-2 text-md font-semibold leading-tight text-gray-900">
                       <Link href={`/blog/${item?.slug_url || item?._id}`}>
                         {item?.title}
                       </Link>
                     </h2>
-                    <p className="mb-4 font-light text-gray-500 dark:text-gray-400 text-xs">
+                    <p className="mb-4 font-light text-gray-500  text-xs">
                       {item?.short_description || item?.description}
                     </p>
                     <Link
@@ -544,7 +544,7 @@ const Blog = ({
                       href={`/blog/${item?.slug?.current || item?._id}`}>
                       Read in 2 minutes
                     </Link>
-                    <div className="flex items-center justify-between space-x-3 space-y-3 text-gray-500 dark:text-gray-400 mt-3">
+                    <div className="flex items-center justify-between space-x-3 space-y-3 text-gray-500  mt-3">
                       <div className="flex items-center gap-5">
                         <div className="relative flex-shrink-0 w">
                           {author?.image && (
@@ -561,7 +561,7 @@ const Blog = ({
                         </div>
                         <span className="text-xs">{author[0]?.name}</span>
                       </div>
-                      <span className="text-xs text-gray-300 dark:text-gray-600">
+                      <span className="text-xs text-gray-300">
                         &bull;
                       </span>
                       <time
@@ -578,13 +578,13 @@ const Blog = ({
         </aside>
       </div>
 
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-md sm:text-center">
-            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Sign up for our newsletter
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">
+            <p className="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl ">
               Stay up to date with the roadmap progress, announcements and
               exclusive discounts feel free to sign up with your email.
             </p>
@@ -593,12 +593,12 @@ const Blog = ({
                 <div className="relative w-full">
                   <label
                     for="email"
-                    className="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    className="hidden mb-2 text-sm font-medium text-gray-900">
                     Email address
                   </label>
                   <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <svg
-                      className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                      className="w-5 h-5 text-gray-500 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg">
@@ -607,7 +607,7 @@ const Blog = ({
                     </svg>
                   </div>
                   <input
-                    className="block p-3 pl-10 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="block p-3 pl-10 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500"
                     placeholder="Enter your email"
                     type="email"
                     id="email"
@@ -617,16 +617,16 @@ const Blog = ({
                 <div>
                   <button
                     type="submit"
-                    className="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    className="py-3 px-5 w-full text-sm font-medium text-center text-black rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
                     Subscribe
                   </button>
                 </div>
               </div>
-              <div className="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300">
+              <div className="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer">
                 We care about the protection of your data.{" "}
                 <a
                   href="#"
-                  className="font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                  className="font-medium text-primary-600 hover:underline">
                   Read our Privacy Policy
                 </a>
                 .

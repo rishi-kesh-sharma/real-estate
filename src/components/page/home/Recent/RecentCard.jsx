@@ -15,8 +15,8 @@ const RecentCard = ({ recent }) => {
     setIsLiked(!isLiked);
   };
   return (
-    <Link href={`property/${recent.id}`}>
-      <Card className="bg-white shadow p-1rem] items-start w-[300px] xs:w-[350px] md:w-[320px]">
+    <Link href={`property/${recent.id}`} className="w-[100%]">
+      <Card className="bg-white shadow p-[0.4rem] items-start w-[100%] ">
         <CardImage className="rounded-md">
           <Image src={image} className="rounded-lg object-cover" />
         </CardImage>
@@ -38,14 +38,16 @@ const RecentCard = ({ recent }) => {
           </div>
           <h4 className="text-gray-600">{name}</h4>
           <p className="text-gray-400 text-sm">{location}</p>
-          <div className="flex justify-between items-center">
-            <div className="flex-1">
-              <button className=" px-2 py-[0.2rem] text-center">{price}</button>{" "}
-              <label htmlFor="" className="text-center text-gray-400">
+          <div className="flex flex-col gap-[0.1rem] xs:flex-row xs:justify-between">
+            <div className="flex items-center">
+              <p className="py-[0.1rem] text-center font-semibold">
+                {price}
+              </p>
+              <p htmlFor="" className="text-center text-gray-400">
                 /sqft
-              </label>
+              </p>
             </div>
-            <span className="text-sm text-gray-600">{type}</span>
+            <span className="text-sm text-gray-400">{type}</span>
           </div>
         </CardContent>
       </Card>

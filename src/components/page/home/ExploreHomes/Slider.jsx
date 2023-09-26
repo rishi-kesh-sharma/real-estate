@@ -43,7 +43,7 @@ const Slider = () => {
     ],
   };
   return (
-    <div className="my-[1rem] py-[1rem] flex flex-wrap items-center justify-center gap-[1rem]">
+    <div className="mt-5 grid xs:grid-cols-2  gap-5  lg:grid-cols-3 xl:grid-cols-4">
       {/* <CustomSlider settings={settings}> */}
       {list.map((property, index) => (
         <ExploreHomesCard property={property} id={index} />

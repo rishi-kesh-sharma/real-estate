@@ -20,7 +20,7 @@ export default function blog(props) {
           className={"text-[4rem]"}
         />
         {blogs && (
-          <CardContainer className=" mx-[0.2rem] py-[2rem] ">
+          <div className="mt-5 grid xs:grid-cols-2  gap-5  lg:grid-cols-3 xl:grid-cols-4">
             {blogs.map((blog) => (
               <Blog
                 key={blog._id}
@@ -29,7 +29,7 @@ export default function blog(props) {
                 preloadImage={true}
               />
             ))}
-          </CardContainer>
+          </div>
         )}
       </Container>
     </Section>

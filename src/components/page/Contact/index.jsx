@@ -2,18 +2,19 @@ import React from "react";
 import Back from "../../utils/Back";
 import styles from "./index.module.css";
 import featureImage from "../../../../public/assets/images/house.jpg";
+import Container from "@/components/utils/Container";
 
 const Contact = () => {
   return (
-    <>
+    <Container>
       <section
-        className={`${styles.contact} ${styles.mb}  contact mb pt-[1rem]`}>
+        className={`${styles.contact} ${styles.mb} mb-5  contact pt-[1rem]`}>
         <Back
           name="Contact Us"
           title="Get Helps & Friendly Support"
           cover={featureImage.src}
         />
-        <div className={`${styles.container} container`}>
+        <div className={`${styles.container}`}>
           <form className={`${styles.shadow} shadow mt-[3rem]`}>
             <h4 className="text-gray-400 font-semibold">Fillup The Form</h4>{" "}
             <br />
@@ -39,7 +40,7 @@ const Contact = () => {
           </form>
         </div>
       </section>
-    </>
+    </Container>
   );
 };
 

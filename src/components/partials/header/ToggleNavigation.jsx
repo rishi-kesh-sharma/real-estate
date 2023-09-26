@@ -37,7 +37,7 @@ const ToggleNavigation = ({
             onClick={(e) => setShow(false)}
           />
         )}
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 pt-[6rem]">
+        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 pt-[6rem]">
           {isAuthenticated ? (
             <div
               className="flex items-center justify-start gap-[1rem] cursor-pointer"
@@ -76,13 +76,13 @@ const ToggleNavigation = ({
                   {item.path ? (
                     <Link
                       href={item?.path}
-                      className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
+                      className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg hover:bg-gray-100 hover:text-black">
                       <span className="flex-1 ml-3 whitespace-nowrap">
                         {item.name}
                       </span>
                     </Link>
                   ) : (
-                    <div className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700">
+                    <div className="flex items-center p-2 text-base font-normal text-gray-600 rounded-lg hover:bg-gray-100 hover:text-black">
                       <span className="flex-1 ml-3 whitespace-nowrap">
                         {item.name}
                       </span>
@@ -100,7 +100,7 @@ const ToggleNavigation = ({
                       );
                     }}
                     type="button"
-                    className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                    className="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
                     aria-controls="dropdown-example"
                     data-collapse-toggle="dropdown-example">
                     {item.icon && item.icon}
@@ -130,7 +130,7 @@ const ToggleNavigation = ({
                           className="border-b-[1px] border-b-gray-300">
                           <Link
                             href={dropItem.path}
-                            className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">
                             {dropItem.name}
                           </Link>
                         </li>

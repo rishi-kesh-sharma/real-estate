@@ -14,7 +14,7 @@ const Slider = () => {
     slidesToScroll: 1,
     centerMode: true,
     className: "center",
-
+    arrows: false,
     responsive: [
       {
         breakpoint: 2800,
@@ -72,13 +72,13 @@ const Slider = () => {
     ],
   };
   return (
-    <Container className="my-[1rem] py-[1rem]">
+    <div className="my-[1rem] py-[1rem]">
       <CustomSlider settings={settings}>
         {featured.map((feature, index) => (
           <CategoryTypeCard feature={feature} key={index} />
         ))}
       </CustomSlider>
-    </Container>
+    </div>
   );
 };
 

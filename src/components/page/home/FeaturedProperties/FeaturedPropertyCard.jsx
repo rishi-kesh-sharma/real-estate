@@ -14,9 +14,9 @@ const FeaturedPropertyCard = ({ featured }) => {
     setIsLiked(!isLiked);
   };
   return (
-    <Link href={`property/${featured.id}`}>
-      <Card className="w-[175px] rounded-lg shadow-lg bg-white items-start p-[0.4rem] xs:w-[250px] md:w-[280px] lg:w-[340px] ">
-        <CardImage className="rounded-lg h-[100px] xs:h-[180px] lg:h-[200px] w-full">
+    <Link href={`property/${featured.id}`} className="w-[100%]">
+      <Card className="w-[100%] rounded-lg shadow-lg bg-white items-start p-[0.4rem]">
+        <CardImage className="rounded-lg sm:h-[200px] xs:h-[180px] lg:h-[200px] w-[100%]">
           <Image src={image} className="rounded-lg" />
         </CardImage>
         <CardContent className={`gap-[0.2rem] w-[100%]`}>
@@ -38,13 +38,13 @@ const FeaturedPropertyCard = ({ featured }) => {
           <h4 className="text-sm">{name}</h4>
           <p className="text-xs text-gray-400">{location}</p>
           <div className="flex flex-col gap-[0.1rem] xs:flex-row xs:justify-between">
-            <div className="flex items-center gap-[0.4rem]">
-              <button className="px-1 py-[0.1rem] text-center font-extralight">
+            <div className="flex items-center">
+              <p className="py-[0.1rem] text-center font-semibold">
                 {price}
-              </button>{" "}
-              <label htmlFor="" className="text-center text-gray-400">
+              </p>
+              <p htmlFor="" className="text-center text-gray-400">
                 /sqft
-              </label>
+              </p>
             </div>
             <span className="text-sm text-gray-400">{type}</span>
           </div>

@@ -1,14 +1,15 @@
 import React from "react";
 import { footer } from "@/data/Data";
 import styled from "./index.module.css";
-import Logo from "../../../../public/assets/images/logo-light.png";
+import Logo from "../../../../public/assets/images/logo-footer.png";
 import Image from "next/image";
 import Section from "@/components/utils/Section";
+import Container from "@/components/utils/Container";
 const Footer = () => {
   return (
     <Section>
       <Section className={`${styled.footerContact} footerContact `}>
-        <div className={`${styled.container} container`}>
+        <Container className={`${styled.container} container`}>
           <div
             className={`${styled.send} ${styled.flex} flex-col sm:flex-row rounded-sm sm:flex  md:gap-[2rem]`}>
             <div className={`${styled.text} text`}>
@@ -22,24 +23,24 @@ const Footer = () => {
               Contact Us Today
             </button>
           </div>
-        </div>
+        </Container>
       </Section>
       <div className=" bg-[#1d2636] pt-[2rem]">
-        <div
+        <Container
           className={`container flex flex-col sm:flex-row  gap-[0.8rem] pb-[2rem] `}>
           <input
             type="text"
             placeholder="Email Address"
             className=" input text-gray-600 rounded-sm bg-white  p-[17px] "
           />
-          <button className="bg-green-500 max-w-[150px] text-lg text-gray-200 py-[0.4rem] rounded-lg">
+          <button className="bg-green-500 px-5 max-w-[150px] text-lg text-gray-200 rounded-lg">
             Subscribe
           </button>
-        </div>
+        </Container>
       </div>
 
       <footer className={`${styled.footer} footer `}>
-        <div className={`${styled.container} container`}>
+        <Container className={`${styled.container} container`}>
           <div className={`${styled.box} box`}>
             <div className={`${styled.logo} logo `}>
               <Image src={Logo} />
@@ -66,7 +67,7 @@ const Footer = () => {
               </ul>
             </div>
           ))}
-        </div>
+        </Container>
       </footer>
       <div className={`${styled.legal} legal`}>
         <span className="text-sm">

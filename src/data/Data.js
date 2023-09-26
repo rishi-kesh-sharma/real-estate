@@ -26,11 +26,13 @@ import {
   city6,
 } from "../../public/assets/images/cities";
 import Avatar from "@/components/utils/ProfileAvatar";
-import { FcAbout } from "react-icons/fc";
+import { HiIdentification } from "react-icons/hi";
 import { MdArticle, MdContactMail, MdRealEstateAgent } from "react-icons/md";
 import { AiFillHome } from "react-icons/ai";
 import { FaMoneyBillAlt, FaMoneyCheck } from "react-icons/fa";
-import { BsListNested, BsPeopleFill } from "react-icons/bs";
+import { BsPeopleFill } from "react-icons/bs";
+import { GrResources } from 'react-icons/gr'
+
 
 export const helpSectionData = [
   {
@@ -415,7 +417,7 @@ export const nav = {
     ],
     sideBarLinks: [
       {
-        icon: <FcAbout />,
+        icon: <HiIdentification />,
         name: "About",
         path: "/about",
       },
@@ -483,7 +485,7 @@ export const nav = {
         ],
       },
       {
-        icon: <BsListNested />,
+        icon: <GrResources />,
         name: "Additional Resources",
         path: "/additional-resources",
         dropItems: [
@@ -1443,7 +1445,18 @@ export const blogs = [
 ];
 export const footer = [
   {
-    title: "LAYOUTS",
+    title: "LINKS",
+    text: [
+      { list: "About" },
+      { list: "Blog" },
+      { list: "Pricing" },
+      { list: "Affiliate" },
+      { list: "Login" },
+      { list: "Changelog" },
+    ],
+  },
+  {
+    title: "BLOGS",
     text: [
       { list: "Home Page" },
       { list: "About Page" },
@@ -1454,7 +1467,7 @@ export const footer = [
     ],
   },
   {
-    title: "ALL SECTIONS",
+    title: "CONTACT US",
     text: [
       { list: "Headers" },
       { list: "Features" },
@@ -1464,15 +1477,5 @@ export const footer = [
       { list: "Footers" },
     ],
   },
-  {
-    title: "COMPANY",
-    text: [
-      { list: "About" },
-      { list: "Blog" },
-      { list: "Pricing" },
-      { list: "Affiliate" },
-      { list: "Login" },
-      { list: "Changelog" },
-    ],
-  },
+
 ];
