@@ -19,13 +19,3 @@ module.exports = {
   },
   plugins: [],
 };
-
-// module.exports = {
-//   theme: {
-//     screens: {
-//       xs: "475px",
-//       ...defaultTheme.screens,
-//     },
-//   },
-//   plugins: [],
-// };
