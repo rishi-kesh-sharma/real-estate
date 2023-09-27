@@ -26,7 +26,7 @@ const ToggleNavigation = ({
     setOpenProfileLinks(!openProfileLinks);
   };
   return (
-    <div className=" fixed left-0 z-40  right-0 top-0 h-[100vh] shadow-2xl bg-[rgba(0,0,0,0.6)] ">
+    <div className=" fixed left-0 z-40  right-0 top-0 h-[100vh] overflow-y-hidden shadow-2xl bg-[rgba(0,0,0,0.6)] ">
       <aside
         id="sidebar-multi-level-sidebar"
         className="fixed top-0 right-0 z-40 w-[50vw] h-screen max-w-[300px] "

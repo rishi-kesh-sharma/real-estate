@@ -48,14 +48,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <SectionWrapper className="h-[120px]">
+    <SectionWrapper className="h-[80px]">
       <Section className=" fixed bg-white" style={{ zIndex: 1000 }}>
-        <Container className="  flex justify-between items-center h-[120px] ">
+        <Container className="  flex justify-between items-center">
           <Link href={nav.logo.path}>
             <Logo
               LogoImage={nav.logo.image}
               alt="Logo"
-              className='h-[120px] w-[120px]'
+              className="h-[80px] w-[120px]"
             />
           </Link>
 
