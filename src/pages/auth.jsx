@@ -13,7 +13,7 @@ export default function Auth() {
   return (
     <>
       <NextSeo
-        title="Rent Up | Login & SignUp"
+        title="Real Estate | Login & SignUp"
         description="A Home Page For Property Selling And Rental Website"
       />
       <main className={styles.main}>

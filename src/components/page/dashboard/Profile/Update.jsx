@@ -83,14 +83,13 @@ const UpdateUser = () => {
     }
   };
   return (
-    <div className="overflow-hidden shadow bg-white flex-1 rounded-lg py-[2rem] md:flex-[0.6]">
+    <div className="overflow-hidden shadow bg-white flex-1 rounded-lg py-[2rem] md:flex-1">
       <Container className="">
         <Formik
           validationSchema={signUpSchema}
           onSubmit={handleSubmit}
           initialValues={initialValues}>
           {({ isSubmitting }) => {
-            console.log(isSubmitting);
             return (
               <Form className="flex flex-col gap-[1rem]">
                 <div>

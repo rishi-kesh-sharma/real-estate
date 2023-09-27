@@ -29,7 +29,7 @@ const ToggleNavigation = ({
     <div className=" fixed left-0 z-40  right-0 top-0 h-[100vh] overflow-y-hidden shadow-2xl bg-[rgba(0,0,0,0.6)] ">
       <aside
         id="sidebar-multi-level-sidebar"
-        className="fixed top-0 right-0 z-40 w-[50vw] h-screen max-w-[300px] "
+        className="fixed top-0 right-0 z-40  h-screen w-full max-w-[350px] sm:max-w-[300px] "
         aria-label="Sidebar">
         {show && (
           <RxCross1
@@ -37,7 +37,7 @@ const ToggleNavigation = ({
             onClick={(e) => setShow(false)}
           />
         )}
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 pt-[6rem]">
+        <div className="h-full px-3  py-4 overflow-y-auto bg-gray-50 pt-[6rem]">
           {isAuthenticated ? (
             <div
               className="flex items-center justify-start gap-[1rem] cursor-pointer"
@@ -92,7 +92,7 @@ const ToggleNavigation = ({
               ) : (
                 <li
                   key={item?.name}
-                  className=" border-b-[1px] border-b-gray-300 ">
+                  className=" border-b-[1px] border-b-gray-300">
                   <button
                     onClick={(e) => {
                       e.currentTarget.parentNode.lastChild.classList.toggle(
@@ -127,7 +127,7 @@ const ToggleNavigation = ({
                         <li
                           key={dropItem?.name}
                           onClick={handleNavLinksClick}
-                          className="border-b-[1px] border-b-gray-300">
+                          className="border-b-[1px] border-b-gray-300 last-of-type:border-none">
                           <Link
                             href={dropItem.path}
                             className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">

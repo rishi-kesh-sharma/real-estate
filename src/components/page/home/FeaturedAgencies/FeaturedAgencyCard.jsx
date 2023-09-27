@@ -6,11 +6,11 @@ import CardContent from "@/components/utils/CardContent";
 
 const FeaturedAgencyCard = ({ agency }) => {
   return (
-    <Card className="w-[220px] h-[220px] xs:w-[100%] bg-white">
+    <Card className=" h-[220px] xs:w-[100%] bg-white">
       <CardImage className="w-[100px] h-[60px]">
         <Image src={agency?.image} />
       </CardImage>
-      <CardContent className="max-w-[200px] text-center">
+      <CardContent className=" text-center">
         <p className="text-gray-500">{agency?.name}</p>
         <p className="text-gray-400">{agency?.total}</p>
       </CardContent>

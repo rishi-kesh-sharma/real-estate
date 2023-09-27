@@ -1,11 +1,8 @@
 import tw from "tailwind-styled-components";
 
 const Card = tw.div`
- 
- 
- w-[310px]
- px-[1rem]
- py-[1rem]
+ px-[0.4rem]
+ py-[0.4rem]
  rounded-md
  flex
  flex-col

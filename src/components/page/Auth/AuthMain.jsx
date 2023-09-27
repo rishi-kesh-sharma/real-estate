@@ -17,9 +17,9 @@ const AuthMain = ({ brand }) => {
   const [isLogin, setIsLogin] = useState("Login");
 
   return (
-    <div className="w-full p-8 lg:w-1/2">
+    <div className="w-full p-8 lg:w-1/2 overflow-hidden">
       {/* BRAND NAME */}
-      <h2 className="text-2xl font-semibold text-gray-600 text-center">
+      <h2 className="text-2xl font-semibold  text-center text-red-500">
         {brand}
       </h2>
       {/* TOGGLE FORMS BUTTON */}

@@ -16,7 +16,7 @@ const RecentCard = ({ recent }) => {
   };
   return (
     <Link href={`property/${recent.id}`} className="w-[100%]">
-      <Card className="bg-white shadow p-[0.4rem] items-start w-[100%] ">
+      <Card className="bg-white shadow  items-start w-[100%] ">
         <CardImage className="rounded-md">
           <Image src={image} className="rounded-lg object-cover" />
         </CardImage>
@@ -36,14 +36,14 @@ const RecentCard = ({ recent }) => {
               <FcLikePlaceholder onClick={handleLikeClick} />
             )}
           </div>
-          <h4 className="text-gray-600">{name}</h4>
-          <p className="text-gray-400 text-sm">{location}</p>
+          <h4 className=" text-sm">{name}</h4>
+          <p className="text-gray-400 text-xs">{location}</p>
           <div className="flex flex-col gap-[0.1rem] xs:flex-row xs:justify-between">
             <div className="flex items-center">
-              <p className="py-[0.1rem] text-center font-semibold">
+              <p className="py-[0.1rem] text-center font-semibold text-sm">
                 {price}
               </p>
-              <p htmlFor="" className="text-center text-gray-400">
+              <p htmlFor="" className="text-center text-gray-400 text-xs">
                 /sqft
               </p>
             </div>

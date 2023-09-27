@@ -52,13 +52,8 @@ const Navbar = () => {
       <Section className=" fixed bg-white" style={{ zIndex: 1000 }}>
         <Container className="  flex justify-between items-center">
           <Link href={nav.logo.path}>
-            <Logo
-              LogoImage={nav.logo.image}
-              alt="Logo"
-              className="h-[80px] w-[120px]"
-            />
+            <Logo LogoImage={nav.logo.image} alt="Logo" className="h-[80px]" />
           </Link>
-
           {/* LEFT NAVIGATION LINKS */}
           {currentDevice == "lg" && (
             <LeftNavLinks

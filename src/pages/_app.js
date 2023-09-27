@@ -85,9 +85,9 @@ App.getInitialProps = async (context) => {
   let data = {
     isAuthenticated: true,
     profile: {
-      name: "Rishikesh Sharma",
+      name: "User",
       email: "rishi",
-      about_me: "this is rishikesh sharma",
+      about_me: "this is User",
       dob: "2000-07-09",
       profile_image:
         "https://xsgames.co/randomusers/assets/avatars/male/74.jpg",

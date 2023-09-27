@@ -13,7 +13,7 @@ const PropertyCard = ({ property }) => {
     <>
       <div className="box shadow p-2 flex flex-col gap-2 ">
         <div className="img rounded-lg">
-          <Image src={image} className="rounded-lg max-w-[400px]" alt="" />
+          <Image src={image} className="rounded-lg " alt="" />
         </div>
         <div className={`${styled.text} text mt-[0.8rem]  `}>
           <div

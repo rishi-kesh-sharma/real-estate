@@ -7,7 +7,7 @@ import CardContent from "@/components/utils/CardContent";
 
 const CategoryTypeCard = ({ feature }) => {
   return (
-    <Card className="w-[180px] h-[180px]  bg-white xs:w-[260px] xs:h-[200px] my-3">
+    <Card className="h-[180px]  bg-white xs:h-[200px] my-3 mx-3 shadow-none">
       <CardImage className="h-[100px] w-[100px]">
         <Image src={feature.image} />
       </CardImage>

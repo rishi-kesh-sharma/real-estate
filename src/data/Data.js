@@ -31,8 +31,7 @@ import { MdArticle, MdContactMail, MdRealEstateAgent } from "react-icons/md";
 import { AiFillHome } from "react-icons/ai";
 import { FaMoneyBillAlt, FaMoneyCheck } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
-import { GrResources } from 'react-icons/gr'
-
+import { GrResources } from "react-icons/gr";
 
 export const helpSectionData = [
   {
@@ -1415,33 +1414,33 @@ export const blogs = [
     publishedAt: "October 21, 2022",
     createdAt: "October 21, 2022",
   },
-  {
-    slug: {
-      current: 7,
-    },
-    mainImage: BlogImage,
-    tags: [{ title: "Buy", color: "#c75840" }],
-    keywords: [
-      { title: "keyword1" },
-      { title: "keyword2" },
-      { title: "keyword3" },
-    ],
-    meta_tag: [
-      { title: "meta tag1" },
-      { title: "meta tag2" },
-      { title: "meta tag3" },
-    ],
-    author: {
-      name: "john Doe",
-      image: AuthorImage,
-      alt: "author image",
-    },
-    categories: [{ title: "Buy", color: "#c75840" }],
-    title:
-      "Architectural Engineering Wonders of the modern era for your Inspiration",
-    publishedAt: "October 21, 2022",
-    createdAt: "October 21, 2022",
-  },
+  // {
+  //   slug: {
+  //     current: 7,
+  //   },
+  //   mainImage: BlogImage,
+  //   tags: [{ title: "Buy", color: "#c75840" }],
+  //   keywords: [
+  //     { title: "keyword1" },
+  //     { title: "keyword2" },
+  //     { title: "keyword3" },
+  //   ],
+  //   meta_tag: [
+  //     { title: "meta tag1" },
+  //     { title: "meta tag2" },
+  //     { title: "meta tag3" },
+  //   ],
+  //   author: {
+  //     name: "john Doe",
+  //     image: AuthorImage,
+  //     alt: "author image",
+  //   },
+  //   categories: [{ title: "Buy", color: "#c75840" }],
+  //   title:
+  //     "Architectural Engineering Wonders of the modern era for your Inspiration",
+  //   publishedAt: "October 21, 2022",
+  //   createdAt: "October 21, 2022",
+  // },
 ];
 export const footer = [
   {
@@ -1477,5 +1476,4 @@ export const footer = [
       { list: "Footers" },
     ],
   },
-
 ];

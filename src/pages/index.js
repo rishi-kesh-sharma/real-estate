@@ -16,7 +16,7 @@ export default function Home(data) {
   return (
     <>
       <NextSeo
-        title="Rent Up | Home"
+        title="MyRAJ | Home"
         description="A Home Page For Property Selling And Rental Website"
       />
       <main className={"overflow-x-hidden"}>

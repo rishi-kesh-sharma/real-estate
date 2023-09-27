@@ -20,7 +20,7 @@ export default function Profile() {
           src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"
           defer></script>
       </Head>
-      <main className={""}>
+      <main className={"w-[100vw] overflow-x-hidden"}>
         <UserDashboardLayout>
           <ProfileComponent />
         </UserDashboardLayout>

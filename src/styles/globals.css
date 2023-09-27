@@ -152,7 +152,6 @@ img {
 .back {
   height: 40vh;
   position: relative;
-
 }
 .back img {
   /* height: 40vh; */
@@ -182,6 +181,9 @@ img {
   z-index: 5;
   color: white;
 }
+.back span {
+  z-index: 5;
+}
 .mb {
   margin-bottom: 80px;
 }
@@ -194,8 +196,8 @@ img {
 }
 
 .slick-dots li.slick-active button:before {
-    opacity: 1;
-    color: #16A349 !important;
+  opacity: 1;
+  color: #16a349 !important;
 }
 
 @media screen and (max-width: 800px) {
@@ -228,5 +230,3 @@ img {
 .css-162mkon {
   display: none !important;
 }
-
-

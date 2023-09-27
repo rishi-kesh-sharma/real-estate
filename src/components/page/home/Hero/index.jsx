@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <Section className={`${styled.hero} min-h-screen`}>
       <Container className="flex justify-center h-screen">
-        <div className="min-w-[60vw] flex flex-col justify-center   gap-[4rem] md:gap-[2rem] ">
+        <div className=" md:w-[80%] lg:w-[70%] flex flex-col justify-center   gap-[4rem] md:gap-[2rem] ">
           <HeroText />
           <div className="flex flex-col gap-[0.6rem] md:mt-[2rem] ">
             <TabBtns />

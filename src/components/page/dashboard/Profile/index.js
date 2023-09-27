@@ -27,7 +27,7 @@ const Profile = () => {
       ) : (
         <>
           {/* <!-- details column --> */}
-          <Container className="overflow-hidden bg-white p-[1rem] mx-auto  shadow-md   md:px-[3rem] lg:px-[5rem] ">
+          <Container className="overflow-hidden bg-white p-[1rem] mx-auto  md:shadow-md   md:px-[2rem]  ">
             {/* <!-- personal info --> */}
 
             <div className="flex flex-col gap-5 items-start">
@@ -37,7 +37,7 @@ const Profile = () => {
                 </span>
                 <Link
                   href="profile/update"
-                  className="text-sm text-primary-blue font-medium  cursor-pointer bg-green-200 rounded-sm px-[0.6rem] py-[0.3rem]">
+                  className="text-sm  font-medium  cursor-pointer bg-green-600 rounded-md px-[0.6rem] py-[0.3rem] text-gray-100">
                   Edit
                 </Link>
               </div>
@@ -130,12 +130,11 @@ const Profile = () => {
               </div>
               <button
                 onClick={toggleModal}
-                className="text-sm text-gray-50 font-medium rounded   bg-green-700 max-w-[150px] px-[1rem] py-[0.5rem]">
+                className="text-sm text-gray-50 font-medium rounded bg-green-600 max-w-[150px] px-[1rem] py-[0.5rem]">
                 Change Password
               </button>
             </div>
           </Container>
-          {/* <!-- details column --> */}
         </>
       )}
       {openModal && <ChangePasswordModal toggleModal={toggleModal} />}

@@ -24,7 +24,7 @@ const UserDashboardSidebar = (
   const handleLogout = () => {};
 
   return (
-    <div className="hidden sm:flex flex-col gap-4 w-1/3 px-1">
+    <div className="hidden md:flex flex-col gap-4  md:w-1/2 lg:w-2/5 xl:w-1/3 2xl:w-1/4 px-1">
       {/* <!-- profile card --> */}
       <div className="flex items-center gap-4 p-3 bg-white rounded-sm shadow">
         {/* <!-- user icon --> */}

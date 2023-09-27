@@ -39,10 +39,10 @@ const FeaturedPropertyCard = ({ featured }) => {
           <p className="text-xs text-gray-400">{location}</p>
           <div className="flex flex-col gap-[0.1rem] xs:flex-row xs:justify-between">
             <div className="flex items-center">
-              <p className="py-[0.1rem] text-center font-semibold">
+              <p className="py-[0.1rem] text-center font-semibold text-sm">
                 {price}
               </p>
-              <p htmlFor="" className="text-center text-gray-400">
+              <p htmlFor="" className="text-center text-gray-400 text-xs">
                 /sqft
               </p>
             </div>

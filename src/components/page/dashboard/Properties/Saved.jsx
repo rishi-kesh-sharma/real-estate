@@ -8,18 +8,18 @@ import PropertyCard from "../../Properties/PropertyCard";
 const SavedPropertiesContainer = () => {
   const router = useRouter();
   return (
-    <div className="w-2/3">
+    <div className="w-full md:w-2/3">
       <Text
         fontSize="2xl"
         fontWeight="semibold"
-        className="text-[1.6rem] mb-[2rem]">
+        className="text-[1.6rem] mb-[2rem] text-center md:text-start mt-5 md:mt-0">
         Saved Properties
       </Text>
-      <Flex flexWrap="wrap" className="items-center justify-start gap-[1rem]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3  gap-[1rem]">
         {list.map((property) => (
           <PropertyCard property={property} key={property.id} />
         ))}
-      </Flex>
+      </div>
       {list.length === 0 && (
         <Flex
           justifyContent="center"

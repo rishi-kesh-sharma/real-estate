@@ -13,8 +13,8 @@ export default function UserDashboardLayout({ children }) {
       {/* <!-- row --> */}
       <NormalLayout>
         <BreadCrumbContainer />
-        <Section className="py-[2rem] bg-gray-100">
-          <Container className="flex gap-[2rem] bg-white md:p-[1rem]  justify-center lg:p-[3rem] xl:py-[4rem] xl:gap-[3rem]">
+        <Section className="py-[2rem] bg-gray-100  overflow-x-hidden">
+          <Container className="flex  gap-[2rem] md:bg-white md:p-[1rem]  justify-start lg:p-[3rem] xl:py-[4rem] xl:gap-[3rem] w-full overflow-x-hidden  ">
             <UserDashboardSidebar />
             {children}
           </Container>

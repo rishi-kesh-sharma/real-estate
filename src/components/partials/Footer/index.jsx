@@ -33,7 +33,7 @@ const Footer = () => {
             placeholder="Email Address"
             className=" input text-gray-600 rounded-sm bg-white  p-[17px] "
           />
-          <button className="bg-green-500 px-5 max-w-[150px] text-lg text-gray-200 rounded-lg">
+          <button className="bg-green-500 py-2 md:py-0 px-5 max-w-[150px] text-lg text-gray-200 rounded-lg">
             Subscribe
           </button>
         </Container>
