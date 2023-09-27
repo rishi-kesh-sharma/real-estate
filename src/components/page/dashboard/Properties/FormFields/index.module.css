@@ -15,8 +15,6 @@
   @apply flex flex-wrap gap-[1rem];
 }
 
-.btn_radio {
-}
 .btn_radio input {
   @apply appearance-none;
 }
@@ -25,9 +23,6 @@
   @apply border border-solid border-b-green-400 border-t-0 border-r-0 border-l-0  rounded-md px-[1rem] py-[0.3rem]  text-gray-500 text-[0.9rem];
 }
 
-.select_field {
-  /* @apply border border-solid border-b-green-400 border-t-0 border-r-0 border-l-0  rounded-md px-[1rem] py-[0.3rem]  text-gray-500 text-[0.9rem]; */
-}
 .select_option {
   @apply border-none;
 }
@@ -57,8 +52,6 @@
 .radio_btn_group input:checked {
   background: rgb(5, 159, 5);
   color: white;
-  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); */
-  /* text-shadow: 0 1px 0px #808080; */
 }
 
 .radio_btn_group input::before {
@@ -74,7 +67,6 @@
   /* height: min(100px); */
 }
 
-/* stylings for check boxes */
 .radio_btn_group input[type="checkbox"] {
   border-radius: 10px;
   -webkit-border-radius: 10px;
