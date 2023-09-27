@@ -15,7 +15,7 @@ const Contact = () => {
           cover={featureImage.src}
         />
         <div className={`${styles.container}`}>
-          <form className={`${styles.shadow} shadow mt-[3rem]`}>
+          <form className={`${styles.shadow} shadow-md mt-[3rem]`}>
             <h4 className="text-gray-400 font-semibold">Fillup The Form</h4>{" "}
             <br />
             <div>

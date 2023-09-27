@@ -8,7 +8,7 @@ const Modal = ({ toggleModal, form }) => {
       className="   fixed h-full w-full top-0 left-0 right-0 z-[20000]   overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
       <div className=" h-full w-full rounded-lg bg-black opacity-80"></div>
       <div className=" bg-gray-200 rounded-lg absolute w-full h-full max-w-md md:h-auto left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-white rounded-lg shadow-md dark:bg-gray-700">
           <button
             onClick={toggleModal}
             type="button"

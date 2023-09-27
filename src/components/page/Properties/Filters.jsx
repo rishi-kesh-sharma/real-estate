@@ -58,7 +58,7 @@ const Filters = ({}) => {
         <p className="text-[1rem] text-gray-600  ">
           Search Property By Filters
         </p>
-        <p className="text-sm  p-[0.2rem] max-w-[100px]  shadow items-center justify-center  rounded-md text-gray-200 bg-green-500 ">
+        <p className="text-sm  p-[0.2rem] max-w-[100px]  shadow-md items-center justify-center  rounded-md text-gray-200 bg-green-500 ">
           Clear All
         </p>
       </div>

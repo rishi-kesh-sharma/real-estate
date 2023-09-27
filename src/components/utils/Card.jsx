@@ -9,7 +9,7 @@ const Card = tw.div`
  justify-center
  items-center
  gap-[1rem]
- shadow
+ shadow-md
  transition-all
  
  ${({ className }) => className}
