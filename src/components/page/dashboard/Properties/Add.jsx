@@ -262,7 +262,7 @@ export default function Add() {
 
   // getting tab items components from units Array
   let tabItems = unitsArray?.map((units, index) => {
-    const components = units.map((unit,index) => {
+    const components = units.map((unit, index) => {
       return (
         <FormControl key={index} className="w-[8rem] flex flex-wrap">
           <FormLabel className="text-gray-600 text-[1rem]">{unit}</FormLabel>

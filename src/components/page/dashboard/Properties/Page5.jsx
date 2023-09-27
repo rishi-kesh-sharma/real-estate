@@ -16,7 +16,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Page6() {
+export default function Page5() {
   const [data, dispatch] = useReducer(reducer, {
     inDropZone: false,
     fileList: [],
