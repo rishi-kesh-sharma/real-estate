@@ -43,7 +43,6 @@ const Navbar = () => {
   useEffect(() => {
     // LISTENING TO RESIZE EVENT
     window.addEventListener("resize", handleResize);
-    handleResize();
   }, []);
 
   return (
