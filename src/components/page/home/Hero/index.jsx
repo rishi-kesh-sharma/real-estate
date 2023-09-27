@@ -13,18 +13,18 @@ import HeroText from "./HeroText";
 const Hero = () => {
   const [show, setShow] = useState(false);
   const [currentDevice, setCurrentDevice] = useState("lg");
-  // const handleResize = (e) => {
-  //   if (window.innerWidth >= 1024) return setCurrentDevice("lg");
-  //   if (window.innerWidth < 768) return setCurrentDevice("sm");
-  //   if (window.innerWidth >= 768 && window.innerWidth < 1024)
-  //     return setCurrentDevice("md");
-  // };
+  const handleResize = (e) => {
+    if (window.innerWidth >= 1024) return setCurrentDevice("lg");
+    if (window.innerWidth < 768) return setCurrentDevice("sm");
+    if (window.innerWidth >= 768 && window.innerWidth < 1024)
+      return setCurrentDevice("md");
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener("resize", handleResize);
-  //   window.addEventListener("scroll", (e) => {});
-  //   handleResize();
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", (e) => {});
+    handleResize();
+  }, []);
   return (
     <Section className={`${styled.hero} min-h-screen`}>
       <Container className="flex justify-center h-screen">

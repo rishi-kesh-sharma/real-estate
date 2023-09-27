@@ -51,7 +51,7 @@ const LoginForm = ({ styles }) => {
       // REDIRECTING TO HOME
       router.push("/");
       // router.reload("/");
-      // window.location.href = "/";
+      window.location.href = "/";
 
       // EXECUTES IF LOGIN FAILS
     } else {

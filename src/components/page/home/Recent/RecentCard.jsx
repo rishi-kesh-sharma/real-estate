@@ -16,7 +16,7 @@ const RecentCard = ({ recent }) => {
   };
   return (
     <Link href={`property/${recent.id}`} className="w-[100%]">
-      <Card className="bg-white shadow  items-start w-[100%] ">
+      <Card className="bg-white shadow-sm  items-start w-[100%] ">
         <CardImage className="rounded-md">
           <Image src={image} className="rounded-lg object-cover" />
         </CardImage>
