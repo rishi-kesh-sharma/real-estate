@@ -20,6 +20,7 @@ import {
   getProvinces,
   getRoadTypes,
 } from "@/apiCalls/general";
+import Link from "next/link";
 
 // IFRAME FOR GOOGLE MAP
 const IFrame = (src) => {
@@ -230,7 +231,7 @@ const FormFields = ({ structure: s }) => {
                   if (canRenderSection) {
                     return (
                       // PARTICULAR SECION JSX
-                      <FormSection heading={title}>
+                      <FormSection key={index} heading={title}>
                         {/* SUB SECTION */}
                         {subSections.map(
                           (
@@ -272,7 +273,7 @@ const FormFields = ({ structure: s }) => {
                             // LOGIC FOR RENDERING IFRAME
                             if (name == "map_link" && values.map_link) {
                               return (
-                                <div>
+                                <div key={index}>
                                   <IFrame src={values.apartment_type} />{" "}
                                   {RenderField}
                                 </div>
@@ -287,16 +288,17 @@ const FormFields = ({ structure: s }) => {
                   }
                 }
               )}
-              <div className="flex my-[0.5rem] gap-[0.3rem]">
+              <div key="dvddfje" className="flex my-[0.5rem] gap-[0.3rem]">
                 <Field type="checkbox" />
                 <label>
                   I agree to{" "}
-                  <a href="/" className="text-blue-600">
+                  <Link href="/" className="text-blue-600">
                     listing policy
-                  </a>
+                  </Link>
                 </label>
               </div>
               <Field
+                key="fdlfdf"
                 type="submit"
                 value="submit"
                 role="button"

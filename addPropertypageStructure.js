@@ -130,7 +130,7 @@ export const structure = {
           fieldType: "select",
           name: "shop_space_type",
           options: [
-            { label: "Resturant", value: "resturant" },
+            { label: "Restaurant", value: "restaurant" },
             { label: "Cafe", value: "cafe" },
             { label: "grocery", value: "grocery" },
             { label: "Gift Shop", value: "gift_shop" },
@@ -153,8 +153,8 @@ export const structure = {
           options: [
             { label: "others", value: "others" },
             {
-              label: "bunglow",
-              value: "bunglow",
+              label: "bungalow",
+              value: "bungalow",
             },
           ],
           dependencies: {

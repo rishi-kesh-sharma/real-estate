@@ -7,8 +7,7 @@ const Checkbox = ({ children, ...props }) => (
     {children}
   </label>
 );
-
-export default CustomSelect = ({ optionValues, name, className }) => {
+const CustomSelect = ({ optionValues, name, className }) => {
   const [isClearable, setIsClearable] = useState(true);
   const [isSearchable, setIsSearchable] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -32,3 +31,5 @@ export default CustomSelect = ({ optionValues, name, className }) => {
     </>
   );
 };
+
+export default CustomSelect;

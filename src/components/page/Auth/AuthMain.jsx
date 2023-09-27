@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "./Login";
 import SignUpForm from "./SignUp";
+import Link from "next/link";
 
 // FORM STYLES
 const styles = {
@@ -36,9 +37,9 @@ const AuthMain = ({ brand }) => {
       {/* DIVIDER */}
       <div className="mt-4 flex items-center justify-between">
         <span className="border-b border-green-700 w-1/5 lg:w-1/4"></span>
-        <a href="#" className="text-xs text-center text-gray-500 uppercase">
+        <Link href="#" className="text-xs text-center text-gray-500 uppercase">
           {isLogin ? "Login" : "Register"}
-        </a>
+        </Link>
         <span className="border-b w-1/5 border-green-700 lg:w-1/4"></span>
       </div>
 

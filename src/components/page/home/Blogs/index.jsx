@@ -6,7 +6,7 @@ import CardContainer from "@/components/utils/CardContainer";
 import Section from "@/components/utils/Section";
 import Container from "@/components/utils/Container";
 
-export default function Blog(props) {
+export default function Blogs(props) {
   const { blogdata, siteconfig, preview } = props;
 
   const router = useRouter();

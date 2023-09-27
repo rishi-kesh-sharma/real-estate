@@ -22,8 +22,8 @@ const Profile = () => {
   const loading = false;
   return (
     <>
-      {loading ? (
-        <Loader />
+      {loading ? ( // <Loader />
+        "loading"
       ) : (
         <>
           {/* <!-- details column --> */}
