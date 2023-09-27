@@ -36,12 +36,14 @@ ul.checkbox li label::before {
   font-weight: 900;
   font-size: 12px;
   padding: 2px 6px 2px 2px;
-  content: "\f067";
+  /* content: "\f067"; */
+  content: "";
   transition: transform 0.3s ease-in-out;
 }
 
 ul.checkbox li input[type="checkbox"]:checked + label::before {
-  content: "\f00c";
+  /* content: "\f00c"; */
+  content: "";
   transform: rotate(-360deg);
   transition: transform 0.3s ease-in-out;
 }
