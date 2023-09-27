@@ -2,7 +2,7 @@ const ImageField = ({ imageHandler, checkFile, selectedFile, className }) => {
   return (
     <div
       className={`grid gap-2 max-w-[600px] w-[100%] ${className} px-[0.5rem]`}>
-      <div className="h-[6rem] w-full lg:h-[10rem] cursor-pointer relative flex justify-start items-center border-2 rounded-md ">
+      <div className="h-[200px] w-full lg:h-[10rem] cursor-pointer relative flex justify-start items-center border-2 rounded-md ">
         <input
           type="file"
           name="file"
@@ -15,7 +15,7 @@ const ImageField = ({ imageHandler, checkFile, selectedFile, className }) => {
           }`}>
           {selectedFile && (
             <img
-              className={` h-full w-[50%] rounded ${
+              className={` h-[100%] rounded object-cover${
                 checkFile ? "opacity-1" : "opacity-0"
               }`}
               // src={selectedFile ? URL.createObjectURL(selectedFile) : null}

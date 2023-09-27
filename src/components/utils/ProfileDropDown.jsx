@@ -17,7 +17,7 @@ const ProfileDropDown = ({ profileLinks, isAuthenticated, profile }) => {
   return (
     <div className="relative cursor-pointer">
       <div
-        className="flex items-center justify-center gap-[0.4rem]"
+        className="flex items-center justify-between w-full gap-[0.4rem]"
         onClick={handleClick}>
         <ProfileAvatar profile={profile} />
         <svg

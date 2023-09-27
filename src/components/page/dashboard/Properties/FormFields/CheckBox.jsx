@@ -6,14 +6,16 @@ const CheckBox = ({ heading, name, items }) => {
     <div className={`${styles.sub_section}`}>
       <h4 className={`${styles.sub_section_heading}`}>{heading}</h4>
       <div className={`${styles.radio_btn_group}`}>
-        {items.map((item) => (
-          <Field
-            name={name}
-            type="checkbox"
-            id={item?.id}
-            label={item.label}
-            value={item.value}
-          />
+        {items.map((item, index) => (
+          <div key={index}>
+            <Field
+              name={name}
+              type="checkbox"
+              id={item?.id}
+              label={item.label}
+              value={item.value}
+            />
+          </div>
         ))}
       </div>
 

@@ -42,22 +42,18 @@ export default function PropertesSideBar() {
   const router = useRouter();
 
   return (
-    <Flex
-      bg="gray.100"
-      justifyContent=""
-      flexWrap="wrap"
-      className="py-[2rem]   gap-[1.5rem] justify-start flex w-[90%] flex-col  shadow-lg px-[1rem]">
+    <Flex className="py-[2rem] w-full   gap-[1.5rem] justify-start flex flex-wrap  flex-col  md:shadow-lg md:px-[1rem] lg:flex-[0.4] xl:flex-[0.3]">
       {/* CLEAR ALL OPTION */}
 
       {/* FILTERS */}
       <Filters />
-      <Flex flexDir="column" className="gap-[0.4rem]">
+      <div className="gap-[0.4rem]">
         <Button
           onClick={() => setShowLocations(!showLocations)}
           border="1px"
           borderColor="gray.200"
           marginTop="2"
-          className="border border-solid  border-gray-600 text-gray bg-green-700 py-[0.8rem] text-gray-200">
+          className="border border-solid flex flex-col border-gray-600 text-gray bg-green-700 py-[0.8rem] text-gray-200 w-full">
           Search Location
         </Button>
         {showLocations && (
@@ -124,7 +120,7 @@ export default function PropertesSideBar() {
             )}
           </Flex>
         )}
-      </Flex>
+      </div>
     </Flex>
   );
 }

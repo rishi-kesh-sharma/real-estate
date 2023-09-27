@@ -14,11 +14,11 @@ const PropertiesContainer = () => {
         className="text-[1.6rem] mb-[2rem]">
         Properties {router.query.purpose}
       </Text>
-      <Flex flexWrap="wrap" className="items-center justify-start gap-[1rem]">
+      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-[1rem] ">
         {list.map((property) => (
           <PropertyCard property={property} key={property.id} />
         ))}
-      </Flex>
+      </div>
       {list.length === 0 && (
         <Flex
           justifyContent="center"

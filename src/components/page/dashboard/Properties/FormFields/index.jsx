@@ -71,6 +71,7 @@ const filterField = (
       case "text_input_field":
         return (
           <TextInputField
+            key={id}
             heading={subSectionTitle}
             name={name}
             id={id}
@@ -80,6 +81,7 @@ const filterField = (
       case "number_input_field":
         return (
           <NumberInputField
+            key={id}
             heading={subSectionTitle}
             name={name}
             id={id}
@@ -89,6 +91,7 @@ const filterField = (
       case "email_input_field":
         return (
           <EmailInputField
+            key={id}
             heading={subSectionTitle}
             name={name}
             id={id}
@@ -98,6 +101,7 @@ const filterField = (
       case "date":
         return (
           <DateInputField
+            key={id}
             heading={subSectionTitle}
             name={name}
             id={id}
@@ -107,6 +111,7 @@ const filterField = (
       case "textarea":
         return (
           <TextAreaField
+            key={id}
             heading={subSectionTitle}
             name={name}
             id={id}
@@ -116,13 +121,26 @@ const filterField = (
 
       case "btn_radio":
         return (
-          <ButtonRadio heading={subSectionTitle} name={name} radios={radios} />
+          <ButtonRadio
+            key={id}
+            heading={subSectionTitle}
+            name={name}
+            radios={radios}
+          />
         );
       case "checkbox":
-        return <CheckBox heading={subSectionTitle} name={name} items={items} />;
+        return (
+          <CheckBox
+            key={id}
+            heading={subSectionTitle}
+            name={name}
+            items={items}
+          />
+        );
       case "select":
         return (
           <SelectField
+            key={id}
             heading={subSectionTitle}
             name={name}
             id={id}
@@ -178,7 +196,7 @@ const getApiData = async () => {
 
 // FORMIK VALIDATION SCHEMA
 const validationSchema = Yup.object({});
-const index = ({ structure: s }) => {
+const FormFields = ({ structure: s }) => {
   console.log(s);
   // HANDLE SUBMIT FORM
   const handleSubmit = (values) => {
@@ -201,12 +219,11 @@ const index = ({ structure: s }) => {
               {/* SECTIONS */}
               {structure.sections.map(
                 // PARTICULAR SECTION
-                ({ title, subSections, dependencies }) => {
+                ({ title, subSections, dependencies }, index) => {
                   // LOGIC FOR WHETHER THE SECTION IS RENDERABLE OR NOT
                   let canRenderSection = false;
                   if (dependencies) {
                     canRenderSection = getCanRender(dependencies, values);
-                    console.log(canRenderSection);
                   } else {
                     canRenderSection = true;
                   }
@@ -216,19 +233,22 @@ const index = ({ structure: s }) => {
                       <FormSection heading={title}>
                         {/* SUB SECTION */}
                         {subSections.map(
-                          ({
-                            title: subSectionTitle,
-                            fieldType,
-                            name,
-                            dependencies,
-                            placeholder,
-                            fields,
-                            dataUrl,
-                            radios,
-                            options,
-                            items,
-                            defaultValue,
-                          }) => {
+                          (
+                            {
+                              title: subSectionTitle,
+                              fieldType,
+                              name,
+                              dependencies,
+                              placeholder,
+                              fields,
+                              dataUrl,
+                              radios,
+                              options,
+                              items,
+                              defaultValue,
+                            },
+                            index
+                          ) => {
                             // LOGIC FOR WHETHER THE SUB SECTION IS RENDERABLE OR NOT
                             const canRender = getCanRender(
                               dependencies,
@@ -289,4 +309,4 @@ const index = ({ structure: s }) => {
     </div>
   );
 };
-export default index;
+export default FormFields;

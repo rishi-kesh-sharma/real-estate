@@ -40,7 +40,7 @@ const ToggleNavigation = ({
         <div className="h-full px-3  py-4 overflow-y-auto bg-gray-50 pt-[6rem]">
           {isAuthenticated ? (
             <div
-              className="flex items-center justify-start gap-[1rem] cursor-pointer"
+              className="flex items-center justify-between gap-[1rem] cursor-pointer"
               onClick={handleProfileAvatarClick}>
               <div className="ml-[1rem]">
                 <ProfileAvatar profile={profile} />

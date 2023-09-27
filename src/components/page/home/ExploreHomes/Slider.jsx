@@ -46,7 +46,7 @@ const Slider = () => {
     <div className="mt-5 grid xs:grid-cols-2  gap-5  lg:grid-cols-3 xl:grid-cols-4">
       {/* <CustomSlider settings={settings}> */}
       {list.map((property, index) => (
-        <ExploreHomesCard property={property} id={index} />
+        <ExploreHomesCard property={property} key={id} id={index} />
       ))}
       {/* </CustomSlider> */}
     </div>

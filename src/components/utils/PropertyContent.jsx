@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../page/Properties";
 import millify from "millify";
 import { GoVerified } from "react-icons/go";
-import { FcLike } from "react-icons/fc";
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 
 const PropertyContent = ({
   property: { category, price, name, location, type },

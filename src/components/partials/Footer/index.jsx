@@ -5,6 +5,7 @@ import Logo from "../../../../public/assets/images/logo-footer.png";
 import Image from "next/image";
 import Section from "@/components/utils/Section";
 import Container from "@/components/utils/Container";
+import Link from "next/link";
 const Footer = () => {
   return (
     <Section>
@@ -15,7 +16,7 @@ const Footer = () => {
             <div className={`${styled.text} text`}>
               <h1 className="text-xl">Do You Have Questions ?</h1>
               <p className="text-gray-300 ">
-                We'll help you to grow your career and growth.
+                We&apos;ll help you to grow your career and growth.
               </p>
             </div>
             <button
@@ -58,11 +59,12 @@ const Footer = () => {
             <div key={index} className={`${styled.box} box`}>
               <h3 className="text-gray-300">{val.title}</h3>
               <ul>
-                {val.text.map((items, index) => (
-                  <li key={index} className="text-sm">
-                    {" "}
-                    {items.list}{" "}
-                  </li>
+                {val.text.map((item, index) => (
+                  <Link key={index} href={`${item.link}`}>
+                    <li key={index} className="text-sm">
+                      {item.list}
+                    </li>
+                  </Link>
                 ))}
               </ul>
             </div>
@@ -72,8 +74,8 @@ const Footer = () => {
       <div className={`${styled.legal} legal`}>
         <span className="text-sm">
           {" "}
-          <span className="mr-[0.1rem text-sm]">© 2021 RentUP.</span> Designed
-          By APP TECHNOLOGIES.
+          <span className="mr-[0.1rem text-sm]">© 2021 MyRAJ.</span> Designed By
+          APP TECHNOLOGIES.
         </span>
       </div>
     </Section>

@@ -54,13 +54,13 @@ const Filters = ({}) => {
   };
   return (
     <div className="flex flex-col gap-[2rem] py-3 text-sm overflow-hidden">
-      <div className=" flex flex-wrap items-center justify-between gap-[1rem]  ">
-        <Text className="text-[1rem] text-gray-600  ">
+      <div className=" flex flex-wrap  items-center justify-between gap-[1rem]  ">
+        <p className="text-[1rem] text-gray-600  ">
           Search Property By Filters
-        </Text>
-        <Flex className="text-sm  p-[0.2rem] max-w-[100px]  shadow items-center justify-center  rounded-md text-gray-200 bg-green-500 ">
+        </p>
+        <p className="text-sm  p-[0.2rem] max-w-[100px]  shadow items-center justify-center  rounded-md text-gray-200 bg-green-500 ">
           Clear All
-        </Flex>
+        </p>
       </div>
       {/* price slider filter */}
       <div className="flex flex-col gap-2 border-b px-4">
@@ -86,7 +86,6 @@ const Filters = ({}) => {
         </div>
       </div>
       {/* price slider filter */}
-
       {/* category filter */}
       <div className="flex flex-col border-b px-4">
         <div

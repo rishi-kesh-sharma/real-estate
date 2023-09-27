@@ -1162,93 +1162,6 @@ export const testimonials = [
     text: "Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.",
   },
 ];
-export const price = [
-  {
-    plan: "Basic",
-    price: "29",
-    ptext: "per user, per month",
-    list: [
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "99.5% Uptime Guarantee",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "120GB CDN Bandwidth",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "5GB Cloud Storage",
-      },
-      {
-        change: "color",
-        icon: <i className="fa-solid fa-x"></i>,
-        text: "Personal Help Support",
-      },
-      {
-        change: "color",
-        icon: <i className="fa-solid fa-x"></i>,
-        text: "Enterprise SLA",
-      },
-    ],
-  },
-  {
-    best: "Best Value",
-    plan: "Standard",
-    price: "49",
-    ptext: "per user, per month",
-    list: [
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "99.5% Uptime Guarantee",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "150GB CDN Bandwidth",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "10GB Cloud Storage",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "Personal Help Support",
-      },
-      {
-        change: "color",
-        icon: <i className="fa-solid fa-x"></i>,
-        text: "Enterprise SLA",
-      },
-    ],
-  },
-  {
-    plan: "Platinum",
-    price: "79",
-    ptext: "2 user, per month",
-    list: [
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "100% Uptime Guarantee",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "200GB CDN Bandwidth",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "20GB Cloud Storage",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "Personal Help Support",
-      },
-      {
-        icon: <i className="fa-solid fa-check"></i>,
-        text: "Enterprise SLA",
-      },
-    ],
-  },
-];
 
 export const blogs = [
   {
@@ -1446,23 +1359,23 @@ export const footer = [
   {
     title: "LINKS",
     text: [
-      { list: "About" },
-      { list: "Blog" },
-      { list: "Pricing" },
+      { list: "About", link: "/about" },
+      { list: "Blog", link: "/blogs" },
+      { list: "Contact", link: "/contact" },
       { list: "Affiliate" },
       { list: "Login" },
       { list: "Changelog" },
     ],
   },
   {
-    title: "BLOGS",
+    title: "PAGES",
     text: [
-      { list: "Home Page" },
-      { list: "About Page" },
-      { list: "Service Page" },
-      { list: "Property Page" },
-      { list: "Contact Page" },
-      { list: "Single Blog" },
+      { list: "Home Page", link: "/" },
+      { list: "About Page", link: "/about" },
+      { list: "Properties Page", link: "/properties" },
+      { list: "Property Detail Page", link: "/properties/1" },
+      { list: "Blogs", link: "/blogs" },
+      { list: "Single Blog", link: "/blog/1" },
     ],
   },
   {
