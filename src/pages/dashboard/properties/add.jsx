@@ -9,7 +9,6 @@ import NormalLayout from "@/components/layouts/NormalLayout";
 import Section from "@/components/utils/Section";
 import Container from "@/components/utils/Container";
 import UserDashboardSidebar from "@/components/partials/dashboard/UserDashboardSidebar";
-import Add from "@/components/page/dashboard/Properties/Add";
 import MultiStepForm from "@/components/utils/MultiStepForm";
 const inter = Inter({ subsets: ["latin"] });
 import Form from "../../../components/page/dashboard/Properties/FormFields/index";
@@ -31,7 +30,6 @@ export default function AddProperty(prop) {
       </Head>
       <main className={""}>
         <UserDashboardLayout>
-          {/* <Add /> */}
           <Form structure={structure} />
 
           {/* <MultiStepForm /> */}
