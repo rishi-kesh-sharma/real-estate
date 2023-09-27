@@ -1,3 +1,4 @@
+"use client";
 import React, { useContext, useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
