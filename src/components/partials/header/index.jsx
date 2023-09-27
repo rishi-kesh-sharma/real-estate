@@ -21,7 +21,6 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const [currentDevice, setCurrentDevice] = useState("lg");
   const profileData = useContext(profileContext);
-  console.log(profileData);
   // HANDLE SCREEN RESIZE
   const handleResize = (e) => {
     if (window.innerWidth >= 1024) return setCurrentDevice("lg");
