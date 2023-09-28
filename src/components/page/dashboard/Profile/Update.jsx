@@ -11,6 +11,7 @@ import { updateProfile } from "@/apiCalls/profile";
 import Container from "@/components/utils/Container";
 import { profileContext } from "@/pages/_app";
 import Toast from "@/components/utils/Toast";
+import Previews from "@/components/utils/DragNDropWPreview";
 const styles = {
   label: "block text-gray-600 text-sm  pt-2 pb-1",
   field:
@@ -163,14 +164,15 @@ const UpdateUser = () => {
 
                 <div>
                   <label className={styles.label}>
-                    Upload Your profile_image
+                    Upload Your profile image
                   </label>
-                  <ImageField
+                  {/* <ImageField
                     imageHandler={imageHandler}
                     checkFile={checkFile}
                     selectedFile={selectedFile}
                     className={styles.field}
-                  />
+                  /> */}
+                  <Previews />
                 </div>
                 <div className="mt-8 flex justify-end max-w-[600px] cursor-pointer">
                   {isSubmitting ? (

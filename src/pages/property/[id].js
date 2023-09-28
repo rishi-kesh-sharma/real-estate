@@ -32,13 +32,13 @@ const PropertyDetails = (property) => {
   );
 };
 
-export async function getServerSideProps({ params: { id } }) {
-  const data = await fetchApi(`${baseUrl}/properties/detail?externalID=${id}`);
-  console.log(data);
-  return {
-    props: {
-      propertyDetails: data,
-    },
-  };
-}
+// export async function getServerSideProps({ params: { id } }) {
+//   const data = await fetchApi(`${baseUrl}/properties/detail?externalID=${id}`);
+//   console.log(data);
+//   return {
+//     props: {
+//       propertyDetails: data,
+//     },
+//   };
+// }
 export default PropertyDetails;

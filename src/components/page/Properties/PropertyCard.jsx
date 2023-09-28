@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import styled from "./index.module.css";
+import Link from "next/link";
 
 const PropertyCard = ({ property }) => {
   const { image, category, location, name, price, type } = property;
@@ -12,9 +13,11 @@ const PropertyCard = ({ property }) => {
   return (
     <>
       <div className="box shadow p-2 flex flex-col gap-2 ">
-        <div className="img rounded-lg">
-          <Image src={image} className="rounded-lg " alt="" />
-        </div>
+        <Link href={`/property/${property?.id}`}>
+          <div className="img rounded-lg">
+            <Image src={image} className="rounded-lg " alt="" />
+          </div>
+        </Link>
         <div className={`${styled.text} text mt-[0.8rem]  `}>
           <div
             className={`${styled.category} ${styled.flex} flex  items-center justify-between category`}>
@@ -27,9 +30,12 @@ const PropertyCard = ({ property }) => {
               {category}
             </span>
             {isLiked ? (
-              <FcLike onClick={handleLikeClick} />
+              <FcLike onClick={handleLikeClick} className="cursor-pointer" />
             ) : (
-              <FcLikePlaceholder onClick={handleLikeClick} />
+              <FcLikePlaceholder
+                onClick={handleLikeClick}
+                className="cursor-pointer"
+              />
             )}
           </div>
           <h4 className="text-sm">{name}</h4>

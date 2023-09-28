@@ -28,7 +28,7 @@ const ToggleNavigation = ({
   return (
     <div className=" fixed left-0 z-40  right-0 top-0 h-[100vh] overflow-y-hidden shadow-2xl bg-[rgba(0,0,0,0.6)] ">
       <aside
-        id="sidebar-multi-level-sidebar"
+        id="sidebar-multi-level-sidebar overflow-y-hidden h-full"
         className="fixed top-0 right-0 z-40  h-screen w-full max-w-[350px] sm:max-w-[300px] "
         aria-label="Sidebar">
         {show && (

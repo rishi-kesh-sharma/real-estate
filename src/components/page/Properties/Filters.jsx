@@ -75,12 +75,12 @@ const Filters = ({}) => {
           max={10000000000}
         />
 
-        <div className="flex gap-3 items-center justify-between mb-2 min-w-full">
-          <span className="flex-1 border px-4 py-1 rounded-sm text-gray-800 bg-gray-50">
+        <div className="flex gap-3 items-center justify-between mb-2 min-w-full w-full flex-col mt-4  ">
+          <span className="flex-1 border px-4 py-1 rounded-sm text-gray-800 bg-gray-50  w-full">
             ₹{price[0]}
           </span>
           <span className="font-medium text-gray-400">to</span>
-          <span className="flex-1 border px-4 py-1 rounded-sm text-gray-800 bg-gray-50">
+          <span className="flex-1 border px-4 py-1 rounded-sm text-gray-800 bg-gray-50 w-full">
             ₹{price[1]}
           </span>
         </div>

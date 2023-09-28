@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { blogs } from "@/data/Data";
 import Image from "next/image";
+import Container from "@/components/utils/Container";
 
 const Blog = ({
   blog: {
@@ -131,14 +132,14 @@ const Blog = ({
               </div>
             </section>
 
-            <section className="not-format">
+            <section className="not-format mt-5">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-lg lg:text-2xl font-bold text-gray-900">
                   Discussion (20)
                 </h2>
               </div>
               <form className="mb-6">
-                <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
+                <div className="py-2 px-4  bg-white rounded-lg rounded-t-lg border border-gray-200 ">
                   <label for="comment" className="sr-only">
                     Your comment
                   </label>
@@ -155,7 +156,7 @@ const Blog = ({
                   Post comment
                 </button>
               </form>
-              <article className="p-6 mb-6 text-base bg-white rounded-lg">
+              <article className="p-2 mb-6 text-base bg-white rounded-lg">
                 <footer className="flex justify-between items-center mb-2">
                   <div className="flex items-center">
                     <p className="inline-flex items-center mr-3 text-sm text-gray-900">
@@ -513,11 +514,11 @@ const Blog = ({
         </div>
       </main>
 
-      <div className="w-[100%] mx-auto">
+      <Container className="">
         <aside
           aria-label="Related articles"
           className="py-8 lg:py-24 bg-gray-50 ">
-          <div className="px-4 mx-auto max-w-screen-xl">
+          <div className="px-4 mx-auto">
             <h2 className="mb-8 text-2xl font-bold text-gray-900">
               Related articles
             </h2>
@@ -561,9 +562,7 @@ const Blog = ({
                         </div>
                         <span className="text-xs">{author[0]?.name}</span>
                       </div>
-                      <span className="text-xs text-gray-300">
-                        &bull;
-                      </span>
+                      <span className="text-xs text-gray-300">&bull;</span>
                       <time
                         className="text-xs"
                         dateTime={item?.published_on || item.added_at}>
@@ -576,7 +575,7 @@ const Blog = ({
             </div>
           </div>
         </aside>
-      </div>
+      </Container>
 
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -607,7 +606,7 @@ const Blog = ({
                     </svg>
                   </div>
                   <input
-                    className="block p-3 pl-10 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500"
+                    className="block p-3 pl-10 w-full text-sm text-gray-900 focus:ring bg-white rounded-lg  border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 border border-1 ring"
                     placeholder="Enter your email"
                     type="email"
                     id="email"
@@ -617,7 +616,7 @@ const Blog = ({
                 <div>
                   <button
                     type="submit"
-                    className="py-3 px-5 w-full text-sm font-medium text-center text-black rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+                    className="py-3 px-5 w-full text-sm font-medium text-center text-black rounded-lg  cursor-pointer bg-primary-700  sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 ring">
                     Subscribe
                   </button>
                 </div>

@@ -27,11 +27,26 @@ import {
 } from "../../public/assets/images/cities";
 import Avatar from "@/components/utils/ProfileAvatar";
 import { HiIdentification } from "react-icons/hi";
-import { MdArticle, MdContactMail, MdRealEstateAgent } from "react-icons/md";
-import { AiFillHome } from "react-icons/ai";
-import { FaMoneyBillAlt, FaMoneyCheck } from "react-icons/fa";
+import {
+  MdArticle,
+  MdContactMail,
+  MdFavorite,
+  MdRealEstateAgent,
+} from "react-icons/md";
+
+import { RiLogoutCircleFill } from "react-icons/ri";
+import { FaUserAlt } from "react-icons/fa";
+
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaMoneyBillAlt,
+  FaMoneyCheck,
+  FaTwitter,
+} from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
 import { GrResources } from "react-icons/gr";
+import { AiFillHome, AiTwotonePropertySafety } from "react-icons/ai";
 
 export const helpSectionData = [
   {
@@ -344,20 +359,24 @@ export const validationRegex = {
 };
 export const profileLinks = [
   {
+    icon: <FaUserAlt />,
     name: "Profile",
     path: "/dashboard/profile",
   },
 
   {
+    icon: <MdFavorite />,
     name: "Saved Properties",
     path: "/dashboard/properties/saved",
     forAuthenticated: true,
   },
   {
+    icon: <AiTwotonePropertySafety />,
     name: "My Properties",
     path: "/dashboard/properties",
   },
   {
+    icon: <RiLogoutCircleFill />,
     name: "Logout",
   },
 ];
@@ -1223,12 +1242,18 @@ export const footer = [
   {
     title: "CONTACT US",
     text: [
-      { list: "Headers" },
-      { list: "Features" },
-      { list: "Attractive" },
-      { list: "Testimonials" },
-      { list: "Videos" },
-      { list: "Footers" },
+      { list: "myraz@gmail.com" },
+      { list: "9876543210" },
+      { list: "Lagankhel,Lalitpur" },
+      {
+        list: (
+          <div className="mt-2 flex gap-2">
+            <FaFacebook />
+            <FaTwitter />
+            <FaLinkedin />
+          </div>
+        ),
+      },
     ],
   },
 ];

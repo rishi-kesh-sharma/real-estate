@@ -26,22 +26,24 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
               onClick={handleNavLinksClick}>
               <button
                 onClick={(e) => {
-                  e.currentTarget.parentNode.lastChild.classList.toggle(
-                    "hidden"
-                  );
+                  e.currentTarget.parentNode.parentNode
+                    .querySelectorAll("li>ul.dropdown-example")
+                    .forEach((item) => {
+                      if (e.currentTarget.parentNode.lastChild.id == item.id) {
+                        item.classList.toggle("hidden");
+                      } else {
+                        item.classList.add("hidden");
+                      }
+                    });
                 }}
                 type="button"
                 className="flex items-center w-full p-P2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 aria-controls="dropdown-example"
                 data-collapse-toggle="dropdown-example">
-                <span
-                  className="flex-1 ml-3 text-left whitespace-nowrap"
-                  // sidebar-toggle-item
-                >
+                <span className="flex-1 ml-3 text-left whitespace-nowrap">
                   {item.name}
                 </span>
                 <svg
-                  // sidebar-toggle-item
                   className="w-6 h-6"
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -53,8 +55,8 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
                 </svg>
               </button>
               <ul
-                id="dropdown-example"
-                className="hidden absolute bg-white left-0 w-[200px] top-[2.5rem] rounded-lg ">
+                id={`dropdown-example${index}`}
+                className=" dropdown-example  hidden absolute bg-white left-0 w-[200px] top-[2.5rem] rounded-lg ">
                 {item.dropItems.map((dropItem, index) => {
                   return (
                     <li

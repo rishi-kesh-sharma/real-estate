@@ -23,5 +23,4 @@ const FeaturedProperties = () => {
     </Section>
   );
 };
-
 export default FeaturedProperties;
