@@ -42,7 +42,7 @@ export default function PropertesSideBar() {
   const router = useRouter();
 
   return (
-    <Flex className="py-[2rem] w-full   gap-[1.5rem] justify-start flex flex-wrap  flex-col  md:shadow-lg md:px-[1rem] lg:flex-[0.4] xl:flex-[0.3]">
+    <Flex className="py-[2rem] w-full lg:w-1/2 2xl:w-1/3   gap-[1.5rem] justify-start flex flex-wrap  flex-col  md:shadow-lg md:px-[1rem]">
       {/* CLEAR ALL OPTION */}
 
       {/* FILTERS */}

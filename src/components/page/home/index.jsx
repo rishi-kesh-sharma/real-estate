@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Hero from "./Hero";
 
@@ -8,10 +9,6 @@ import FeaturedAgencies from "./FeaturedAgencies";
 import Blogs from "./Blogs";
 import ExploreHomes from "./ExploreHomes/ExploreHomes";
 import HelpSection from "./HelpSection/HelpSection";
-// import { wrapper } from "@/store/store";
-// import { useSelector } from "react-redux";
-// import { selectUserState } from "@/store/features/userSlice";
-// import { selectAuthState, setAuthState } from "@/store/features/authSlice";
 
 const Home = () => {
   return (

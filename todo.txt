@@ -1,14 +1,5 @@
-//improvements
-
-1.put the related blogs in container
-2.overflow of pages non home pages
-3.contact footer
-4.overflow y of sidebar
-5.add sign up for newsletter input box border in blog detail page
-6.gap between discussion and meta tags in blog detail page
-7.bottom padding in help section in home page
-8.image preview in profile
-9.provide link to image instead of whole card for each property card
-10.ugly effect on using range slider
-11.padding of links in avatar dropdown in toggle navigation
-12.auto close of one dropdown when another dropdown is opened in header section
+options
+1.using package that provides the svg of map
+2.using script tags and local d3.min.js and geo data in component
+3.using cdn geo data and d3 package in usa health data
+4.using cdn in script tags

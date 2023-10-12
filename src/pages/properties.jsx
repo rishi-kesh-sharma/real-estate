@@ -4,8 +4,11 @@ import { baseUrl, fetchApi } from "../utils/fetchApi";
 import PropertiesComponent from "../components/page/Properties";
 import NormalLayout from "@/components/layouts/NormalLayout";
 import BreadCrumbContainer from "@/components/utils/BreadCrumbContainer";
+import { useRouter } from "next/router";
 
 const Properties = ({ properties }) => {
+  const router = useRouter();
+  const { query } = router;
   return (
     <>
       <Head>
@@ -18,7 +21,7 @@ const Properties = ({ properties }) => {
         <NormalLayout>
           <BreadCrumbContainer />
           {/* <Header /> */}
-          <PropertiesComponent properties={properties} />
+          <PropertiesComponent query={query} properties={properties} />
           {/* <Footer /> */}
         </NormalLayout>
       </main>

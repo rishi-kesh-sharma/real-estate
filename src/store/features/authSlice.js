@@ -37,12 +37,7 @@ export const register = createAsyncThunk("register", async (data) => {
 export const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    // Action to set the authentication status
-    // setAuthState(state, action) {
-    //   state.authState = action.payload;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state, action) => {
       state = { ...state, isLoading: true };

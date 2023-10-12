@@ -7,14 +7,17 @@ import { useRouter } from "next/router";
 import { setAuthState } from "@/store/features/authSlice";
 import { useDispatch } from "react-redux";
 import Toast from "@/components/utils/Toast";
+import { baseUrl } from "@/apiCalls/constants";
+import axios from "axios";
 
 const SignUpForm = ({ styles }) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  // SIGNUP SCHEMA
+  // SIGN UP SCHEMA
   const signUpSchema = Yup.object().shape({
     name: Yup.string().required("Name is Required"),
+    username: Yup.string().required("username is Required"),
     email: Yup.string().email().required("Email is Required"),
     password: Yup.string()
       .required("Password is Required")
@@ -41,7 +44,7 @@ const SignUpForm = ({ styles }) => {
 
       // EXECUTES IF LOGIN FAILS
     } else {
-      // EXECUTES IF THE RESULTACTION HAS NO PAYLOAD
+      // EXECUTES IF THE RESULT ACTION HAS NO PAYLOAD
       if (resultAction.payload) {
         const messages = getSingleErrorMessage(
           resultAction.payload.data.errors
@@ -68,53 +71,83 @@ const SignUpForm = ({ styles }) => {
           password: "",
           password_confirmation: "",
         }}
-        onSubmit={handleSubmit}
-      >
-        <Form>
-          <label className={styles.label} htmlFor="Name">
-            Full Name
-          </label>
-          <Field className={styles.field} id="name" name="name" />
-          <ErrorMessage component="a" className={styles.errorMsg} name="name" />
+        onSubmit={handleSubmit}>
+        {() => {
+          return (
+            <Form>
+              <label className={styles.label} htmlFor="Name">
+                Full Name
+              </label>
+              <Field className={styles.field} id="name" name="name" />
+              <ErrorMessage
+                component="a"
+                className={styles.errorMsg}
+                name="name"
+              />
+              <label className={styles.label} htmlFor="name">
+                Username
+              </label>
+              <Field
+                onInput={async (e) => {
+                  const username = e.target.value;
+                  const res = await axios.post(
+                    `${baseUrl}/auth/check-username`,
+                    {
+                      username,
+                    }
+                  );
+                  console.log(res);
+                }}
+                className={styles.field}
+                id="username"
+                name="username"
+              />
 
-          <label className={styles.label} htmlFor="Email">
-            Email
-          </label>
-          <Field className={styles.field} id="email" name="email" />
-          <ErrorMessage
-            component="a"
-            className={styles.errorMsg}
-            name="email"
-          />
-
-          <label className={styles.label} htmlFor="password">
-            Password
-          </label>
-          <Field className={styles.field} id="password" name="password" />
-          <ErrorMessage
-            component="a"
-            className={styles.errorMsg}
-            name="password"
-          />
-          <label className={styles.label} htmlFor="password_confirmation">
-            Confirm password
-          </label>
-          <Field
-            className={styles.field}
-            id="password_confirmation"
-            name="password_confirmation"
-          />
-          <ErrorMessage
-            component="a"
-            className={styles.errorMsg}
-            name="password_confirmation"
-          />
-          <div className="mt-8">
-            <button type="submit" className={styles.button}>
-              Register
-            </button>
-          </div>
-        </Form>
+              <ErrorMessage
+                component="a"
+                className={styles.errorMsg}
+                name="username"
+              />
+              <button className="bg-green-600 p-1  ">Check</button>
+              <label className={styles.label} htmlFor="Email">
+                Email
+              </label>
+              <Field className={styles.field} id="email" name="email" />
+              <ErrorMessage
+                component="a"
+                className={styles.errorMsg}
+                name="email"
+              />
+              <label className={styles.label} htmlFor="password">
+                Password
+              </label>
+              <Field className={styles.field} id="password" name="password" />
+              <ErrorMessage
+                component="a"
+                className={styles.errorMsg}
+                name="password"
+              />
+              <label className={styles.label} htmlFor="password_confirmation">
+                Confirm password
+              </label>
+              <Field
+                className={styles.field}
+                id="password_confirmation"
+                name="password_confirmation"
+              />
+              <ErrorMessage
+                component="a"
+                className={styles.errorMsg}
+                name="password_confirmation"
+              />
+              <div className="mt-8">
+                <button type="submit" className={styles.button}>
+                  Register
+                </button>
+              </div>
+            </Form>
+          );
+        }}
       </Formik>
     </>
   );

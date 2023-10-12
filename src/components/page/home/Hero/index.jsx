@@ -9,6 +9,7 @@ import TabBtns from "@/components/utils/TabBtns";
 import Section from "@/components/utils/Section";
 import Container from "@/components/utils/Container";
 import HeroText from "./HeroText";
+import NepalMap from "@/components/utils/NepalMap";
 
 const Hero = () => {
   const [show, setShow] = useState(false);
@@ -19,24 +20,23 @@ const Hero = () => {
     if (window.innerWidth >= 768 && window.innerWidth < 1024)
       return setCurrentDevice("md");
   };
-
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", (e) => {});
     handleResize();
   }, []);
   return (
-    <Section className={`${styled.hero} min-h-screen`}>
-      <Container className="flex justify-center h-screen">
-        <div className=" md:w-[80%] lg:w-[70%] flex flex-col justify-center   gap-[4rem] md:gap-[2rem] ">
-          <HeroText />
-          <div className="flex flex-col gap-[0.6rem] md:mt-[2rem] ">
-            <TabBtns />
-            <SearchBox />
-          </div>
+    <Section className={`${styled.hero} h-[550px]  bg-gray-200`}>
+      <Container className="flex  h-screen flex-col ">
+        {/* <div className=" md:w-[80%] lg:w-[70%] flex flex-col justify-center  mt-[1rem] "> */}
+        {/* <HeroText /> */}
+        <div className="flex flex-col gap-[0.6rem] md:mt-[2rem] ">
+          {/* <TabBtns />
+            <SearchBox /> */}
+          <NepalMap />
         </div>
+        {/* </div> */}
       </Container>
-      {/* </div> */}
     </Section>
   );
 };

@@ -207,3 +207,15 @@ img {
 .css-162mkon {
   display: none !important;
 }
+
+path.district:hover {
+  fill: rgb(6, 66, 115);
+}
+
+path.district.active {
+  fill: #16a349;
+}
+
+svg {
+  cursor: pointer;
+}

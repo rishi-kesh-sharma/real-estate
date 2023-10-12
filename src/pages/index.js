@@ -11,8 +11,6 @@ import { createContext } from "react";
 // profile context
 // HOME COMPONENT
 export default function Home(data) {
-  useEffect(() => {}, []);
-
   return (
     <>
       <NextSeo

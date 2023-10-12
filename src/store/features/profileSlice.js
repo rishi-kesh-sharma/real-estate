@@ -20,7 +20,6 @@ export const authSlice = createSlice({
   name: "profile",
   initialState,
   reducers: {
-    // Action to set the authentication status
     setProfile(state, action) {
       state.profile = action.payload;
     },

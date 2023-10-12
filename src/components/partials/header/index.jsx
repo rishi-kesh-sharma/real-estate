@@ -15,8 +15,6 @@ import BreadCrumbContainer from "@/components/utils/BreadCrumbContainer";
 import Link from "next/link";
 import { profileContext } from "@/pages/_app";
 import ProfileAvatar from "@/components/utils/ProfileAvatar";
-import { RxAvatar } from "react-icons/rx";
-
 const Navbar = () => {
   // TOGGLE SIDEBAR
   const [show, setShow] = useState(false);
@@ -42,6 +40,9 @@ const Navbar = () => {
 
   // USEEFFECT
   useEffect(() => {
+    window.addEventListener("click", (e) => {
+      console.log(e.target);
+    });
     // LISTENING TO RESIZE EVENT
     window.addEventListener("resize", handleResize);
     handleResize();

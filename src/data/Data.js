@@ -652,6 +652,10 @@ export const featured = [
 ];
 export const list = [
   {
+    locationInfo: {
+      province: "3",
+      district: "lalitpur",
+    },
     id: 1,
     image: p1,
     name: "Red Carpet Real Estate",
@@ -682,6 +686,10 @@ export const list = [
     photos: [p1, p2, p3],
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "bhaktapur",
+    },
     id: 2,
     image: p1,
     name: "Fairmount Properties",
@@ -712,6 +720,10 @@ export const list = [
     photos: [p1, p2, p3],
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "kathmandu",
+    },
     id: 3,
     image: p2,
     name: "The Real Estate Corner",
@@ -741,6 +753,10 @@ export const list = [
     photos: [p1, p2, p3],
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "lalitpur",
+    },
     id: 4,
     image: p3,
     name: "Herringbone Realty",
@@ -770,6 +786,10 @@ export const list = [
     photos: [p1, p2, p3],
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "kathmandu",
+    },
     id: 5,
     image: p4,
     name: "Brick Lane Realty",
@@ -800,6 +820,10 @@ export const list = [
     photos: [p1, p2, p3],
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "lalitpur",
+    },
     id: 6,
     image: p5,
     name: "Banyon Tree Realty",
@@ -948,6 +972,10 @@ export const awards = [
 ];
 export const location = [
   {
+    locationInfo: {
+      province: "3",
+      district: "kathmandu",
+    },
     id: 1,
     name: "New Orleans, Louisiana",
     Villas: "12 Villas",
@@ -956,6 +984,10 @@ export const location = [
     image: city1,
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "kathmandu",
+    },
     id: 2,
     name: "Jerrsy, United State",
     Villas: "12 Villas",
@@ -964,6 +996,10 @@ export const location = [
     image: city2,
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "kathmandu",
+    },
     id: 3,
     name: "Liverpool, London",
     Villas: "12 Villas",
@@ -972,6 +1008,10 @@ export const location = [
     image: city3,
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "kathmandu",
+    },
     id: 4,
     name: "NewYork, United States",
     Villas: "12 Villas",
@@ -980,6 +1020,10 @@ export const location = [
     image: city4,
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "kathmandu",
+    },
     id: 5,
     name: "Montreal, Canada",
     Villas: "12 Villas",
@@ -988,6 +1032,10 @@ export const location = [
     image: city5,
   },
   {
+    locationInfo: {
+      province: "3",
+      district: "kathmandu",
+    },
     id: 6,
     name: "California, USA",
     Villas: "12 Villas",

@@ -1,15 +1,12 @@
 .hero {
-  background-image: url("../../../../../public/assets/images/banner.png");
-  background-repeat: no-repeat;
+  /* background-image: url("../../../../../public/assets/images/banner.png"); */
+  /* background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  /* height: 90vh; */
+  background-size: cover; */
   width: 100%;
-  padding-bottom: 2rem;
+  
 }
-.hero .container {
-  padding-top: 15%;
-}
+
 .hero h1 {
   color: #fff;
 }

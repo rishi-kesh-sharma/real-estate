@@ -2,11 +2,11 @@ import { getTokenFromLocalStorage } from "@/utils/LocalStorage";
 import axios from "axios";
 import { baseUrl } from "./constants";
 export const loginUser = async (data) => {
-  const response = await axios.post(`${baseUrl}/login`, data);
+  const response = await axios.post(`${baseUrl}/auth/login`, data);
   return response;
 };
 export const registerUser = async (data) => {
-  const response = await axios.post(`${baseUrl}/register`, data);
+  const response = await axios.post(`${baseUrl}/auth/register`, data);
   return response;
 };
 export const logoutUser = async () => {

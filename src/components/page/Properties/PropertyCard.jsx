@@ -5,7 +5,7 @@ import styled from "./index.module.css";
 import Link from "next/link";
 
 const PropertyCard = ({ property }) => {
-  const { image, category, location, name, price, type } = property;
+  const { image, category, locationInfo, name, price, type } = property;
   const [isLiked, setIsLiked] = useState(false);
   const handleLikeClick = (e) => {
     setIsLiked(!isLiked);
@@ -39,7 +39,7 @@ const PropertyCard = ({ property }) => {
             )}
           </div>
           <h4 className="text-sm">{name}</h4>
-          <p className="text-xs text-gray-400">{location}</p>
+          <p className="text-xs text-gray-400">{locationInfo.district}</p>
         </div>
         <div
           className={`${styled.button} ${styled.flex} button flex items-center justify-between`}>

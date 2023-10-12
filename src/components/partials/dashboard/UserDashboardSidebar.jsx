@@ -14,7 +14,7 @@ import { useContext } from "react";
 import { profileContext } from "@/pages/_app";
 
 const UserDashboardSidebar = (
-  props = { activeTab: "profile", user: { name: "rishi" } }
+  props = { activeTab: "profile", user: { name: "user" } }
 ) => {
   const profileData = useContext(profileContext);
   console.log(profileData);
