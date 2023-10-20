@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const heroTabItems = [
-  { id: 1, title: "Buy", value: "buy" },
-  { id: 2, title: "Rent", value: "rent" },
-  { id: 3, title: "Sold", value: "sold" },
+  // { id: 1, title: "Buy", value: "buy" },
+  { id: 1, title: "Rent", value: "rent" },
+  { id: 2, title: "Sold", value: "sell" },
 ];
 const TabBtns = () => {
   const [activeButton, setActiveButton] = useState(1);
@@ -21,11 +21,12 @@ const TabBtns = () => {
           <li
             key={id}
             onClick={handleClick(id)}
-            className={`cursor-pointer text-white  w-1/3 ${
+            className={`cursor-pointer text-white  w-1/2 ${
               activeButton == id && "bg-white text-green-700"
             } ${
               activeButton !== id && "hover:bg-gray-200  hover:text-green-700"
-            } font-semibold text-lg px-[1rem] py-[0.5rem] rounded-lg md:py-[1rem] text-[1.25rem] `}>
+            } font-semibold text-lg px-[1rem] py-[0.5rem] rounded-lg md:py-[1rem] text-[1.25rem] `}
+          >
             {title}
           </li>
         );

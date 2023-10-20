@@ -5,12 +5,18 @@ import Heading from "@/components/utils/Heading";
 import CardContainer from "@/components/utils/CardContainer";
 import Section from "@/components/utils/Section";
 import Container from "@/components/utils/Container";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getBlog } from "@/store/features/blogSlice";
 
-export default function Blogs(props) {
-  const { blogdata, siteconfig, preview } = props;
+export default function Blogs() {
+  const dispatch = useDispatch();
 
-  const router = useRouter();
-  //console.log(router.query.category);
+  useEffect(() => {
+    dispatch(getBlog({ populate: "author" }));
+  }, [dispatch]);
+
+
   return (
     <Section className="  my-[2rem] py-[2rem] bg-gray-200">
       <Container>

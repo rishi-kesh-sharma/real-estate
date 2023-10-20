@@ -5,7 +5,7 @@ import { featured } from "../../../../data/Data";
 import CustomSlider from "../../../utils/CustomSlider";
 import Container from "@/components/utils/Container";
 
-const Slider = () => {
+const Slider = ({ categories }) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -74,7 +74,7 @@ const Slider = () => {
   return (
     <div className="my-[1rem] py-[1rem]">
       <CustomSlider settings={settings}>
-        {featured.map((feature, index) => (
+        {categories?.map((feature, index) => (
           <CategoryTypeCard feature={feature} key={index} />
         ))}
       </CustomSlider>
