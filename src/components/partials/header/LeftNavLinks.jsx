@@ -13,7 +13,7 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
               onClick={handleNavLinksClick}>
               <Link
                 href="#"
-                className="h-full  flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                className="h-full  flex items-center p-2 text-base font-normal rounded-lg ">
                 <span className="flex-1 ml-3 whitespace-nowrap">
                   {item.name}
                 </span>
@@ -22,7 +22,7 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
           ) : (
             <li
               key={item?.name}
-              className="relative px-[0.3rem] py-[0.3rem]  hover:bg-gray-100 rounded-lg"
+              className="relative px-[0.3rem] py-[0.3rem]   rounded-lg"
               onClick={handleNavLinksClick}>
               <button
                 onClick={(e) => {
@@ -37,7 +37,7 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
                     });
                 }}
                 type="button"
-                className="flex items-center w-full p-P2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                className="flex items-center w-full p-P2 text-base font-normal transition duration-75 rounded-lg group "
                 aria-controls="dropdown-example"
                 data-collapse-toggle="dropdown-example">
                 <span className="flex-1 ml-3 text-left whitespace-nowrap">
@@ -65,7 +65,7 @@ const LeftNavLinks = ({ links, handleNavLinksClick }) => {
                       className="border">
                       <Link
                         href={dropItem.path}
-                        className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                        className="flex items-center w-full p-2 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-[1rem] group ">
                         {dropItem.name}
                       </Link>
                     </li>

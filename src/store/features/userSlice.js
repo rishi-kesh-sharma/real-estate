@@ -14,6 +14,7 @@ export const login = createAsyncThunk("login", async () => {
 });
 
 // Actual Slice
+
 export const userSlice = createSlice({
   name: "user",
   initialState,

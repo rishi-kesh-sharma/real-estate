@@ -7,9 +7,10 @@ import Card from "@/components/utils/Card";
 import CardImage from "@/components/utils/CardImage";
 import CardContent from "@/components/utils/CardContent";
 import Link from "next/link";
+import { city1 } from "public/assets/images/cities";
 
 const RecentCard = ({ recent }) => {
-  const { image, category, location, name, price, type } = recent;
+  const { image, purpose, location, name, price, type } = recent;
   const [isLiked, setIsLiked] = useState(false);
   const handleLikeClick = (e) => {
     setIsLiked(!isLiked);
@@ -18,7 +19,11 @@ const RecentCard = ({ recent }) => {
     <Card className="bg-white shadow-sm  items-start w-[100%] ">
       <Link href={`property/${recent.id}`} className="w-[100%]">
         <CardImage className="rounded-md">
-          <Image src={image} className="rounded-lg object-cover" />
+          <Image
+            alt=""
+            src={city1 || image}
+            className="rounded-lg object-cover"
+          />
         </CardImage>
       </Link>
 
@@ -27,10 +32,11 @@ const RecentCard = ({ recent }) => {
           <span
             className="text-sm p-1"
             style={{
-              background: category === "For Sale" ? "#25b5791a" : "#ff98001a",
-              color: category === "For Sale" ? "#25b579" : "#ff9800",
-            }}>
-            {category}
+              background: purpose === "For Sale" ? "#25b5791a" : "#ff98001a",
+              color: purpose === "For Sale" ? "#25b579" : "#ff9800",
+            }}
+          >
+            {purpose}
           </span>
           {isLiked ? (
             <FcLike onClick={handleLikeClick} />

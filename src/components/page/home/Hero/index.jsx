@@ -26,17 +26,17 @@ const Hero = () => {
     handleResize();
   }, []);
   return (
-    <Section className={`${styled.hero} h-[550px]  bg-gray-200`}>
-      <Container className="flex  h-screen flex-col ">
-        {/* <div className=" md:w-[80%] lg:w-[70%] flex flex-col justify-center  mt-[1rem] "> */}
-        {/* <HeroText /> */}
-        <div className="flex flex-col gap-[0.6rem] md:mt-[2rem] ">
-          {/* <TabBtns />
-            <SearchBox /> */}
-          <NepalMap />
-        </div>
-        {/* </div> */}
-      </Container>
+    <Section className={`${styled.hero} h-[90vh]  bg-gray-200`}>
+      <div className="flex h-full flex-col justify-center  mt-[1rem] bg-[url('/assets/images/banner.png')] bg-center">
+        <Container className="flex flex-col">
+          <HeroText />
+          <div className="flex flex-col gap-[0.6rem] md:mt-[2rem]">
+            <TabBtns />
+            <SearchBox />
+            {/* <NepalMap /> */}
+          </div>
+        </Container>
+      </div>
     </Section>
   );
 };

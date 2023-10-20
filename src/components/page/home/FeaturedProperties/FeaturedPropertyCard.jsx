@@ -6,18 +6,20 @@ import Card from "@/components/utils/Card";
 import CardImage from "@/components/utils/CardImage";
 import CardContent from "@/components/utils/CardContent";
 import Link from "next/link";
+import { city1 } from "public/assets/images/cities";
 
 const FeaturedPropertyCard = ({ featured }) => {
-  const { image, category, location, name, price, type } = featured;
+  const { image, purpose, location, name, price, type } = featured;
   const [isLiked, setIsLiked] = useState(false);
   const handleLikeClick = (e) => {
     setIsLiked(!isLiked);
   };
+
   return (
     <Card className="w-[100%] rounded-lg shadow-lg bg-white items-start p-[0.4rem]">
       <Link href={`property/${featured.id}`} className="w-[100%]">
         <CardImage className="rounded-lg sm:h-[200px] xs:h-[180px] lg:h-[200px] w-[100%]">
-          <Image src={image} className="rounded-lg" />
+          <Image src={city1 || image} className="rounded-lg" alt="" />
         </CardImage>
       </Link>
 
@@ -26,10 +28,11 @@ const FeaturedPropertyCard = ({ featured }) => {
           <span
             className="mt-0 text-sm"
             style={{
-              background: category === "For Sale" ? "#25b5791a" : "#ff98001a",
-              color: category === "For Sale" ? "#25b579" : "#ff9800",
-            }}>
-            {category}
+              background: purpose === "For Sale" ? "#25b5791a" : "#ff98001a",
+              color: purpose === "For Sale" ? "#25b579" : "#ff9800",
+            }}
+          >
+            {purpose}
           </span>
           {isLiked ? (
             <FcLike onClick={handleLikeClick} />
@@ -48,7 +51,9 @@ const FeaturedPropertyCard = ({ featured }) => {
               /sqft
             </p>
           </div>
-          <span className="text-sm text-gray-400">{type}</span>
+          <span className="text-sm text-gray-400">
+            {type?.slice(0, 1)?.toUpperCase() + type?.slice(1, type?.length)}
+          </span>
         </div>
       </CardContent>
     </Card>
