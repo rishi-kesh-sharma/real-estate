@@ -15,7 +15,7 @@ const Recent = () => {
   const today = moment();
 
   // Calculate the date 5 days ago
-  const fiveDaysAgo = today.clone().subtract(3, "days");
+  const fiveDaysAgo = today.clone().subtract(5, "days");
 
   // Format the dates in the required format (YYYY-MM-DD)
   const todayFormatted = today.format("YYYY-MM-DD");
@@ -55,7 +55,8 @@ const Recent = () => {
   }));
 
   return (
-    <Section className={`${styled.recent} bg-gray-100 my-[2rem] py-[2rem]`}>
+    <>
+    {list?.length>0 && <Section className={`${styled.recent} bg-gray-100 my-[2rem] py-[2rem]`}>
       <Container>
         <Heading
           title="Recently Listed Properties"
@@ -67,7 +68,8 @@ const Recent = () => {
           })}
         </div>
       </Container>
-    </Section>
+    </Section>}
+    </>
   );
 };
 

@@ -30,7 +30,7 @@ export const getBlogDetail = createAsyncThunk(
   async (id, thunkApi) => {
     try {
       const res = await getBlogDetailFun(id);
-      return { count: res.data.data, name: cat_name, icon };
+      return res.data
     } catch (err) {
       let error = err;
       if (!error.response) {
@@ -45,7 +45,15 @@ export const getBlogDetail = createAsyncThunk(
 export const blogSlice = createSlice({
   name: "blog",
   initialState,
-  reducers: {},
+  reducers: {
+    getFetchedBlogDetail: (state, action) => {
+      const blogDetail = state.blogs?.filter(
+        (item) => item?._id === action.payload
+      );
+      state.detail = blogDetail[0];
+    },
+  },
+
   extraReducers: (builder) => {
     builder.addCase(getBlog.pending, (state, action) => {
       state.loading = true;
@@ -86,3 +94,5 @@ export const blogSlice = createSlice({
 });
 
 export default blogSlice.reducer;
+
+export const { getFetchedBlogDetail } = blogSlice.actions;

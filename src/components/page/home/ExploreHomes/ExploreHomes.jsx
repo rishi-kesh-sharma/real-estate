@@ -23,7 +23,6 @@ const ExploreHomes = () => {
 
   const homes = useSelector((state) => state.property.homes);
 
-  console.log(homes, "homes");
 
   return (
     <Section>

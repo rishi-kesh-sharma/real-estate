@@ -8,6 +8,7 @@ import CardImage from "@/components/utils/CardImage";
 import CardContent from "@/components/utils/CardContent";
 import Link from "next/link";
 import { city1 } from "public/assets/images/cities";
+import { baseUrl } from "@/apiCalls/constants";
 
 const RecentCard = ({ recent }) => {
   const { image, purpose, location, name, price, type } = recent;
@@ -18,11 +19,11 @@ const RecentCard = ({ recent }) => {
   return (
     <Card className="bg-white shadow-sm  items-start w-[100%] ">
       <Link href={`property/${recent.id}`} className="w-[100%]">
-        <CardImage className="rounded-md">
-          <Image
+        <CardImage className="rounded-lg sm:h-[200px] xs:h-[180px] lg:h-[200px] w-[100%]">
+          <img
+            src={image ? `${baseUrl}/${image}` : city1}
+            className="rounded-lg"
             alt=""
-            src={city1 || image}
-            className="rounded-lg object-cover"
           />
         </CardImage>
       </Link>

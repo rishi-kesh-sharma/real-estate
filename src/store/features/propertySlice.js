@@ -70,7 +70,7 @@ export const getPropertyDetail = createAsyncThunk(
   async (id, thunkApi) => {
     try {
       const res = await getPropertyDetailFun(id);
-      return res.data.data;
+      return res.data;
     } catch (err) {
       let error = err;
       if (!error.response) {

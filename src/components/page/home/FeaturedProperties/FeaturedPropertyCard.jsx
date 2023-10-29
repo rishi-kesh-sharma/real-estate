@@ -7,6 +7,7 @@ import CardImage from "@/components/utils/CardImage";
 import CardContent from "@/components/utils/CardContent";
 import Link from "next/link";
 import { city1 } from "public/assets/images/cities";
+import { baseUrl } from "@/apiCalls/constants";
 
 const FeaturedPropertyCard = ({ featured }) => {
   const { image, purpose, location, name, price, type } = featured;
@@ -19,7 +20,11 @@ const FeaturedPropertyCard = ({ featured }) => {
     <Card className="w-[100%] rounded-lg shadow-lg bg-white items-start p-[0.4rem]">
       <Link href={`property/${featured.id}`} className="w-[100%]">
         <CardImage className="rounded-lg sm:h-[200px] xs:h-[180px] lg:h-[200px] w-[100%]">
-          <Image src={city1 || image} className="rounded-lg" alt="" />
+          <img
+            src={image ? `${baseUrl}/${image}` : city1}
+            className="rounded-lg"
+            alt=""
+          />
         </CardImage>
       </Link>
 

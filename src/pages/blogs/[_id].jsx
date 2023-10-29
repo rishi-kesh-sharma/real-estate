@@ -7,15 +7,35 @@ import BlogDetailComponent from "@/components/page/Blogs/BlogDetail";
 import BreadCrumbContainer from "@/components/utils/BreadCrumbContainer";
 import { useRouter } from "next/router";
 import { blogs } from "@/data/Data";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import {
+  getBlogDetail,
+  getFetchedBlogDetail,
+} from "@/store/features/blogSlice";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function BlogDetail() {
   const router = useRouter();
   const { _id } = router.query;
-  console.log(_id);
-  const blog = blogs.find((item) => _id == item.slug.current);
-  console.log(blog);
+  const dispatch = useDispatch();
+  const blogs = useSelector((state) => state.blog.blogs);
+
+  useEffect(() => {
+    if (_id) {
+      const index = blogs?.findIndex((item) => item?._id === _id);
+      if (index === -1) {
+        dispatch(getBlogDetail(_id));
+      } else {
+        dispatch(getFetchedBlogDetail(_id));
+      }
+    }
+  }, [_id, blogs, dispatch]);
+
+  const blogDetail = useSelector((state) => state.blog.detail);
+
+
   return (
     <>
       <Head>
@@ -29,7 +49,7 @@ export default function BlogDetail() {
         <NormalLayout>
           <BreadCrumbContainer />
           {/* <Header /> */}
-          <BlogDetailComponent blog={blog} />
+          <BlogDetailComponent blog={blogDetail} />
           {/* <Footer /> */}
         </NormalLayout>
       </main>

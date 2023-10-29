@@ -8,11 +8,27 @@ import NormalLayout from "@/components/layouts/NormalLayout";
 import { ChakraProvider } from "@chakra-ui/react";
 import { list } from "@/data/Data";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { getPropertyDetail } from "@/store/features/propertySlice";
+import { useEffect } from "react";
 
 const PropertyDetails = (property) => {
   const router = useRouter();
   const { id } = router.query;
-  property = list.find((item) => id == item.id);
+  const dispatch = useDispatch();
+ 
+
+  useEffect(() => {
+    if (id) {
+      dispatch(getPropertyDetail(id));
+    }
+  }, [id, dispatch]);
+
+  const detail = useSelector((state) => state.property.detail);
+
+  console.log(detail, "detailllll" ,id)
+
+
   return (
     <>
       <Head>
@@ -24,7 +40,7 @@ const PropertyDetails = (property) => {
       <ChakraProvider>
         <main className={styles.main}>
           <NormalLayout>
-            {property && <PropertyDetailsComponent property={property} />}
+            {detail && <PropertyDetailsComponent property={detail} />}
           </NormalLayout>
         </main>
       </ChakraProvider>

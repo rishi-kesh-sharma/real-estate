@@ -6,24 +6,17 @@ import { GoVerified } from "react-icons/go";
 import millify from "millify";
 
 import ImageScrollbar from "../../utils/ImageScrollBar.jsx";
-const PropertyDetails = ({
-  property: {
-    price,
-    rentFrequency,
-    rooms,
-    name,
-    baths,
-    area,
-    agency,
-    isVerified,
-    description,
-    type,
-    purpose,
-    furnishingStatus,
-    amenities,
-    photos,
-  },
-}) => (
+import { baseUrl } from "@/apiCalls/constants.js";
+const PropertyDetails = ({property}) => {
+
+  console.log(property, "property")
+
+ 
+  const photos = property?.images?.map(url => baseUrl+'/' + url);
+
+  console.log(photos)
+  
+  return (
   <Box
     maxWidth="1000px"
     margin="auto"
@@ -34,13 +27,13 @@ const PropertyDetails = ({
     <Box w="full" p="6">
       <Flex paddingTop="2" alignItems="center">
         <Box paddingRight="3" color="green.400">
-          {isVerified && <GoVerified />}
+          {/* {isVerified && <GoVerified />} */}
         </Box>
         <Text fontWeight="bold" fontSize="lg">
-          USD{price} {rentFrequency && `/${rentFrequency}`}
+          USD {property?.price} {property?.rentFrequency && `/${property?.rentFrequency}`}
         </Text>
         <Spacer />
-        <Avatar size="sm" src={agency?.logo?.url}></Avatar>
+        {/* <Avatar size="sm" src={agency?.logo?.url}></Avatar> */}
       </Flex>
       <Flex
         alignItems="center"
@@ -48,64 +41,70 @@ const PropertyDetails = ({
         justifyContent="space-between"
         w="250px"
         color="blue.400">
-        {rooms}
-        <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
+        {property?.room}
+        <FaBed /> | {property?.bathroom} <FaBath /> | {millify(property?.area)} sqft <BsGridFill />
       </Flex>
     </Box>
     <Box marginTop="2">
       <Text fontSize="lg" marginBottom="2" fontWeight="bold">
-        {name}
+        {property?.name}
       </Text>
       <Text lineHeight="2" color="gray.600">
-        {description}
+        {property?.description}
       </Text>
     </Box>
     <Flex
       flexWrap="wrap"
       textTransform="uppercase"
-      justifyContent="space-between">
+      // justifyContent="space-between"
+      >
       <Flex
         justifyContent="space-between"
-        w="400px"
+        // w="400px"
         borderBottom="1px"
         borderColor="gray.100"
-        p="3">
-        <Text>Type</Text>
-        <Text fontWeight="bold">{type}</Text>
+        gap={3}
+        p="3"
+        pl={0}
+        >
+        <Text>Type:</Text>
+        <Text fontWeight="bold">{property?.category?.name || "Home"}</Text>
       </Flex>
       <Flex
         justifyContent="space-between"
-        w="400px"
+        // w="400px"
         borderBottom="1px"
         borderColor="gray.100"
-        p="3">
-        <Text>Purpose</Text>
-        <Text fontWeight="bold">{purpose}</Text>
+        p="3"
+        gap={3}>
+        <Text>Purpose:</Text>
+        <Text fontWeight="bold">{property?.purpose?.slice(0,1)?.toUpperCase() + property?.purpose?.slice(1, property?.purpose?.length)}</Text>
       </Flex>
-      {furnishingStatus && (
+      {property?.furnishingStatus && (
         <Flex
           justifyContent="space-between"
-          w="400px"
+          // w="400px"
           borderBottom="1px"
           borderColor="gray.100"
-          p="3">
+          p="3" 
+          gap={3}>
           <Text className="text-sm" fontSize={"medium"}>
-            Furnishing Status
+            Furnishing Status:
           </Text>
           <Text className="text-sm" fontWeight="semibold">
-            {furnishingStatus}
+            {property?.furnishingStatus}
           </Text>
         </Flex>
       )}
     </Flex>
     <Box>
-      {amenities?.length && (
+      {property?.amenities?.length && (
         <Text fontSize="xl" fontWeight={"semibold"} marginTop="5">
           Facilites:
         </Text>
       )}
       <Flex flexWrap="wrap">
-        {amenities?.map((item) =>
+        {property?.amenities?.map((item) =>
           item?.amenities?.map((amenity) => (
             <Text
               key={amenity?.text}
@@ -115,13 +114,13 @@ const PropertyDetails = ({
               bg="gray.200"
               m="1"
               borderRadius="5">
-              {amenity?.text}
+              {amenity}
             </Text>
           ))
         )}
       </Flex>
     </Box>
   </Box>
-);
+)};
 
 export default PropertyDetails;

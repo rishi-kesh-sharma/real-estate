@@ -5,6 +5,7 @@ import Card from "./../../../utils/Card";
 import { AiOutlineRight } from "react-icons/ai";
 import Link from "next/link";
 import { city1 } from "public/assets/images/cities";
+import { baseUrl } from "@/apiCalls/constants";
 
 const ExploreHomesCard = ({ property, id }) => {
   return (
@@ -12,9 +13,9 @@ const ExploreHomesCard = ({ property, id }) => {
       <Card className={`relative p-0 py-0  rounded-lg w-[100%] gap-0`}>
         <div className="absolute z-[20] bg-gray-600 opacity-50 left-0 top-0 bottom-0 right-0 rounded-lg"></div>
 
-        <Image
+        <img
           alt=""
-          src={city1 || property?.image}
+          src={property?.image ? `${baseUrl}/${property?.image}` : city1}
           className="h-[340px] object-cover rounded-lg"
         />
         <div>

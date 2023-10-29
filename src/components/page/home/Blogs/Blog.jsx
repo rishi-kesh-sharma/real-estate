@@ -10,12 +10,13 @@ export default function Blog({ blog, aspect, preloadImage }) {
   const imageProps = blog?.mainImage ? blog.mainImage : null;
   const AuthorimageProps = blog?.author?.image ? blog.author.image : null;
   return (
-    <Link href={`/blog/${blog.slug.current}`}>
+    <Link href={`/blogs/${blog?.id}`}>
       <Card className="cursor-pointer bg-white shadow-lg rounded-lg gap-1 w-[100%]">
         <CardImage className=" rounded-lg ">
-          <Link href={`/blog/${blog.slug.current}`}>
+          <Link href={`/blogs/${blog?.id}`}>
             {imageProps ? (
-              <Image
+              <img
+                alt=""
                 src={imageProps}
                 className="transition-all rounded-lg w-[100%]"
               />
@@ -30,11 +31,12 @@ export default function Blog({ blog, aspect, preloadImage }) {
           <div className="flex gap-3">
             {blog.categories?.length &&
               blog.categories.slice(0).map((category, index) => (
-                <Link href={`blog/${blog.slug.current}`} key={index}>
+                <Link href={`blogs/${blog?.id}`} key={index}>
                   <span
                     className={`inline-block mt-5 text-xs font-medium  uppercase py-1 px-2 text-gray-100 rounded-md bg-${
                       category.color ? `[${category.color}]` : "green-500"
-                    } bg-green-500`}>
+                    } bg-green-500`}
+                  >
                     {category.title}
                   </span>
                 </Link>
@@ -47,7 +49,7 @@ export default function Blog({ blog, aspect, preloadImage }) {
           <div className="hidden">
             {blog.excerpt && (
               <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
-                <Link href={`/blog/${blog.slug.current}`}>{blog.excerpt}</Link>
+                <Link href={`/blogs/${blog?.id}`}>{blog.excerpt}</Link>
               </p>
             )}
           </div>
@@ -76,7 +78,8 @@ export default function Blog({ blog, aspect, preloadImage }) {
             </span>
             <time
               className="text-xs"
-              dateTime={blog?.publishedAt || blog.createdAt}>
+              dateTime={blog?.publishedAt || blog.createdAt}
+            >
               {blog.publishedAt || blog.createdAt}
             </time>
           </div>
